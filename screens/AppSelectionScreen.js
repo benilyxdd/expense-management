@@ -2,13 +2,12 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 import CustomContainer from "../components/CustomContainer";
+import HeaderText from "../components/HeaderText";
 
 const AppSelectionScreen = (props) => {
 	return (
 		<View style={styles.main}>
-			<View style = {styles.textContainer}>
-				<Text>Select App</Text>
-			</View>
+			<HeaderText title="Select Your App"/>
 			<CustomContainer style={{ ...styles.main, ...styles.container }}>
 				<Text>hi</Text>
 			</CustomContainer>
@@ -29,7 +28,7 @@ const styles = StyleSheet.create({
 	},
 	textContainer: {
 		flex: 1
-	}
+	},
 });
 
 export default AppSelectionScreen;
