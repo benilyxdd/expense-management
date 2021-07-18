@@ -1,42 +1,35 @@
 import React from "react";
 import { StyleSheet, SafeAreaView } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import NagivationBarButton from "./NavigationBarButton";
+const Tab = createBottomTabNavigator();
 
 const NagivationBar = (props) => {
 	return (
-		<SafeAreaView style={styles.navigationBar}>
-			<NagivationBarButton
-				title="hi"
-				icon="camera"
-				onPress={() => console.log("pressed")}
-			/>
-			<NagivationBarButton
-				title="hi"
-				icon="camera"
-				onPress={() => console.log("pressed")}
-			/>
-			<NagivationBarButton
-				title="hi"
-				icon="camera"
-				onPress={() => console.log("pressed")}
-			/>
-			<NagivationBarButton
-				title="hi"
-				icon="camera"
-				onPress={() => console.log("pressed")}
-			/>
-		</SafeAreaView>
+		<NavigationContainer>
+			<Tab.Navigator tabBarOptions={{ tabStyle: styles.navigationBar }}>
+				{props.allScreens.map((screen, index) => {
+					return (
+						<Tab.Screen
+							name={screen.name}
+							component={screen.component}
+							key={index}
+						/>
+					);
+				})}
+			</Tab.Navigator>
+		</NavigationContainer>
 	);
 };
 
 const styles = StyleSheet.create({
 	navigationBar: {
-		height: "10%",
+		height: "100%",
 		width: "100%",
 		alignItems: "center",
 		justifyContent: "center",
-		flexDirection: "row",
+		backgroundColor: "white",
 	},
 });
 
