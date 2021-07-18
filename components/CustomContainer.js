@@ -3,7 +3,9 @@ import { View, StyleSheet } from "react-native";
 
 const CustomContainer = (props) => {
 	return (
-		<View style={{ ...styles.container, ...props.style }}>{props.children}</View>
+		<View style={{ ...styles.container, ...props.style }}>
+			{props.children}
+		</View>
 	);
 };
 

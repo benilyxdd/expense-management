@@ -7,7 +7,7 @@ import HeaderText from "../components/HeaderText";
 const AppSelectionScreen = (props) => {
 	return (
 		<View style={styles.main}>
-			<HeaderText title="Select Your App"/>
+			<HeaderText title="Select Your App" />
 			<CustomContainer style={{ ...styles.main, ...styles.container }}>
 				<Text>hi</Text>
 			</CustomContainer>
@@ -17,17 +17,17 @@ const AppSelectionScreen = (props) => {
 
 const styles = StyleSheet.create({
 	main: {
-		alignItems: 'center',
-		justifyContent: 'center',
-		width: '90%',
-		height: '90%',
-		backgroundColor: 'white'
+		alignItems: "center",
+		justifyContent: "center",
+		backgroundColor: "white",
+		width: "90%",
+		height: "95%",
 	},
 	container: {
-		flex: 10
+		flex: 10,
 	},
 	textContainer: {
-		flex: 1
+		flex: 1,
 	},
 });
 
