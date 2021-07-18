@@ -1,9 +1,11 @@
 import React from "react";
-import { StyleSheet, SafeAreaView } from "react-native";
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 const Tab = createBottomTabNavigator();
+const xd = <MaterialCommunityIcons name="" />;
 
 const NagivationBar = (props) => {
 	return (
@@ -15,6 +17,18 @@ const NagivationBar = (props) => {
 							name={screen.name}
 							component={screen.component}
 							key={index}
+							options={{
+								tabBarLabel: screen.icon.name,
+								tabBarIcon: ({ color, size }) => {
+									return (
+										<MaterialCommunityIcons
+											name={screen.icon.name}
+											size={size}
+											color={color}
+										/>
+									);
+								},
+							}}
 						/>
 					);
 				})}
@@ -29,7 +43,6 @@ const styles = StyleSheet.create({
 		width: "100%",
 		alignItems: "center",
 		justifyContent: "center",
-		backgroundColor: "white",
 	},
 });
 

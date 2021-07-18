@@ -5,10 +5,16 @@ const allScreen = [
 	{
 		name: "try",
 		component: Try1,
+		icon: {
+			name: "rocket",
+		},
 	},
 	{
 		name: "try2",
 		component: Try2,
+		icon: {
+			name: "home",
+		},
 	},
 ];
 
