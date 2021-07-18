@@ -13,7 +13,10 @@ const HeaderText = (props) => {
 
 const styles = StyleSheet.create({
 	headerContainer: {
-		flex: 1,
+		height: "10%",
+		width: "100%",
+		alignItems: "center",
+		justifyContent: "center",
 	},
 	headerTitle: {
 		// fontFamily: "Caveat-Regular",
