@@ -1,13 +1,11 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, SafeAreaView } from "react-native";
 
 const HeaderText = (props) => {
 	return (
-		<View style={{ ...styles.headerContainer, ...props.containerStyle }}>
-			<Text style={{ ...styles.headerTitle, ...props.textStyle }}>
-				{props.title}
-			</Text>
-		</View>
+		<SafeAreaView style={styles.headerContainer}>
+			<Text style={styles.headerTitle}>{props.title}</Text>
+		</SafeAreaView>
 	);
 };
 

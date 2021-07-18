@@ -1,17 +1,25 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import { HeaderTitle } from "react-navigation-stack";
+import HeaderText from "../components/HeaderText";
+import NagivationBar from "../components/NavigationBar";
 
 const MainScreen = (props) => {
 	return (
 		<View>
-			<HeaderTitle title="Title here" />
-			<Text>This is Main Screen</Text>
+			<HeaderText title="Transaction" />
+			<View style={styles.screen}></View>
+			<NagivationBar />
 		</View>
 	);
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+	screen: {
+		width: "100%",
+		height: "80%",
+		backgroundColor: "white",
+	},
+});
 
 export default MainScreen;

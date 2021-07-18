@@ -5,9 +5,7 @@ import MainScreen from "./screens/MainScreen";
 
 export default function App() {
 	return (
-		<SafeAreaView style={styles.container}>
-			<MainScreen />
-		</SafeAreaView>
+		<MainScreen />
 	);
 }
 
