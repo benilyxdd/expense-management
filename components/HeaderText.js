@@ -12,7 +12,9 @@ const HeaderText = (props) => {
 };
 
 const styles = StyleSheet.create({
-	headerContainer: {},
+	headerContainer: {
+		flex: 1,
+	},
 	headerTitle: {
 		// fontFamily: "Caveat-Regular",
 		fontSize: 25,

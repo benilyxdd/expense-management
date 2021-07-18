@@ -3,13 +3,28 @@ import { StyleSheet, Text, View } from "react-native";
 
 import CustomContainer from "../components/CustomContainer";
 import HeaderText from "../components/HeaderText";
+import AppButton from "../components/AppButton";
 
 const AppSelectionScreen = (props) => {
 	return (
 		<View style={styles.main}>
 			<HeaderText title="Select Your App" />
-			<CustomContainer style={{ ...styles.main, ...styles.container }}>
-				<Text>hi</Text>
+			<CustomContainer style={styles.appContainer}>
+				<AppButton>hello</AppButton>
+				<AppButton>hello</AppButton>
+				<AppButton>hello</AppButton>
+				<AppButton>hello</AppButton>
+				<AppButton>hello</AppButton>
+				<AppButton>hello</AppButton>
+				<AppButton>hello</AppButton>
+				<AppButton>hello</AppButton>
+				<AppButton>hello</AppButton>
+				<AppButton>hello</AppButton>
+				<AppButton>hello</AppButton>
+				<AppButton>hello</AppButton>
+				<AppButton>hello</AppButton>
+				<AppButton>hello</AppButton>
+				<AppButton>hello</AppButton>
 			</CustomContainer>
 		</View>
 	);
@@ -19,15 +34,16 @@ const styles = StyleSheet.create({
 	main: {
 		alignItems: "center",
 		justifyContent: "center",
-		backgroundColor: "white",
-		width: "90%",
-		height: "95%",
+		width: '85%',
+		height: '90%'
 	},
-	container: {
+	appContainer: {
 		flex: 10,
+		flexDirection: 'row',
+		flexWrap: 'wrap',
 	},
 	textContainer: {
-		flex: 1,
+		flex: 1
 	},
 });
 
