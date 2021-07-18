@@ -10,21 +10,7 @@ const AppSelectionScreen = (props) => {
 		<View style={styles.main}>
 			<HeaderText title="Select Your App" />
 			<CustomContainer style={styles.appContainer}>
-				<AppButton>hello</AppButton>
-				<AppButton>hello</AppButton>
-				<AppButton>hello</AppButton>
-				<AppButton>hello</AppButton>
-				<AppButton>hello</AppButton>
-				<AppButton>hello</AppButton>
-				<AppButton>hello</AppButton>
-				<AppButton>hello</AppButton>
-				<AppButton>hello</AppButton>
-				<AppButton>hello</AppButton>
-				<AppButton>hello</AppButton>
-				<AppButton>hello</AppButton>
-				<AppButton>hello</AppButton>
-				<AppButton>hello</AppButton>
-				<AppButton>hello</AppButton>
+				<AppButton address='https://github.com/benilyxdd/myApp/blob/e0153dd503f2b9280d9e7cebc1ab3b0e53d81b7a/assets/images/adaptive-icon.png?raw=true' />
 			</CustomContainer>
 		</View>
 	);
@@ -35,12 +21,14 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		justifyContent: "center",
 		width: '85%',
-		height: '90%'
+		height: '90%',
+		backgroundColor: 'white'
 	},
 	appContainer: {
 		flex: 10,
-		flexDirection: 'row',
 		flexWrap: 'wrap',
+		flexDirection: 'row',
+		marginHorizontal: 15,
 	},
 	textContainer: {
 		flex: 1

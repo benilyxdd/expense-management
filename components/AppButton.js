@@ -1,24 +1,34 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
+import { View, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 const AppButton = (props) => {
 	return (
 		<View style={styles.buttonContainer}>
 			<TouchableOpacity onPress={props.onPress} style={styles.button}>
-				<Text>{props.children}</Text>
+				<Image source={{ uri: props.address }} style={styles.image} />
 			</TouchableOpacity>
 		</View>
 	);
 };
 
 const styles = StyleSheet.create({
-    button: {
-		
-    },
-    buttonContainer: {
-		margin: 25,
-		backgroundColor: 'blue'
-    }
+	button: {
+		width: "100%",
+		height: "100%",
+	},
+	buttonContainer: {
+		backgroundColor: "white",
+		width: 50,
+		height: 50,
+		marginBottom: "4%",
+		margin: "4%",
+	},
+	image: {
+		resizeMode: "contain",
+		flex: 1,
+		width: "100%",
+		height: "100%",
+	},
 });
 
 export default AppButton;
