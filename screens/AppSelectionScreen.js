@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 
 import CustomContainer from "../components/CustomContainer";
 import HeaderText from "../components/HeaderText";
@@ -8,9 +8,17 @@ import AppButton from "../components/AppButton";
 const AppSelectionScreen = (props) => {
 	return (
 		<View style={styles.main}>
-			<HeaderText title="Select Your App" />
+			<HeaderText
+				title="Select Your App"
+				containerStyle={styles.textContainer}
+			/>
 			<CustomContainer style={styles.appContainer}>
-				<AppButton address='https://github.com/benilyxdd/myApp/blob/e0153dd503f2b9280d9e7cebc1ab3b0e53d81b7a/assets/images/adaptive-icon.png?raw=true' />
+				<AppButton title="test">
+					<Image
+						source={require("../assets/images/money.png")}
+						style={styles.image}
+					/>
+				</AppButton>
 			</CustomContainer>
 		</View>
 	);
@@ -20,18 +28,26 @@ const styles = StyleSheet.create({
 	main: {
 		alignItems: "center",
 		justifyContent: "center",
-		width: '85%',
-		height: '90%',
-		backgroundColor: 'white'
+		width: "85%",
+		height: "90%",
 	},
 	appContainer: {
 		flex: 10,
-		flexWrap: 'wrap',
-		flexDirection: 'row',
+		flexDirection: "row",
+		flexWrap: "wrap",
 		marginHorizontal: 15,
 	},
 	textContainer: {
-		flex: 1
+		width: "100%",
+		height: "100%",
+		alignItems: "center",
+		justifyContent: "center",
+	},
+	image: {
+		resizeMode: "contain",
+		flex: 1,
+		width: "100%",
+		height: "100%",
 	},
 });
 
