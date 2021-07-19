@@ -15,13 +15,13 @@ const styles = StyleSheet.create({
 		width: "100%",
 		alignItems: "center",
 		justifyContent: "center",
-		borderBottomColor: 'black',
+		borderBottomColor: "black",
 		borderBottomWidth: 2,
 	},
 	headerTitle: {
 		// fontFamily: "Caveat-Regular",
 		fontSize: 25,
-		paddingBottom: '1%'
+		paddingBottom: "1%",
 	},
 });
 

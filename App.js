@@ -4,14 +4,12 @@ import { StyleSheet, SafeAreaView } from "react-native";
 import MainScreen from "./screens/MainScreen";
 
 export default function App() {
-	return (
-		<MainScreen />
-	);
+	return <MainScreen />;
 }
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: 'grey'
+		backgroundColor: "grey",
 	},
 });
