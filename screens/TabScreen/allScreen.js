@@ -1,19 +1,27 @@
-import Try1 from "./try1";
+import HomeScreen from "./HomeScreen";
 import Try2 from "./try2";
+import SettingScreen from "./SettingScreen";
 
 const allScreen = [
 	{
-		name: "try",
-		component: Try1,
+		name: "Home",
+		component: HomeScreen,
 		icon: {
-			name: "rocket",
+			name: "home",
 		},
 	},
 	{
 		name: "try2",
 		component: Try2,
 		icon: {
-			name: "home",
+			name: "rocket",
+		},
+	},
+	{
+		name: "Settings",
+		component: SettingScreen,
+		icon: {
+			name: "cog",
 		},
 	},
 ];

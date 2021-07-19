@@ -18,7 +18,7 @@ const NagivationBar = (props) => {
 							component={screen.component}
 							key={index}
 							options={{
-								tabBarLabel: screen.icon.name,
+								tabBarLabel: screen.name,
 								tabBarIcon: ({ color, size }) => {
 									return (
 										<MaterialCommunityIcons
