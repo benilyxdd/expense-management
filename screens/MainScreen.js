@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 
 import NagivationBar from "../components/NavigationBar";
-
 import allScreensTab from "../data/AllTabScreenData";
 
 const MainScreen = (props) => {
