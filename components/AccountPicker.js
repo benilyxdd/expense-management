@@ -10,10 +10,6 @@ const AccountPicker = (props) => {
 	const [pickerValue, setPickerValue] = useState("All");
 	const [pickerItems, setPickerItems] = useState(AccountsData);
 
-	const changeAccountHandler = () => {
-		console.log(AccountDetailsData[pickerValue]);
-	};
-
 	return (
 		<SafeAreaView style={styles.headerContainer}>
 			<DropDownPicker
@@ -23,7 +19,7 @@ const AccountPicker = (props) => {
 				setOpen={setPickerOpen}
 				setItems={setPickerItems}
 				setValue={setPickerValue}
-				onChangeValue={changeAccountHandler}
+				onChangeValue={() => props.onChangeAccount(AccountDetailsData[pickerValue])}
 			/>
 		</SafeAreaView>
 	);
