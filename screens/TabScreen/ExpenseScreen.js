@@ -3,11 +3,11 @@ import { View, Text, StyleSheet } from "react-native";
 
 import HeaderText from "../../components/HeaderText";
 
-const Try2 = () => {
+const ExpenseScreen = () => {
 	return (
 		<View style={styles.screen}>
-			<HeaderText title="try2" />
-			<Text>sjkladlaksjdlnxzc</Text>
+			<HeaderText title="Expense" />
+			<Text>This is a expense screen</Text>
 		</View>
 	);
 };
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default Try2;
+export default ExpenseScreen;

@@ -1,5 +1,5 @@
 import HomeScreen from "./HomeScreen";
-import Try2 from "./try2";
+import ExpenseScreen from "./ExpenseScreen";
 import SettingScreen from "./SettingScreen";
 
 const allScreen = [
@@ -11,10 +11,10 @@ const allScreen = [
 		},
 	},
 	{
-		name: "try2",
-		component: Try2,
+		name: "Expense",
+		component: ExpenseScreen,
 		icon: {
-			name: "rocket",
+			name: "share",
 		},
 	},
 	{
