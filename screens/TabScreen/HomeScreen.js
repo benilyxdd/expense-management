@@ -4,6 +4,8 @@ import { View, Text, StyleSheet } from "react-native";
 import HeaderText from "../../components/HeaderText";
 import Pie from "../../components/Pie";
 import PieChartData from "../../data/PieChartData";
+import DefaultListContainer from "../../components/DefaultListContainer";
+import RecentTransactionData from "../../data/RecentTransactionData";
 
 const HomeScreen = () => {
 	return (
@@ -14,7 +16,7 @@ const HomeScreen = () => {
 					<Pie data={PieChartData} />
 				</View>
 				<View style={styles.recentTransactionContainer}>
-					<Text>we got the whole screen</Text>
+					<DefaultListContainer data={RecentTransactionData} />
 				</View>
 			</View>
 		</View>
@@ -30,7 +32,7 @@ const styles = StyleSheet.create({
 	},
 	recentTransactionContainer: {
 		flex: 1,
-		backgroundColor: "brown",
+		// backgroundColor: "brown",
 	},
 	pieChartContainer: {
 		height: "55%",
