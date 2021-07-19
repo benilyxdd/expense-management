@@ -1,5 +1,5 @@
 import HomeScreen from "../screens/TabScreen/HomeScreen";
-import ExpenseScreen from "../screens/TabScreen/ExpenseScreen";
+import AccountOverallScreen from "../screens/TabScreen/AccountOverallScreen";
 import SettingScreen from "../screens/TabScreen/SettingScreen";
 
 const allScreen = [
@@ -11,8 +11,8 @@ const allScreen = [
 		},
 	},
 	{
-		name: "Expense",
-		component: ExpenseScreen,
+		name: "Accounts",
+		component: AccountOverallScreen,
 		icon: {
 			name: "share",
 		},

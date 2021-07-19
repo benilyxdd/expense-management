@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-import HeaderText from "../../components/HeaderText";
+import AccountPicker from "../../components/AccountPicker";
 
 const ExpenseScreen = () => {
 	return (
 		<View style={styles.screen}>
-			<HeaderText title="Expense" />
+			<AccountPicker/>
 			<Text>This is a expense screen</Text>
 		</View>
 	);
