@@ -18,7 +18,9 @@ const HomeScreen = () => {
 						]}
 					/>
 				</View>
-				<Text>This is a Home Screen</Text>
+				<View style={styles.recentTransactionContainer}>
+					<Text>we got the whole screen</Text>
+				</View>
 			</View>
 		</View>
 	);
@@ -30,6 +32,10 @@ const styles = StyleSheet.create({
 	},
 	middleScreen: {
 		flex: 1,
+	},
+	recentTransactionContainer: {
+		flex: 1,
+		backgroundColor: 'brown'
 	},
 	pieChartContainer: {
 		height: "55%",
