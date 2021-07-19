@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, SafeAreaView } from "react-native";
+import DropDownPicker from "react-native-dropdown-picker";
+
+import AccountsData from "../data/AccountsData";
+import AccountDetailsData from "../data/AccountDetailsData";
 
 const AccountPicker = (props) => {
+	const [pickerOpen, setPickerOpen] = useState(false);
+	const [pickerValue, setPickerValue] = useState("All");
+	const [pickerItems, setPickerItems] = useState(AccountsData);
+
+	const changeAccountHandler = () => {
+		console.log(AccountDetailsData[pickerValue]);
+	};
+
 	return (
 		<SafeAreaView style={styles.headerContainer}>
-			
+			<DropDownPicker
+				open={pickerOpen}
+				items={pickerItems}
+				value={pickerValue}
+				setOpen={setPickerOpen}
+				setItems={setPickerItems}
+				setValue={setPickerValue}
+				onChangeValue={changeAccountHandler}
+			/>
 		</SafeAreaView>
 	);
 };

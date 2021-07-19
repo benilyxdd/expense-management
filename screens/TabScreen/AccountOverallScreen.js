@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import AccountPicker from "../../components/AccountPicker";
@@ -6,7 +6,8 @@ import AccountPicker from "../../components/AccountPicker";
 const ExpenseScreen = () => {
 	return (
 		<View style={styles.screen}>
-			<AccountPicker/>
+			<AccountPicker
+			/>
 			<Text>This is a expense screen</Text>
 		</View>
 	);
