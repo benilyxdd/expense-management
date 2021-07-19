@@ -11,14 +11,17 @@ const HeaderText = (props) => {
 
 const styles = StyleSheet.create({
 	headerContainer: {
-		height: "10%",
+		height: "11%",
 		width: "100%",
 		alignItems: "center",
 		justifyContent: "center",
+		borderBottomColor: 'black',
+		borderBottomWidth: 2,
 	},
 	headerTitle: {
 		// fontFamily: "Caveat-Regular",
 		fontSize: 25,
+		paddingBottom: '1%'
 	},
 });
 
