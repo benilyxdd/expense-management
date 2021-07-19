@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 
 import NagivationBar from "../components/NavigationBar";
 
-import allScreensTab from "../screens/TabScreen/allScreen";
+import allScreensTab from "../data/AllTabScreenData";
 
 const MainScreen = (props) => {
 	return (

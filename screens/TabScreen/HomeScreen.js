@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 
 import HeaderText from "../../components/HeaderText";
 import Pie from "../../components/Pie";
+import PieChartData from "../../data/PieChartData";
 
 const HomeScreen = () => {
 	return (
@@ -10,13 +11,7 @@ const HomeScreen = () => {
 			<HeaderText title="Home" />
 			<View style={styles.middleScreen}>
 				<View style={styles.pieChartContainer}>
-					<Pie
-						data={[
-							{ x: "Cats", y: 35 },
-							{ x: "Dogs", y: 40 },
-							{ x: "Birds", y: 55 },
-						]}
-					/>
+					<Pie data={PieChartData} />
 				</View>
 				<View style={styles.recentTransactionContainer}>
 					<Text>we got the whole screen</Text>
@@ -35,7 +30,7 @@ const styles = StyleSheet.create({
 	},
 	recentTransactionContainer: {
 		flex: 1,
-		backgroundColor: 'brown'
+		backgroundColor: "brown",
 	},
 	pieChartContainer: {
 		height: "55%",

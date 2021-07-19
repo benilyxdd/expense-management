@@ -1,6 +1,6 @@
-import HomeScreen from "./HomeScreen";
-import ExpenseScreen from "./ExpenseScreen";
-import SettingScreen from "./SettingScreen";
+import HomeScreen from "../screens/TabScreen/HomeScreen";
+import ExpenseScreen from "../screens/TabScreen/ExpenseScreen";
+import SettingScreen from "../screens/TabScreen/SettingScreen";
 
 const allScreen = [
 	{
