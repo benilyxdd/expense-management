@@ -8,12 +8,16 @@ const Pie = (props) => {
 			data={props.data}
 			innerRadius={90}
 			theme={VictoryTheme.material}
-			width={400}
+			width={300}
+			height={300}
 			radius={150}
 			style={{
 				labels: {
 					fontSize: 15,
 				},
+				data: {
+					
+				}
 			}}
 			labelRadius={100}
 		/>

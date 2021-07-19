@@ -35,9 +35,11 @@ const styles = StyleSheet.create({
 		// backgroundColor: "brown",
 	},
 	pieChartContainer: {
-		height: "55%",
+		height: "50%",
 		width: "100%",
 		backgroundColor: "grey",
+		alignItems: "center",
+		justifyContent: "center",
 	},
 });
 
