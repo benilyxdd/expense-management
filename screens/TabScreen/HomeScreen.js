@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-import HeaderText from "../../components/HeaderText";
 import Pie from "../../components/Pie";
 import PieChartData from "../../data/PieChartData";
 import DefaultListContainer from "../../components/DefaultListContainer";
@@ -11,7 +10,6 @@ import AddTransactionButton from "../../components/AddTransactionButton";
 const HomeScreen = () => {
 	return (
 		<View style={styles.screen}>
-			<HeaderText title="Home" />
 			<View style={styles.middleScreen}>
 				<View style={styles.pieChartContainer}>
 					<Pie data={PieChartData} />

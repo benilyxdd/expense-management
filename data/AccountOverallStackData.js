@@ -2,7 +2,7 @@ import AccountOverAllScreen from "../screens/TabScreen/AccountOverallScreen";
 
 export default [
 	{
-		name: "accountOverAll",
+		name: "Account OverAll",
 		component: AccountOverAllScreen,
 	},
 ];

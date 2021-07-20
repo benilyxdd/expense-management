@@ -1,14 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
 import { List, Divider } from "react-native-paper";
 
-import HeaderText from "../../components/HeaderText";
 import TouchableListItem from "../../components/TouchableListItem";
 
 const SettingScreen = () => {
 	return (
 		<View style={styles.screen}>
-			<HeaderText title="Settings" />
 			<ScrollView style={styles.test}>
 				<List.Section style={styles.listSection}>
 					<List.Subheader>Transactions</List.Subheader>

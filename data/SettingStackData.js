@@ -2,7 +2,7 @@ import SettingScreen from "../screens/TabScreen/SettingScreen";
 
 export default [
 	{
-		name: "setting",
+		name: "Settings",
 		component: SettingScreen,
 	},
 ];

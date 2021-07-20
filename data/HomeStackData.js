@@ -2,7 +2,7 @@ import HomeScreen from "../screens/TabScreen/HomeScreen";
 
 export default [
 	{
-		name: "home",
+		name: "Home",
 		component: HomeScreen,
 	},
 ];
