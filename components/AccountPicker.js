@@ -7,8 +7,8 @@ import AccountDetailsData from "../data/AccountDetailsData";
 
 const AccountPicker = (props) => {
 	const [pickerOpen, setPickerOpen] = useState(false);
-	const [pickerValue, setPickerValue] = useState("All");
 	const [pickerItems, setPickerItems] = useState(AccountsData);
+	const [pickerValue, setPickerValue] = useState(pickerItems[0].value);
 
 	return (
 		<SafeAreaView style={styles.headerContainer}>

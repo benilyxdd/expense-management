@@ -5,12 +5,11 @@ import AccountPicker from "../../components/AccountPicker";
 
 const ExpenseScreen = () => {
 	const [content, setContent] = useState({});
-	console.log(content);
 
 	return (
 		<View style={styles.screen}>
 			<AccountPicker onChangeAccount={(value) => setContent(value)} />
-			<Text>This is a expense screen</Text>
+			<Text>hello</Text>
 		</View>
 	);
 };
