@@ -4,7 +4,7 @@ import { List, Divider } from "react-native-paper";
 
 import TouchableListItem from "../../components/TouchableListItem";
 
-const SettingScreen = () => {
+const SettingScreen = (props) => {
 	return (
 		<View style={styles.screen}>
 			<ScrollView style={styles.test}>

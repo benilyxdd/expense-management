@@ -7,7 +7,7 @@ const AddTransactionButton = (props) => {
 		<IconButton
 			icon="plus"
 			size={32}
-			onPress={() => console.log("hi")}
+			onPress={props.onPress}
 			color={Colors.white}
 			style={styles.button}
 		/>

@@ -7,7 +7,11 @@ import DefaultListContainer from "../../components/DefaultListContainer";
 import RecentTransactionData from "../../data/RecentTransactionData";
 import AddTransactionButton from "../../components/AddTransactionButton";
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
+	const GoToAddTransactionPageHandle = () => {
+		props.navigation.navigate("Add Transaction");
+	};
+
 	return (
 		<View style={styles.screen}>
 			<View style={styles.middleScreen}>
@@ -17,7 +21,9 @@ const HomeScreen = () => {
 				<View style={styles.recentTransactionContainer}>
 					<DefaultListContainer data={RecentTransactionData} />
 					<View style={styles.addTransactionButtonContainer}>
-						<AddTransactionButton />
+						<AddTransactionButton
+							onPress={GoToAddTransactionPageHandle}
+						/>
 					</View>
 				</View>
 			</View>

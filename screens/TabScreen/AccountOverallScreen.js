@@ -6,7 +6,7 @@ import AccountPicker from "../../components/AccountPicker";
 import DataTableRow from "../../components/DataTableRow";
 import TouchableListItem from "../../components/TouchableListItem";
 
-const ExpenseScreen = () => {
+const AccountOverallScreen = (props) => {
 	const [content, setContent] = useState("a");
 
 	return (
@@ -65,4 +65,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default ExpenseScreen;
+export default AccountOverallScreen;
