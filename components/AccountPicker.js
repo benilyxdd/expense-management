@@ -19,7 +19,13 @@ const AccountPicker = (props) => {
 				setOpen={setPickerOpen}
 				setItems={setPickerItems}
 				setValue={setPickerValue}
-				onChangeValue={() => props.onChangeAccount(AccountDetailsData[pickerValue])}
+				onChangeValue={() =>
+					props.onChangeAccount(AccountDetailsData[pickerValue])
+				}
+				containerStyle={styles.pickerContainer}
+				textStyle={styles.pickerText}
+				style={styles.picker}
+				// theme="DARK"
 			/>
 		</SafeAreaView>
 	);
@@ -33,11 +39,26 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 		borderBottomColor: "black",
 		borderBottomWidth: 2,
+		backgroundColor: "white",
 	},
 	header: {
 		// fontFamily: "Caveat-Regular",
 		fontSize: 25,
 		paddingBottom: "1%",
+	},
+	pickerContainer: {
+		alignItems: "center",
+		justifyContent: "center",
+		paddingLeft: "5%",
+	},
+	pickerText: {
+		textAlign: "center",
+		fontSize: 25,
+	},
+	picker: {
+		backgroundColor: "transparent",
+		borderColor: "transparent",
+		borderWidth: 0,
 	},
 });
 

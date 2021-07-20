@@ -4,12 +4,12 @@ import { View, Text, StyleSheet } from "react-native";
 import AccountPicker from "../../components/AccountPicker";
 
 const ExpenseScreen = () => {
-	const [content, setContent] = useState({});
+	const [content, setContent] = useState("a");
 
 	return (
 		<View style={styles.screen}>
 			<AccountPicker onChangeAccount={(value) => setContent(value)} />
-			<Text>hello</Text>
+			<Text>{content[0]}</Text>
 		</View>
 	);
 };
