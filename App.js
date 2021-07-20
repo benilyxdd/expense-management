@@ -1,15 +1,10 @@
-import React, { useState } from "react";
-import { StyleSheet, SafeAreaView } from "react-native";
+import React from "react";
+import { enableScreens } from "react-native-screens";
 
 import MainScreen from "./screens/MainScreen";
+
+enableScreens();
 
 export default function App() {
 	return <MainScreen />;
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: "grey",
-	},
-});
