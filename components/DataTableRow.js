@@ -4,7 +4,7 @@ import { StyleSheet, View } from "react-native";
 
 const DataTableRow = (props) => {
 	return (
-		<View style={styles.tableContainer}>
+		<View style = {styles.tableContainer}>
             <DataTable.Row style={{ ...styles.row, ...props.rowStyle }}>
 				{props.cells.map((cell, index) => {
 					return (
@@ -19,9 +19,6 @@ const DataTableRow = (props) => {
 };
 
 const styles = StyleSheet.create({
-	tableContainer: {
-		height: "23%",
-	},
 	row: {
 		borderBottomWidth: 0,
 	},
