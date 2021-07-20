@@ -1,30 +1,31 @@
 import React from "react";
 import { DataTable } from "react-native-paper";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 
 const DataTableRow = (props) => {
 	return (
 		<View style={styles.tableContainer}>
-			<DataTable.Row style={{ ...styles.row, ...props.rowStyle }}>
-				{props.cells.map((cell, index) => {
-					return (
-						<DataTable.Cell key={index} style={styles.cell}>
-							{cell}
-						</DataTable.Cell>
-					);
-				})}
-			</DataTable.Row>
+			{props.cells.map((cell, index) => {
+				return (
+					<View key={index}>
+						<Text style={styles.tableText}>{cell.name}</Text>
+						<Text style={styles.tableText}>{cell.amounts}</Text>
+					</View>
+				);
+			})}
 		</View>
 	);
 };
 
 const styles = StyleSheet.create({
-	row: {
-		borderBottomWidth: 0,
-	},
-	cell: {
+	tableContainer: {
+		height: "100%",
+		flexDirection: "row",
 		alignItems: "center",
-		justifyContent: "center",
+		justifyContent: "space-around",
+	},
+	tableText: {
+		textAlign: "center",
 	},
 });
 

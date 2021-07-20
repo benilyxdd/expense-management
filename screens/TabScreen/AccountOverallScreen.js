@@ -6,30 +6,40 @@ import AccountPicker from "../../components/AccountPicker";
 import DataTableRow from "../../components/DataTableRow";
 import TouchableListItem from "../../components/TouchableListItem";
 
-const asset = "100";
-const liabilities = "200";
-const total = "-100";
-
 const ExpenseScreen = () => {
 	const [content, setContent] = useState("a");
 
 	return (
 		<View style={styles.screen}>
 			<AccountPicker onChangeAccount={(value) => setContent(value)} />
-			<View>
-				<DataTableRow cells={["Asset", "Liabilities", "Total"]} />
+			<View style={styles.dataTableSection}>
 				<DataTableRow
-					cells={[asset, liabilities, total]}
-					rowStyle={styles.lastRow}
+					cells={[
+						{ name: "Assets", amounts: 0 },
+						{ name: "Liabilities", amounts: 100 },
+						{ name: "Total", amounts: -100 },
+					]}
 				/>
 			</View>
 			<ScrollView style={styles.detailsSection}>
 				<List.Section title="hello">
 					<Divider />
 					<TouchableListItem title="hi" />
+					<TouchableListItem title="hi" />
 				</List.Section>
 				<List.Section title="hello">
 					<Divider />
+					<TouchableListItem title="hi" />
+					<TouchableListItem title="hi" />
+					<TouchableListItem title="hi" />
+					<TouchableListItem title="hi" />
+				</List.Section>
+				<List.Section title="hello">
+					<Divider />
+					<TouchableListItem title="hi" />
+					<TouchableListItem title="hi" />
+					<TouchableListItem title="hi" />
+					<TouchableListItem title="hi" />
 					<TouchableListItem title="hi" />
 				</List.Section>
 			</ScrollView>
@@ -45,12 +55,13 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		justifyContent: "center",
 	},
-	lastRow: {
-		borderBottomWidth: 2,
-		marginTop: -25,
-	},
 	detailsSection: {
 		// backgroundColor: "blue",
+	},
+	dataTableSection: {
+		height: "7%",
+		borderBottomColor: "grey",
+		borderBottomWidth: 2,
 	},
 });
 

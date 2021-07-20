@@ -33,7 +33,7 @@ const AccountPicker = (props) => {
 
 const styles = StyleSheet.create({
 	headerContainer: {
-		height: "11%",
+		height: "6%",
 		width: "100%",
 		alignItems: "center",
 		justifyContent: "center",
