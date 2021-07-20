@@ -1,0 +1,18 @@
+Home Screen
+- remaining budget inside pie chart (hollow inside pie chart)
+- add transaction button onPress
+
+Accounts overall Screen
+- show [assets, liablilty, total]
+- details
+    - cash
+    - bank
+    - investment -> notification daily for stocks
+    - able to add other account with button
+
+Settings Screen
+- transaction
+    - recurring transaction
+
+- settings 
+    - theme
