@@ -4,7 +4,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 const TouchableListItem = (props) => {
 	return(
-		<TouchableOpacity>
+		<TouchableOpacity onPress={props.onPress}>
 			<List.Item title={props.title} />
 		</TouchableOpacity>
 	);

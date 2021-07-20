@@ -13,20 +13,20 @@ const SettingScreen = () => {
 				<List.Section style={styles.listSection}>
 					<List.Subheader>yo</List.Subheader>
 					<Divider />
-					<TouchableListItem title="hello" />
-					<TouchableListItem title="hello" />
-					<TouchableListItem title="hello" />
-					<TouchableListItem title="hello" />
-					<TouchableListItem title="hello" />
+					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
+					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
+					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
+					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
+					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
 				</List.Section>
 				<List.Section style={styles.listSection}>
 					<List.Subheader>yo</List.Subheader>
 					<Divider />
-					<TouchableListItem title="hello" />
-					<TouchableListItem title="hello" />
-					<TouchableListItem title="hello" />
-					<TouchableListItem title="hello" />
-					<TouchableListItem title="hello" />
+					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
+					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
+					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
+					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
+					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
 				</List.Section>
 				<List.Section style={styles.listSection}>
 					<List.Subheader>yo</List.Subheader>
