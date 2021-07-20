@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 
 import Pie from "../../components/Pie";
 import PieChartData from "../../data/PieChartData";
