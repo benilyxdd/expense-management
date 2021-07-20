@@ -1,25 +1,25 @@
-import HomeScreen from "../screens/TabScreen/HomeScreen";
-import AccountOverallScreen from "../screens/TabScreen/AccountOverallScreen";
-import SettingScreen from "../screens/TabScreen/SettingScreen";
+import HomeScreenNavigator from "../navigation/HomeScreenNavigator";
+import AccountOverallScreenNavigator from "../navigation/AccountOverallScreenNavigator";
+import SettingScreenNavigator from "../navigation/SettingScreenNavigator";
 
 const allScreen = [
 	{
 		name: "Home",
-		component: HomeScreen,
+		component: HomeScreenNavigator,
 		icon: {
 			name: "home",
 		},
 	},
 	{
 		name: "Accounts",
-		component: AccountOverallScreen,
+		component: AccountOverallScreenNavigator,
 		icon: {
 			name: "share",
 		},
 	},
 	{
 		name: "Settings",
-		component: SettingScreen,
+		component: SettingScreenNavigator,
 		icon: {
 			name: "cog",
 		},
