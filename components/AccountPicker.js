@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
 		borderBottomColor: "black",
 		borderBottomWidth: 2,
 		backgroundColor: "white",
+		zIndex: 1,
 	},
 	header: {
 		// fontFamily: "Caveat-Regular",

@@ -3,12 +3,12 @@ Home Screen
 - add transaction button onPress
 
 Accounts overall Screen
-- show [assets, liablilty, total]
 - details
     - cash
     - bank
     - investment -> notification daily for stocks
     - able to add other account with button
+// - show [assets, liablilty, total]
 
 Settings Screen
 - transaction

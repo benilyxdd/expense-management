@@ -11,31 +11,22 @@ const SettingScreen = () => {
 			<HeaderText title="Settings" />
 			<ScrollView style={styles.test}>
 				<List.Section style={styles.listSection}>
-					<List.Subheader>yo</List.Subheader>
+					<List.Subheader>Transactions</List.Subheader>
 					<Divider />
-					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
+					<TouchableListItem title="Recurring Transaction" onPress = {() => console.log('hi')}/>
 					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
 					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
 					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
 					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
 				</List.Section>
 				<List.Section style={styles.listSection}>
-					<List.Subheader>yo</List.Subheader>
+					<List.Subheader>Settings</List.Subheader>
 					<Divider />
+					<TouchableListItem title="Theme" onPress = {() => console.log('hi')}/>
 					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
 					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
 					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
 					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
-					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
-				</List.Section>
-				<List.Section style={styles.listSection}>
-					<List.Subheader>yo</List.Subheader>
-					<Divider />
-					<TouchableListItem title="hello" />
-					<TouchableListItem title="hello" />
-					<TouchableListItem title="hello" />
-					<TouchableListItem title="hello" />
-					<TouchableListItem title="hello" />
 				</List.Section>
 			</ScrollView>
 		</View>
