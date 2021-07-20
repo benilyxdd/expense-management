@@ -4,8 +4,8 @@ import { StyleSheet, View } from "react-native";
 
 const DataTableRow = (props) => {
 	return (
-		<View style = {styles.tableContainer}>
-            <DataTable.Row style={{ ...styles.row, ...props.rowStyle }}>
+		<View style={styles.tableContainer}>
+			<DataTable.Row style={{ ...styles.row, ...props.rowStyle }}>
 				{props.cells.map((cell, index) => {
 					return (
 						<DataTable.Cell key={index} style={styles.cell}>

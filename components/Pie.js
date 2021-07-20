@@ -15,9 +15,7 @@ const Pie = (props) => {
 				labels: {
 					fontSize: 15,
 				},
-				data: {
-					
-				}
+				data: {},
 			}}
 			labelRadius={100}
 		/>

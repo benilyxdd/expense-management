@@ -13,20 +13,50 @@ const SettingScreen = () => {
 				<List.Section style={styles.listSection}>
 					<List.Subheader>Transactions</List.Subheader>
 					<Divider />
-					<TouchableListItem title="Recurring Transaction" onPress = {() => console.log('hi')}/>
-					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
-					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
-					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
-					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
+					<TouchableListItem
+						title="Recurring Transaction"
+						onPress={() => console.log("hi")}
+					/>
+					<TouchableListItem
+						title="hello"
+						onPress={() => console.log("hi")}
+					/>
+					<TouchableListItem
+						title="hello"
+						onPress={() => console.log("hi")}
+					/>
+					<TouchableListItem
+						title="hello"
+						onPress={() => console.log("hi")}
+					/>
+					<TouchableListItem
+						title="hello"
+						onPress={() => console.log("hi")}
+					/>
 				</List.Section>
 				<List.Section style={styles.listSection}>
 					<List.Subheader>Settings</List.Subheader>
 					<Divider />
-					<TouchableListItem title="Theme" onPress = {() => console.log('hi')}/>
-					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
-					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
-					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
-					<TouchableListItem title="hello" onPress = {() => console.log('hi')}/>
+					<TouchableListItem
+						title="Theme"
+						onPress={() => console.log("hi")}
+					/>
+					<TouchableListItem
+						title="hello"
+						onPress={() => console.log("hi")}
+					/>
+					<TouchableListItem
+						title="hello"
+						onPress={() => console.log("hi")}
+					/>
+					<TouchableListItem
+						title="hello"
+						onPress={() => console.log("hi")}
+					/>
+					<TouchableListItem
+						title="hello"
+						onPress={() => console.log("hi")}
+					/>
 				</List.Section>
 			</ScrollView>
 		</View>

@@ -7,17 +7,17 @@ const AddTransactionButton = (props) => {
 		<IconButton
 			icon="plus"
 			size={32}
-            onPress={() => console.log("hi")}
-            color={Colors.white}
+			onPress={() => console.log("hi")}
+			color={Colors.white}
 			style={styles.button}
 		/>
 	);
 };
 
 const styles = StyleSheet.create({
-    button: {
-        backgroundColor: 'black'
-    }
+	button: {
+		backgroundColor: "black",
+	},
 });
 
 export default AddTransactionButton;

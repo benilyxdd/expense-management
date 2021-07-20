@@ -1,14 +1,14 @@
 export default [
 	{
 		label: "All",
-		value: "all"
+		value: "all",
 	},
 	{
 		label: "One",
-		value: "one"
+		value: "one",
 	},
 	{
 		label: "Two",
-		value: "two"
+		value: "two",
 	},
 ];
