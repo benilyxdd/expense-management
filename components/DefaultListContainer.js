@@ -24,11 +24,9 @@ const DefaultListContainer = (props) => {
 const styles = StyleSheet.create({
 	listContainer: {
 		flex: 1,
-		backgroundColor: "red",
 		marginVertical: "-2%",
 	},
 	listItem: {
-		backgroundColor: "yellow",
 		marginHorizontal: "5%",
 		marginVertical: "2%",
 		borderRadius: 10,

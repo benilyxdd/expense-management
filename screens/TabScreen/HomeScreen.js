@@ -47,11 +47,9 @@ const styles = StyleSheet.create({
 	},
 	recentTransactionContainer: {
 		flex: 1,
-		// backgroundColor: "brown",
 	},
 	pieChartContainer: {
 		flex: 1,
-		backgroundColor: "grey",
 		alignItems: "center",
 		justifyContent: "center",
 	},
