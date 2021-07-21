@@ -1,6 +1,6 @@
 import HomeScreenNavigator from "../navigation/HomeScreenNavigator";
 import AccountOverallScreenNavigator from "../navigation/AccountOverallScreenNavigator";
-import SettingScreenNavigator from "../navigation/SettingScreenNavigator";
+import SettingsScreenNavigator from "../navigation/SettingsScreenNavigator";
 
 const allScreen = [
 	{
@@ -19,7 +19,7 @@ const allScreen = [
 	},
 	{
 		name: "Settings",
-		component: SettingScreenNavigator,
+		component: SettingsScreenNavigator,
 		icon: {
 			name: "cog",
 		},

@@ -4,10 +4,13 @@ import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
 
 import MainScreen from "./screens/MainScreen";
+import AccountOverall from "./store/reducers/AccountOverall";
 
 enableScreens();
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+	accountOverallScreen: AccountOverall,
+});
 const store = createStore(rootReducer);
 
 export default function App() {
