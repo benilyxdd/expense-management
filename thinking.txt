@@ -1,5 +1,11 @@
+General
+- Add auth login [google only]
+- make home page center in the tab navigator
+- put every data on server side
+
 Home Screen
 // - remaining budget inside pie chart (hollow inside pie chart)
+    - be able to click inside to set monthly budget
 // - add transaction button onPress
     - simple mode vs details mode  
         - simple mode -> [date & time, amount, do what]
@@ -14,6 +20,7 @@ Accounts overall Screen
     - investment -> notification daily for stocks
     - able to add other account with button
 // - show [assets, liablilty, total]
+    - calculate using data from server
 
 Settings Screen
 - transaction
