@@ -2,7 +2,7 @@ import React from "react";
 import { List } from "react-native-paper";
 import { StyleSheet, ScrollView } from "react-native";
 
-const DefaultListContainer = (props) => {
+const RecentTransactionsContainer = (props) => {
 	return (
 		<List.Section style={styles.listContainer}>
 			<ScrollView>
@@ -35,4 +35,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default DefaultListContainer;
+export default RecentTransactionsContainer;

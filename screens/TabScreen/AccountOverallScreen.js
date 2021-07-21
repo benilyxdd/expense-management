@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 	},
 	detailsSection: {
-		// backgroundColor: "blue",
 	},
 	dataTableSection: {
 		height: "7%",

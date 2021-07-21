@@ -5,7 +5,7 @@ import { List, Divider } from "react-native-paper";
 import TouchableListItem from "../../components/TouchableListItem";
 import SettingsData from "../../data/SettingsData";
 
-const SettingScreen = (props) => {
+const SettingsScreen = (props) => {
 	return (
 		<View style={styles.screen}>
 			<ScrollView style={styles.test}>
@@ -43,4 +43,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default SettingScreen;
+export default SettingsScreen;

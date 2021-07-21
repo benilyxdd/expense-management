@@ -3,7 +3,7 @@ import { View, StyleSheet, Text } from "react-native";
 
 import Pie from "../../components/Pie";
 import PieChartData from "../../data/PieChartData";
-import DefaultListContainer from "../../components/DefaultListContainer";
+import RecentTransactionsContainer from "../../components/RecentTransactionsContainer";
 import RecentTransactionData from "../../data/RecentTransactionData";
 import AddTransactionButton from "../../components/AddTransactionButton";
 
@@ -26,7 +26,7 @@ const HomeScreen = (props) => {
 					</View>
 				</View>
 				<View style={styles.recentTransactionContainer}>
-					<DefaultListContainer data={RecentTransactionData} />
+					<RecentTransactionsContainer data={RecentTransactionData} />
 					<View style={styles.addTransactionButtonContainer}>
 						<AddTransactionButton
 							onPress={GoToAddTransactionPageHandle}

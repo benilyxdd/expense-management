@@ -1,5 +1,4 @@
 import React from "react";
-import { DataTable } from "react-native-paper";
 import { StyleSheet, View, Text } from "react-native";
 
 const DataTableRow = (props) => {
