@@ -5,10 +5,6 @@ const AuthScreen = (props) => {
 	return (
 		<View style={styles.screen}>
 			<Text>This is auth screen</Text>
-			<Button
-				title="go to main screen"
-				onPress={() => props.navigation.navigate("Home")}
-			/>
 		</View>
 	);
 };
