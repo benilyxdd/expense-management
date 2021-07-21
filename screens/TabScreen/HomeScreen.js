@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 
 import Pie from "../../components/Pie";
 import PieChartData from "../../data/PieChartData";
@@ -17,6 +17,11 @@ const HomeScreen = (props) => {
 			<View style={styles.middleScreen}>
 				<View style={styles.pieChartContainer}>
 					<Pie data={PieChartData} />
+					<View style={styles.remainingBudgetContainer}>
+						<Text style={styles.remainingBudgetText}>Remaining</Text>
+						<Text style={styles.remainingBudgetText}>Budget: </Text>
+						<Text style={styles.remainingBudgetText}>$100</Text>
+					</View>
 				</View>
 				<View style={styles.recentTransactionContainer}>
 					<DefaultListContainer data={RecentTransactionData} />
@@ -53,6 +58,13 @@ const styles = StyleSheet.create({
 		bottom: 0,
 		right: 0,
 		padding: "1%",
+	},
+	remainingBudgetContainer: {
+		position: "absolute",
+	},
+	remainingBudgetText: {
+		textAlign: "center",
+		fontSize: 24
 	},
 });
 

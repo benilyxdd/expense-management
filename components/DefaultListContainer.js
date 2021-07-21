@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
 	listContainer: {
 		flex: 1,
 		backgroundColor: "red",
+		marginVertical: "-2%",
 	},
 	listItem: {
 		backgroundColor: "yellow",
