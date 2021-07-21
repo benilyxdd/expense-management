@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import SettingsStackData from "../data/SettingsStackData";
+import SettingsStackData from "../data/stack/SettingsStackData";
 
 const SettingsStack = createStackNavigator();
 

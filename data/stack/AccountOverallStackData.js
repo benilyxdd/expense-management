@@ -1,4 +1,4 @@
-import AccountOverAllScreen from "../screens/TabScreen/AccountOverallScreen";
+import AccountOverAllScreen from "../../screens/TabScreen/AccountOverallScreen";
 
 export default [
 	{

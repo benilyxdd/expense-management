@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import AccountOverallStackData from "../data/AccountOverallStackData";
+import AccountOverallStackData from "../data/stack/AccountOverallStackData";
 
 const AccountOverAllStack = createStackNavigator();
 
