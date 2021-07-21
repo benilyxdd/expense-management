@@ -1,6 +1,6 @@
 Home Screen
-- remaining budget inside pie chart (hollow inside pie chart)
-- add transaction button onPress
+// - remaining budget inside pie chart (hollow inside pie chart)
+// - add transaction button onPress
 
 Accounts overall Screen
 - details
@@ -15,4 +15,4 @@ Settings Screen
     - recurring transaction
 
 - settings 
-    - theme
+    - theme -> drak, light, [possibly use system default]

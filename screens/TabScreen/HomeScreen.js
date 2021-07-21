@@ -18,7 +18,9 @@ const HomeScreen = (props) => {
 				<View style={styles.pieChartContainer}>
 					<Pie data={PieChartData} />
 					<View style={styles.remainingBudgetContainer}>
-						<Text style={styles.remainingBudgetText}>Remaining</Text>
+						<Text style={styles.remainingBudgetText}>
+							Remaining
+						</Text>
 						<Text style={styles.remainingBudgetText}>Budget: </Text>
 						<Text style={styles.remainingBudgetText}>$100</Text>
 					</View>
@@ -64,7 +66,7 @@ const styles = StyleSheet.create({
 	},
 	remainingBudgetText: {
 		textAlign: "center",
-		fontSize: 24
+		fontSize: 24,
 	},
 });
 
