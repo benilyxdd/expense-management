@@ -1,6 +1,11 @@
 Home Screen
 // - remaining budget inside pie chart (hollow inside pie chart)
 // - add transaction button onPress
+    - simple mode vs details mode  
+        - simple mode -> [date & time, amount, do what]
+        - has a list of transactions written in simple mode, that can add more details
+        
+        - details mode -> [date & time, accounts, category, details, amount, which currency]   
 
 Accounts overall Screen
 - details
@@ -16,3 +21,5 @@ Settings Screen
 
 - settings 
     - theme -> drak, light, [possibly use system default]
+    - set main currency
+    - able to add sub-currency

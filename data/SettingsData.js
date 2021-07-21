@@ -44,13 +44,13 @@ export default [
 				},
 			},
 			{
-				name: "hello",
+				name: "Main Currency",
 				onPress: () => {
 					console.log("hi");
 				},
 			},
 			{
-				name: "hello",
+				name: "Sub Currency",
 				onPress: () => {
 					console.log("hi");
 				},
