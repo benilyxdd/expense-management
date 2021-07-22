@@ -30,3 +30,6 @@ Settings Screen
     - theme -> drak, light, [possibly use system default]
     - set main currency
     - able to add sub-currency
+
+
+//expo version
