@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
                BuildableName = "exp.app"
-               BlueprintName = "myApp"
-               ReferencedContainer = "container:myApp.xcodeproj">
+               BlueprintName = "exp"
+               ReferencedContainer = "container:exp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
                BuildableName = "myAppTests.xctest"
                BlueprintName = "myAppTests"
-               ReferencedContainer = "container:myApp.xcodeproj">
+               ReferencedContainer = "container:exp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -56,8 +56,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "exp.app"
-            BlueprintName = "myApp"
-            ReferencedContainer = "container:myApp.xcodeproj">
+            BlueprintName = "exp"
+            ReferencedContainer = "container:exp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -73,8 +73,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "exp.app"
-            BlueprintName = "myApp"
-            ReferencedContainer = "container:myApp.xcodeproj">
+            BlueprintName = "exp"
+            ReferencedContainer = "container:exp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
