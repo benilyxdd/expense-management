@@ -1,13 +1,17 @@
 import React from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
+import { View, StyleSheet, ScrollView, Text } from "react-native";
 import { List, Divider } from "react-native-paper";
+import { useSelector } from "react-redux";
 
 import TouchableListItem from "../../components/TouchableListItem";
 import SettingsData from "../../data/SettingsData";
 
 const SettingsScreen = (props) => {
+	const userInfo = useSelector((state) => state.Auth.userInfo);
+
 	return (
 		<View style={styles.screen}>
+			<Text>Logged in As {userInfo.user.email}</Text>
 			<ScrollView style={styles.test}>
 				{SettingsData.map((group, index) => {
 					return (

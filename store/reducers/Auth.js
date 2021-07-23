@@ -10,7 +10,7 @@ const AuthReducer = (state = initialState, action) => {
 		case SIMPLE_LOGIN:
 			return { ...state, isLoggedIn: true };
 		case GOOGLE_LOGIN:
-			return { ...state, userInfo: action.user, isLoggedIn: true };
+			return { ...state, isLoggedIn: true, userInfo: action.user };
 		default:
 			return state;
 	}

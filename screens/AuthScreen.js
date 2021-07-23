@@ -10,12 +10,11 @@ import {
 import { simpleLogin, googleLogin } from "../store/actions/Auth";
 
 GoogleSignin.configure();
-
 logIn = async () => {
 	try {
 		await GoogleSignin.hasPlayServices();
 		const userInfo = await GoogleSignin.signIn();
-		return { isLoggedIn: true, userInfo: userInfo };
+		return userInfo;
 	} catch (error) {
 		if (error.code === statusCodes.SIGN_IN_CANCELLED) {
 			console.log("sign in cancelled");
