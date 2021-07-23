@@ -23,9 +23,11 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.benily.exp</string>
+				<string>com.googleusercontent.apps.580428680537-ff7fo1c77b24rm70c1t9mn5vvcs0kuhk</string>
 			</array>
 		</dict>
 	</array>
@@ -46,6 +48,11 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Caveat-Bold.ttf</string>
+		<string>Caveat-Regular.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>SplashScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -63,10 +70,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Caveat-Bold.ttf</string>
-		<string>Caveat-Regular.ttf</string>
-	</array>
 </dict>
 </plist>
