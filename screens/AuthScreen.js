@@ -12,7 +12,7 @@ const AuthScreen = (props) => {
 
 	return (
 		<View style={styles.screen}>
-			<Text style={styles.text}>This is auth screen</Text>
+			<Text>This is auth screen</Text>
 			<Button title="Hello" onPress={loginHandler} />
 		</View>
 	);
@@ -23,10 +23,6 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "center",
 		alignItems: "center",
-	},
-	text: {
-		fontFamily: "Caveat-Bold",
-		fontSize: 40
 	},
 });
 
