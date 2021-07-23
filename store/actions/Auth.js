@@ -2,8 +2,8 @@ export const GOOGLE_LOGIN = "GOOGLE_LOGIN";
 export const SIGNUP = "SIGNUP";
 export const SIMPLE_LOGIN = "SIMPLE_LOGIN";
 
-export const googleLogin = () => {
-	return { type: GOOGLE_LOGIN };
+export const googleLogin = (user) => {
+	return { type: GOOGLE_LOGIN, user };
 };
 
 export const signup = (email, password) => {

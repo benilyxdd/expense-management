@@ -2,7 +2,7 @@ import React from "react";
 import { enableScreens } from "react-native-screens";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import ReduxThunk from "redux-thunk";
+import thunk from "redux-thunk";
 
 import MainScreen from "./screens/MainScreen";
 import AccountOverall from "./store/reducers/AccountOverall";
@@ -18,7 +18,7 @@ const rootReducer = combineReducers({
 	SettingsScreen: Settings,
 	Auth: Auth,
 });
-const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export default function App() {
 	return (
