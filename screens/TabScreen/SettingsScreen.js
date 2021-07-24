@@ -1,16 +1,36 @@
 import React from "react";
 import { View, StyleSheet, ScrollView, Text } from "react-native";
 import { List, Divider } from "react-native-paper";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
 
 import TouchableListItem from "../../components/TouchableListItem";
+import { googleLogOut } from "../../store/actions/Auth";
+
+GoogleSignin.configure();
+logOut = async () => {
+	try {
+		await GoogleSignin.revokeAccess();
+		await GoogleSignin.signOut();
+	} catch (err) {
+		console.log(err);
+	}
+};
 
 const SettingsScreen = (props) => {
+	const dispatch = useDispatch();
 	const userInfo = useSelector((state) => state.Auth.userInfo);
+
+	const googleLogOutHandler = async () => {
+		await logOut();
+		dispatch(googleLogOut());
+	};
 
 	return (
 		<View style={styles.screen}>
-			<Text>Logged in As {userInfo.user.email}</Text>
+			<View>
+				<Text>Logged in As {userInfo.user.email}</Text>
+			</View>
 			<ScrollView style={styles.test}>
 				<List.Section style={styles.listSection}>
 					<List.Subheader>Transactions</List.Subheader>
@@ -48,8 +68,8 @@ const SettingsScreen = (props) => {
 						onPress={() => console.log("hi")}
 					/>
 					<TouchableListItem
-						title="Logout"
-						onPress={() => console.log("hi")}
+						title="logOut"
+						onPress={googleLogOutHandler}
 					/>
 					<TouchableListItem
 						title="Theme"

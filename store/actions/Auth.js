@@ -3,15 +3,15 @@ export const GOOGLE_LOGOUT = "GOOGLE_LOGOUT";
 export const SIMPLE_LOGIN = "SIMPLE_LOGIN";
 export const SIGNUP = "SIGNUP";
 
-export const googleLogin = (user) => {
+export const googleLogIn = (user) => {
 	return { type: GOOGLE_LOGIN, user };
 };
 
-export const googleLogout = () => {
+export const googleLogOut = () => {
 	return { type: GOOGLE_LOGOUT };
 };
 
-export const simpleLogin = () => {
+export const simpleLogIn = () => {
 	return { type: SIMPLE_LOGIN };
 };
 

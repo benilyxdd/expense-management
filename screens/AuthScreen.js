@@ -7,7 +7,7 @@ import {
 	statusCodes,
 } from "@react-native-google-signin/google-signin";
 
-import { simpleLogin, googleLogin } from "../store/actions/Auth";
+import { simpleLogIn, googleLogIn } from "../store/actions/Auth";
 
 GoogleSignin.configure();
 logIn = async () => {
@@ -36,10 +36,10 @@ const AuthScreen = (props) => {
 		if (user === undefined) {
 			return;
 		}
-		dispatch(googleLogin(user));
+		dispatch(googleLogIn(user));
 	};
 	const loginHandler = () => {
-		dispatch(simpleLogin());
+		dispatch(simpleLogIn());
 	};
 
 	return (
