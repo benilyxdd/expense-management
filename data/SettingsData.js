@@ -56,9 +56,9 @@ export default [
 				},
 			},
 			{
-				name: "hello",
+				name: "Log Out",
 				onPress: () => {
-					console.log("hi");
+					console.log("log out");
 				},
 			},
 			{

@@ -25,6 +25,7 @@ logIn = async () => {
 		} else {
 			console.log("can't");
 		}
+		return undefined;
 	}
 };
 
@@ -32,6 +33,9 @@ const AuthScreen = (props) => {
 	const dispatch = useDispatch();
 	const googleLogInHandler = async () => {
 		const user = await logIn();
+		if (user === undefined) {
+			return;
+		}
 		dispatch(googleLogin(user));
 	};
 	const loginHandler = () => {
