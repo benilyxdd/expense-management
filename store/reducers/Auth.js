@@ -4,6 +4,7 @@ import {
 	LOGIN,
 	EMAIL_CHANGE,
 	PASSWORD_CHANGE,
+	LOADING,
 } from "../actions/Auth";
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
 	userPassword: "",
 	idToken: "",
 	uid: "",
+	isLoading: false,
 };
 
 const AuthReducer = (state = initialState, action) => {
@@ -23,14 +25,22 @@ const AuthReducer = (state = initialState, action) => {
 		case PASSWORD_CHANGE:
 			return { ...state, userPassword: action.password };
 		case SIGNUP:
-			return { ...state };
+			return {
+				...state,
+				isLoading: false,
+				userEmail: "",
+				userPassword: "",
+			};
 		case LOGIN:
 			return {
 				...state,
 				isLoggedIn: true,
 				idToken: action.payload.idToken,
 				uid: action.payload.localId,
+				isLoading: false,
 			};
+		case LOADING:
+			return { ...state, isLoading: action.payload };
 		default:
 			return state;
 	}

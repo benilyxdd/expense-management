@@ -5,6 +5,7 @@ export const SIGNUP = "SIGNUP";
 export const LOGIN = "LOGIN";
 export const EMAIL_CHANGE = "EMAIL_CHANGE";
 export const PASSWORD_CHANGE = "PASSWORD_CHANGE";
+export const LOADING = "LOADING";
 
 export const simpleLogIn = () => {
 	return { type: SIMPLE_LOGIN };
@@ -12,6 +13,7 @@ export const simpleLogIn = () => {
 
 export const signUp = (email, password) => {
 	return async (dispatch) => {
+		dispatch({ type: LOADING, payload: true });
 		const response = await fetch(
 			`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${FIREBASE_API}`,
 			{
@@ -28,6 +30,7 @@ export const signUp = (email, password) => {
 		);
 
 		if (!response.ok) {
+			dispatch({ type: LOADING, payload: false });
 			throw new Error("What");
 		}
 
@@ -38,6 +41,7 @@ export const signUp = (email, password) => {
 
 export const logIn = (email, password) => {
 	return async (dispatch) => {
+		dispatch({ type: LOADING, payload: true });
 		const response = await fetch(
 			`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FIREBASE_API}`,
 			{
@@ -54,6 +58,7 @@ export const logIn = (email, password) => {
 		);
 
 		if (!response.ok) {
+			dispatch({ type: LOADING, payload: false });
 			throw new Error("What");
 		}
 
