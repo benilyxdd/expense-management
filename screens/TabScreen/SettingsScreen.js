@@ -7,12 +7,12 @@ import TouchableListItem from "../../components/TouchableListItem";
 
 const SettingsScreen = (props) => {
 	const dispatch = useDispatch();
-	const userEmail = useSelector((state) => state.Auth.userEmail);
+	const uid = useSelector((state) => state.Auth.uid);
 
 	return (
 		<View style={styles.screen}>
 			<View>
-				<Text>Logged in As {userEmail}</Text>
+				<Text>Logged in As {uid}</Text>
 			</View>
 			<ScrollView style={styles.test}>
 				<List.Section style={styles.listSection}>

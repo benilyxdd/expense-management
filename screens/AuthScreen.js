@@ -21,11 +21,11 @@ const AuthScreen = (props) => {
 	};
 
 	const logInHandler = () => {
-		dispatch(logIn());
+		dispatch(logIn(userEmail, userPassword));
 	};
 
 	const signUpHandler = () => {
-		dispatch(signUp());
+		dispatch(signUp(userEmail, userPassword));
 	};
 
 	return (

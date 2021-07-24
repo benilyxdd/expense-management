@@ -10,6 +10,8 @@ const initialState = {
 	isLoggedIn: false,
 	userEmail: "",
 	userPassword: "",
+	idToken: "",
+	uid: "",
 };
 
 const AuthReducer = (state = initialState, action) => {
@@ -23,7 +25,12 @@ const AuthReducer = (state = initialState, action) => {
 		case SIGNUP:
 			return { ...state };
 		case LOGIN:
-			return { ...state };
+			return {
+				...state,
+				isLoggedIn: true,
+				idToken: action.payload.idToken,
+				uid: action.payload.localId,
+			};
 		default:
 			return state;
 	}
