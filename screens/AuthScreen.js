@@ -11,12 +11,9 @@ import {
 	signUp,
 } from "../store/actions/Auth.js";
 
-import { fetchUserData } from "../store/actions/AppData.js";
-
 const AuthScreen = (props) => {
 	const userEmail = useSelector((state) => state.Auth.userEmail);
 	const userPassword = useSelector((state) => state.Auth.userPassword);
-	const uid = useSelector((state) => state.Auth.uid);
 
 	const dispatch = useDispatch();
 	const simpleLoginHandler = () => {
@@ -25,7 +22,6 @@ const AuthScreen = (props) => {
 
 	const logInHandler = () => {
 		dispatch(logIn(userEmail, userPassword));
-		dispatch(fetchUserData(uid));
 	};
 
 	const signUpHandler = () => {
