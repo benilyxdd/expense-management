@@ -1,21 +1,33 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { useSelector } from "react-redux";
-import {ActivityIndicator} from 'react-native-paper'
+import { useSelector, useDispatch } from "react-redux";
+import { ActivityIndicator } from "react-native-paper";
 
 import NagivationBar from "../components/NavigationBar";
 import allScreensTab from "../data/AllTabScreenData";
 import AuthScreen from "../screens/AuthScreen";
+import { fetchUserData } from "../store/actions/AppData";
 
 const MainScreen = (props) => {
 	const isLoggedIn = useSelector((state) => state.Auth.isLoggedIn);
 	const isLoading = useSelector((state) => state.Auth.isLoading);
+	const uid = useSelector((state) => state.Auth.uid);
+
+	const dispatch = useDispatch();
+	if (isLoggedIn && !isLoading) {
+		dispatch(fetchUserData(uid));
+	}
 
 	if (!isLoggedIn) {
 		return (
-			<View style={{flex: 1}}>
+			<View style={{ flex: 1 }}>
 				<AuthScreen />
-				{isLoading && <ActivityIndicator size="large" style={styles.loadingIndicator}/>}
+				{isLoading && (
+					<ActivityIndicator
+						size="large"
+						style={styles.loadingIndicator}
+					/>
+				)}
 			</View>
 		);
 	}
@@ -33,12 +45,12 @@ const styles = StyleSheet.create({
 		height: "100%",
 	},
 	loadingIndicator: {
-		position: 'absolute',
+		position: "absolute",
 		right: "50%",
-		left: '50%',
-		top: '50%',
-		bottom: '50%'
-	}
+		left: "50%",
+		top: "50%",
+		bottom: "50%",
+	},
 });
 
 export default MainScreen;
