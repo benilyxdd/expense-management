@@ -1,4 +1,4 @@
-import { FIREBASE_API } from "@env";
+import { FIREBASE_API, FIREBASE_PROJECT_ID } from "@env";
 
 export const SIMPLE_LOGIN = "SIMPLE_LOGIN";
 export const SIGNUP = "SIGNUP";
@@ -35,6 +35,24 @@ export const signUp = (email, password) => {
 		}
 
 		const responseData = await response.json();
+		const response2 = await fetch(
+			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${responseData.localId}.json`,
+			{
+				method: "PATCH",
+				headers: {
+					"Content-type": "application/json",
+				},
+				body: JSON.stringify({
+					basicInfo: {
+						assets: 0,
+						liabilities: 0,
+						total: 0,
+					},
+					transactions: {},
+					accounts: {},
+				}),
+			}
+		);
 		dispatch({ type: SIGNUP, payload: responseData });
 	};
 };
