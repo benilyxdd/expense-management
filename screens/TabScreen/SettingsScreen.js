@@ -4,7 +4,6 @@ import { List, Divider } from "react-native-paper";
 import { useSelector } from "react-redux";
 
 import TouchableListItem from "../../components/TouchableListItem";
-import SettingsData from "../../data/SettingsData";
 
 const SettingsScreen = (props) => {
 	const userInfo = useSelector((state) => state.Auth.userInfo);
@@ -13,23 +12,50 @@ const SettingsScreen = (props) => {
 		<View style={styles.screen}>
 			<Text>Logged in As {userInfo.user.email}</Text>
 			<ScrollView style={styles.test}>
-				{SettingsData.map((group, index) => {
-					return (
-						<List.Section style={styles.listSection} key={index}>
-							<List.Subheader>{group.groupName}</List.Subheader>
-							<Divider />
-							{group.children.map((child, index) => {
-								return (
-									<TouchableListItem
-										title={child.name}
-										onPress={child.onPress}
-										key={index}
-									/>
-								);
-							})}
-						</List.Section>
-					);
-				})}
+				<List.Section style={styles.listSection}>
+					<List.Subheader>Transactions</List.Subheader>
+					<Divider />
+					<TouchableListItem
+						title="Recurring Transactions"
+						onPress={() => console.log("hi")}
+					/>
+					<TouchableListItem
+						title="Recurring Transactions"
+						onPress={() => console.log("hi")}
+					/>
+					<TouchableListItem
+						title="Recurring Transactions"
+						onPress={() => console.log("hi")}
+					/>
+					<TouchableListItem
+						title="Recurring Transactions"
+						onPress={() => console.log("hi")}
+					/>
+				</List.Section>
+				<List.Section style={styles.listSection}>
+					<List.Subheader>Settings</List.Subheader>
+					<Divider />
+					<TouchableListItem
+						title="Theme"
+						onPress={() => console.log("hi")}
+					/>
+					<TouchableListItem
+						title="Main Currency"
+						onPress={() => console.log("hi")}
+					/>
+					<TouchableListItem
+						title="Sub Currency"
+						onPress={() => console.log("hi")}
+					/>
+					<TouchableListItem
+						title="Logout"
+						onPress={() => console.log("hi")}
+					/>
+					<TouchableListItem
+						title="Theme"
+						onPress={() => console.log("hi")}
+					/>
+				</List.Section>
 			</ScrollView>
 		</View>
 	);
