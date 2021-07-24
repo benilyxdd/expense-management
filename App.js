@@ -5,17 +5,11 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 
 import MainScreen from "./screens/MainScreen";
-import AccountOverall from "./store/reducers/AccountOverall";
-import Home from "./store/reducers/Home";
-import Settings from "./store/reducers/Settings";
 import Auth from "./store/reducers/Auth";
 
 enableScreens();
 
 const rootReducer = combineReducers({
-	accountOverallScreen: AccountOverall,
-	HomeScreen: Home,
-	SettingsScreen: Settings,
 	Auth: Auth,
 });
 const store = createStore(rootReducer, applyMiddleware(thunk));
