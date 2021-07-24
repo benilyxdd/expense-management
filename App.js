@@ -6,11 +6,13 @@ import thunk from "redux-thunk";
 
 import MainScreen from "./screens/MainScreen";
 import Auth from "./store/reducers/Auth";
+import AppData from "./store/reducers/AppData";
 
 enableScreens();
 
 const rootReducer = combineReducers({
 	Auth: Auth,
+	AppData: AppData,
 });
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
