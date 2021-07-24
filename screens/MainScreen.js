@@ -20,7 +20,7 @@ const MainScreen = (props) => {
 
 	if (!isLoggedIn) {
 		return (
-			<View style={{ flex: 1 }}>
+			<View style={styles.authScreenContainer}>
 				<AuthScreen />
 				{isLoading && (
 					<ActivityIndicator
@@ -50,6 +50,9 @@ const styles = StyleSheet.create({
 		left: "50%",
 		top: "50%",
 		bottom: "50%",
+	},
+	authScreenContainer: {
+		flex: 1,
 	},
 });
 
