@@ -31,7 +31,7 @@ export const signUp = (email, password) => {
 
 		if (!response.ok) {
 			dispatch({ type: LOADING, payload: false });
-			throw new Error("What");
+			throw new Error("Login Failed");
 		}
 
 		const responseData = await response.json();
