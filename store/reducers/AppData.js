@@ -12,3 +12,5 @@ const AppDataReducer = (state = initialState, action) => {
 			return state;
 	}
 };
+
+export default AppDataReducer;

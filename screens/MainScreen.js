@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { StyleSheet, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { ActivityIndicator } from "react-native-paper";
@@ -10,12 +10,17 @@ import { fetchUserData } from "../store/actions/AppData";
 const MainScreen = (props) => {
 	const isLoggedIn = useSelector((state) => state.Auth.isLoggedIn);
 	const isLoading = useSelector((state) => state.Auth.isLoading);
+	const isLoading2 = useSelector((state) => state.Transactions.isLoading);
 	const uid = useSelector((state) => state.Auth.uid);
+	const userData = useSelector((state) => state.AppData.userData);
 
 	const dispatch = useDispatch();
-	if (isLoggedIn && !isLoading) {
-		dispatch(fetchUserData(uid));
-	}
+
+	useMemo(() => {
+		if (isLoggedIn) {
+			dispatch(fetchUserData(uid));
+		}
+	}, [uid, isLoading2]);
 
 	if (!isLoggedIn) {
 		return (
