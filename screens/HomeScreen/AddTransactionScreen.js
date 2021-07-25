@@ -1,6 +1,8 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { useSelector } from "react-redux";
+import { ActivityIndicator } from "react-native-paper";
 
 // import SimpleAdd from "./SimpleAdd";
 import DetailAdd from "./DetailAdd";
@@ -8,8 +10,16 @@ import DetailAdd from "./DetailAdd";
 const Tab = createMaterialTopTabNavigator();
 
 const AddTransactionScreen = (props) => {
+	const isLoading = useSelector((state) => state.Transactions.isLoading);
+
 	return (
 		<View style={styles.screen}>
+			{isLoading && (
+				<ActivityIndicator
+					size="large"
+					style={styles.loadingIndicator}
+				/>
+			)}
 			<View style={styles.navigatorContainer}>
 				<Tab.Navigator>
 					{/* <Tab.Screen name="simple" component={SimpleAdd} /> */}
@@ -33,6 +43,14 @@ const styles = StyleSheet.create({
 		borderRadius: 15,
 		borderWidth: 2,
 		margin: "5%",
+	},
+	loadingIndicator: {
+		position: "absolute",
+		right: "50%",
+		left: "50%",
+		top: "50%",
+		bottom: "50%",
+		zIndex: 1,
 	},
 });
 

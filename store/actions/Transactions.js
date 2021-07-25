@@ -5,6 +5,7 @@ export const DETAIL_AMOUNT_CHANGE = "DETAIL_AMOUNT_CHANGE";
 export const DETAIL_DESCRIPTION_CHANGE = "DETAIL_DESCRIPTION_CHANGE";
 export const RESET_INPUT = "RESET_INPUT";
 export const ADD_TRANSACTION = "ADD_TRANSACTION";
+export const LOADING = "LOADING";
 
 // export const simpleInputChange = (input) => {
 // 	return { type: SIMPLE_INPUT_CHANGE, input: input };
@@ -24,6 +25,7 @@ export const resetInput = () => {
 
 export const addTransaction = (detailInput, uid) => {
 	return async (dispatch) => {
+		dispatch({ type: LOADING, payload: true });
 		const response = await fetch(
 			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions.json`,
 			{
@@ -39,6 +41,7 @@ export const addTransaction = (detailInput, uid) => {
 		);
 
 		if (!response.ok) {
+			dispatch({ type: LOADING, payload: false });
 			throw new Error("cannot send transaction to server");
 		}
 		dispatch({ type: ADD_TRANSACTION });

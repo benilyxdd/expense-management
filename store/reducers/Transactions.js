@@ -4,6 +4,7 @@ import {
 	DETAIL_AMOUNT_CHANGE,
 	DETAIL_DESCRIPTION_CHANGE,
 	ADD_TRANSACTION,
+	LOADING,
 } from "../actions/Transactions";
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
 		amount: "",
 		description: "",
 	},
+	isLoading: false,
 };
 
 const TransactionsRedcuer = (state = initialState, action) => {
@@ -23,6 +25,7 @@ const TransactionsRedcuer = (state = initialState, action) => {
 				...state,
 				// simpleInput: "",
 				detailInput: { amount: "", description: "" },
+				isLoading: false,
 			};
 		case DETAIL_AMOUNT_CHANGE:
 			return {
@@ -41,7 +44,13 @@ const TransactionsRedcuer = (state = initialState, action) => {
 				},
 			};
 		case ADD_TRANSACTION:
-			return { ...state, detailInput: { amount: "", description: "" } };
+			return {
+				...state,
+				detailInput: { amount: "", description: "" },
+				isLoading: false,
+			};
+		case LOADING:
+			return { ...state, isLoading: action.payload };
 		default:
 			return state;
 	}
