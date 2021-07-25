@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 import { Divider, List } from "react-native-paper";
 
