@@ -3,6 +3,7 @@ import {
 	RESET_INPUT,
 	DETAIL_AMOUNT_CHANGE,
 	DETAIL_DESCRIPTION_CHANGE,
+	ADD_TRANSACTION,
 } from "../actions/Transactions";
 
 const initialState = {
@@ -20,7 +21,7 @@ const TransactionsRedcuer = (state = initialState, action) => {
 		case RESET_INPUT:
 			return {
 				...state,
-				simpleInput: "",
+				// simpleInput: "",
 				detailInput: { amount: "", description: "" },
 			};
 		case DETAIL_AMOUNT_CHANGE:
@@ -39,6 +40,8 @@ const TransactionsRedcuer = (state = initialState, action) => {
 					description: action.input,
 				},
 			};
+		case ADD_TRANSACTION:
+			return { ...state, detailInput: { amount: "", description: "" } };
 		default:
 			return state;
 	}
