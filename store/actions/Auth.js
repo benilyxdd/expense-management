@@ -44,8 +44,8 @@ export const signUp = (email, password) => {
 				},
 				body: JSON.stringify({
 					basicInfo: {
-						assets: 0,
-						liabilities: 0,
+						income: 0,
+						expenses: 0,
 						total: 0,
 					},
 				}),
