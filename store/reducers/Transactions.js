@@ -8,7 +8,7 @@ import {
 const initialState = {
 	// simpleInput: "",
 	detailInput: {
-		amount: 0,
+		amount: "",
 		description: "",
 	},
 };
