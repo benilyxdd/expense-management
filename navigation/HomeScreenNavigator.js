@@ -14,6 +14,7 @@ const HomeScreenNavigator = () => {
 
 	const detailInput = useSelector((state) => state.Transactions.detailInput);
 	const uid = useSelector((state) => state.Auth.uid);
+	const userTotalExpenses = useSelector((state) => state.AppData.userData.basicInfo.expenses);
 
 	return (
 		<HomeStack.Navigator>
@@ -28,7 +29,13 @@ const HomeScreenNavigator = () => {
 								icon="check"
 								color="red"
 								onPress={() =>
-									dispatch(addTransaction(detailInput, uid))
+									dispatch(
+										addTransaction(
+											detailInput,
+											uid,
+											userTotalExpenses
+										)
+									)
 								}
 							/>
 						);
