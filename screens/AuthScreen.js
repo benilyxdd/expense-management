@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { TextInput, Button } from "react-native-paper";
 
 import {
-	simpleLogIn,
 	emailChange,
 	passwordChange,
 	logIn,
@@ -16,9 +15,6 @@ const AuthScreen = (props) => {
 	const userPassword = useSelector((state) => state.Auth.userPassword);
 
 	const dispatch = useDispatch();
-	const simpleLoginHandler = () => {
-		dispatch(simpleLogIn());
-	};
 
 	const logInHandler = () => {
 		dispatch(logIn(userEmail, userPassword));
@@ -31,7 +27,6 @@ const AuthScreen = (props) => {
 	return (
 		<View style={styles.screen}>
 			<Text style={styles.text}>This is auth screen</Text>
-			<Button onPress={simpleLoginHandler}>Hello</Button>
 			<View style={styles.inputContainer}>
 				<TextInput
 					label="email"

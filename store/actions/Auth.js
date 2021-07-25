@@ -1,16 +1,11 @@
 import { FIREBASE_API, FIREBASE_PROJECT_ID } from "@env";
 
-export const SIMPLE_LOGIN = "SIMPLE_LOGIN";
 export const SIGNUP = "SIGNUP";
 export const LOGIN = "LOGIN";
 export const EMAIL_CHANGE = "EMAIL_CHANGE";
 export const PASSWORD_CHANGE = "PASSWORD_CHANGE";
 export const LOADING = "LOADING";
 export const FETCH_USER_DATA = "FETCH_USER_DATA";
-
-export const simpleLogIn = () => {
-	return { type: SIMPLE_LOGIN };
-};
 
 export const signUp = (email, password) => {
 	return async (dispatch) => {
