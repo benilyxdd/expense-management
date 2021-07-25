@@ -14,7 +14,7 @@ const HomeScreenNavigator = () => {
 
 	const detailInput = useSelector((state) => state.Transactions.detailInput);
 	const uid = useSelector((state) => state.Auth.uid);
-	const userTotalExpenses = useSelector((state) => state.AppData.userData.basicInfo.expenses);
+	const userTotalExpenses = useSelector((state) => state.Auth.userData.basicInfo.expenses);
 
 	return (
 		<HomeStack.Navigator>

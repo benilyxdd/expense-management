@@ -5,6 +5,7 @@ import {
 	EMAIL_CHANGE,
 	PASSWORD_CHANGE,
 	LOADING,
+	FETCH_USER_DATA,
 } from "../actions/Auth";
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
 	idToken: "",
 	uid: "",
 	isLoading: false,
+	userData: {},
 };
 
 const AuthReducer = (state = initialState, action) => {
@@ -37,10 +39,11 @@ const AuthReducer = (state = initialState, action) => {
 				isLoggedIn: true,
 				idToken: action.payload.idToken,
 				uid: action.payload.localId,
-				isLoading: false,
 			};
 		case LOADING:
 			return { ...state, isLoading: action.payload };
+		case FETCH_USER_DATA:
+			return { ...state, userData: action.payload, isLoading: false };
 		default:
 			return state;
 	}

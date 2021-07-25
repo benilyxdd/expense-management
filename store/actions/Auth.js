@@ -6,6 +6,7 @@ export const LOGIN = "LOGIN";
 export const EMAIL_CHANGE = "EMAIL_CHANGE";
 export const PASSWORD_CHANGE = "PASSWORD_CHANGE";
 export const LOADING = "LOADING";
+export const FETCH_USER_DATA = "FETCH_USER_DATA";
 
 export const simpleLogIn = () => {
 	return { type: SIMPLE_LOGIN };
@@ -89,4 +90,22 @@ export const emailChange = (email) => {
 
 export const passwordChange = (password) => {
 	return { type: PASSWORD_CHANGE, password: password };
+};
+
+export const fetchUserData = (uid) => {
+	return async (dispatch) => {
+		const response = await fetch(
+			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}.json`,
+			{
+				method: "GET",
+			}
+		);
+
+		if (!response.ok) {
+			throw new Error("can't fetch user data");
+		}
+
+		const responseData = await response.json();
+		dispatch({ type: FETCH_USER_DATA, payload: responseData });
+	};
 };

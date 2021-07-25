@@ -5,14 +5,13 @@ import { ActivityIndicator } from "react-native-paper";
 
 import NagivationBar from "../components/NavigationBar";
 import AuthScreen from "../screens/AuthScreen";
-import { fetchUserData } from "../store/actions/AppData";
+import { fetchUserData } from "../store/actions/Auth";
 
 const MainScreen = (props) => {
 	const isLoggedIn = useSelector((state) => state.Auth.isLoggedIn);
 	const isLoading = useSelector((state) => state.Auth.isLoading);
 	const isLoading2 = useSelector((state) => state.Transactions.isLoading);
 	const uid = useSelector((state) => state.Auth.uid);
-	const userData = useSelector((state) => state.AppData.userData);
 
 	const dispatch = useDispatch();
 
