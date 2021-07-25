@@ -9,7 +9,7 @@ import { addTransaction } from "../store/actions/Transactions";
 
 const HomeStack = createStackNavigator();
 
-const HomeScreenNavigator = () => {
+const HomeScreenNavigator = (props) => {
 	const dispatch = useDispatch();
 
 	const detailInput = useSelector((state) => state.Transactions.detailInput);
@@ -28,15 +28,16 @@ const HomeScreenNavigator = () => {
 							<IconButton
 								icon="check"
 								color="red"
-								onPress={() =>
+								onPress={() => {
 									dispatch(
 										addTransaction(
 											detailInput,
 											uid,
 											userBasicInfo
 										)
-									)
-								}
+									);
+									props.navigation.goBack();
+								}}
 							/>
 						);
 					},
