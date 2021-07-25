@@ -9,7 +9,7 @@ import {
 	resetInput,
 } from "../../store/actions/Transactions";
 
-const SimpleAdd = () => {
+const DetailAdd = () => {
 	const detailInput = useSelector((state) => state.Transactions.detailInput);
 
 	const dispatch = useDispatch();
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default SimpleAdd;
+export default DetailAdd;
