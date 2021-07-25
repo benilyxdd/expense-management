@@ -1,12 +1,11 @@
 import React from "react";
 import { View, StyleSheet, ScrollView, Text } from "react-native";
 import { List, Divider } from "react-native-paper";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import TouchableListItem from "../../components/TouchableListItem";
 
 const SettingsScreen = (props) => {
-	const dispatch = useDispatch();
 	const uid = useSelector((state) => state.Auth.uid);
 
 	return (

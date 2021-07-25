@@ -1,12 +1,12 @@
 import {
-	SIMPLE_INPUT_CHANGE,
+	// SIMPLE_INPUT_CHANGE,
 	RESET_INPUT,
 	DETAIL_AMOUNT_CHANGE,
 	DETAIL_DESCRIPTION_CHANGE,
 } from "../actions/Transactions";
 
 const initialState = {
-	simpleInput: "",
+	// simpleInput: "",
 	detailInput: {
 		amount: 0,
 		description: "",
@@ -15,8 +15,8 @@ const initialState = {
 
 const TransactionsRedcuer = (state = initialState, action) => {
 	switch (action.type) {
-		case SIMPLE_INPUT_CHANGE:
-			return { ...state, simpleInput: action.input };
+		// case SIMPLE_INPUT_CHANGE:
+		// 	return { ...state, simpleInput: action.input };
 		case RESET_INPUT:
 			return {
 				...state,

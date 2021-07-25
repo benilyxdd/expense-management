@@ -9,6 +9,7 @@ Home Screen
     - simple mode vs details mode  
         - simple mode -> [date & time(possibly get system current time if not specify), amount, do what]
         - has a list of transactions written in simple mode, that can add more details
+        - place a text input above recent transaction instead using + button
         
         - details mode -> [date & time, accounts, category, details, amount, which currency]   
 

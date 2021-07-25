@@ -2,16 +2,13 @@ import React, { useState } from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 import { Divider, List } from "react-native-paper";
 
-// import AccountPicker from "../../components/AccountPicker";
 import DataTableRow from "../../components/DataTableRow";
 import TouchableListItem from "../../components/TouchableListItem";
 
 const AccountOverallScreen = (props) => {
-	// const [content, setContent] = useState("a");
 
 	return (
 		<View style={styles.screen}>
-			{/* <AccountPicker onChangeAccount={(value) => setContent(value)} /> */}
 			<View style={styles.dataTableSection}>
 				<DataTableRow
 					cells={[

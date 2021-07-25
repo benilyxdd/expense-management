@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
-import SimpleAdd from "./SimpleAdd";
+// import SimpleAdd from "./SimpleAdd";
 import DetailAdd from "./DetailAdd";
 
 const Tab = createMaterialTopTabNavigator();
@@ -12,7 +12,7 @@ const AddTransactionScreen = (props) => {
 		<View style={styles.screen}>
 			<View style={styles.navigatorContainer}>
 				<Tab.Navigator>
-					<Tab.Screen name="simple" component={SimpleAdd} />
+					{/* <Tab.Screen name="simple" component={SimpleAdd} /> */}
 					<Tab.Screen name="detail" component={DetailAdd} />
 				</Tab.Navigator>
 			</View>
