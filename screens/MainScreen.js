@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { ActivityIndicator } from "react-native-paper";
 
 import NagivationBar from "../components/NavigationBar";
-import allScreensTab from "../data/AllTabScreenData";
 import AuthScreen from "../screens/AuthScreen";
 import { fetchUserData } from "../store/actions/AppData";
 
@@ -34,7 +33,7 @@ const MainScreen = (props) => {
 
 	return (
 		<View style={styles.screen}>
-			<NagivationBar allScreens={allScreensTab} />
+			<NagivationBar />
 		</View>
 	);
 };

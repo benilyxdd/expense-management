@@ -8,7 +8,7 @@ import RecentTransactionData from "../../data/RecentTransactionData";
 import AddTransactionButton from "../../components/AddTransactionButton";
 
 const HomeScreen = (props) => {
-	const GoToAddTransactionPageHandle = () => {
+	const GoToAddTransactionPageHandler = () => {
 		props.navigation.navigate("Add Transaction");
 	};
 
@@ -29,7 +29,7 @@ const HomeScreen = (props) => {
 					<RecentTransactionsContainer data={RecentTransactionData} />
 					<View style={styles.addTransactionButtonContainer}>
 						<AddTransactionButton
-							onPress={GoToAddTransactionPageHandle}
+							onPress={GoToAddTransactionPageHandler}
 						/>
 					</View>
 				</View>
