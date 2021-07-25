@@ -36,14 +36,18 @@ const AuthReducer = (state = initialState, action) => {
 		case LOGIN:
 			return {
 				...state,
-				isLoggedIn: true,
 				idToken: action.payload.idToken,
 				uid: action.payload.localId,
+				userData: action.userData,
+				isLoggedIn: true
 			};
 		case LOADING:
 			return { ...state, isLoading: action.payload };
 		case FETCH_USER_DATA:
-			return { ...state, userData: action.payload, isLoading: false };
+			return {
+				...state,
+				userData: action.payload,
+			};
 		default:
 			return state;
 	}

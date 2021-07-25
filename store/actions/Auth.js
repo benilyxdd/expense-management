@@ -76,11 +76,23 @@ export const logIn = (email, password) => {
 
 		if (!response.ok) {
 			dispatch({ type: LOADING, payload: false });
-			throw new Error("What");
+			throw new Error("Login Failed");
 		}
 
 		const responseData = await response.json();
-		dispatch({ type: LOGIN, payload: responseData });
+		const response2 = await fetch(
+			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${responseData.localId}.json`,
+			{
+				method: "GET",
+			}
+		);
+
+		if (!response2.ok) {
+			throw new Error("can't fetch user data");
+		}
+
+		const responseData2 = await response2.json();
+		dispatch({ type: LOGIN, payload: responseData, userData: responseData2 });
 	};
 };
 
