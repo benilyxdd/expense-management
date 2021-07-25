@@ -32,7 +32,7 @@ export const signUp = (email, password) => {
 
 		if (!response.ok) {
 			dispatch({ type: LOADING, payload: false });
-			throw new Error("Login Failed");
+			throw new Error("Cannot create account");
 		}
 
 		const responseData = await response.json();
