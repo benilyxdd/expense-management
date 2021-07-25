@@ -1,20 +1,22 @@
 import React from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 import { Divider, List } from "react-native-paper";
+import { useSelector } from "react-redux";
 
 import DataTableRow from "../../components/DataTableRow";
 import TouchableListItem from "../../components/TouchableListItem";
 
 const AccountOverallScreen = (props) => {
+	const userBasicInfo = useSelector((state) => state.Auth.userData.basicInfo);
 
 	return (
 		<View style={styles.screen}>
 			<View style={styles.dataTableSection}>
 				<DataTableRow
 					cells={[
-						{ name: "Assets", amounts: 0 },
-						{ name: "Liabilities", amounts: 100 },
-						{ name: "Total", amounts: -100 },
+						{ name: "Income", amounts: userBasicInfo.income },
+						{ name: "Expenses", amounts: userBasicInfo.expenses },
+						{ name: "Total", amounts: userBasicInfo.total },
 					]}
 				/>
 			</View>
@@ -52,8 +54,7 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		justifyContent: "center",
 	},
-	detailsSection: {
-	},
+	detailsSection: {},
 	dataTableSection: {
 		height: "7%",
 		borderBottomColor: "grey",
