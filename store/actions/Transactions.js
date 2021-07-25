@@ -28,7 +28,7 @@ export const resetInput = () => {
 	return { type: RESET_INPUT };
 };
 
-export const addTransaction = (detailInput, uid) => {
+export const addTransaction = (detailInput, uid, userTotalExpenses) => {
 	return async (dispatch) => {
 		dispatch({ type: LOADING, payload: true });
 		const response = await fetch(
@@ -50,6 +50,25 @@ export const addTransaction = (detailInput, uid) => {
 			dispatch({ type: LOADING, payload: false });
 			throw new Error("cannot send transaction to server");
 		}
+
+		const response2 = await fetch(
+			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/basicInfo.json`,
+			{
+				method: "PATCH",
+				headers: {
+					"Content-type": "application/json",
+				},
+				body: JSON.stringify({
+					expenses: userTotalExpenses + parseInt(detailInput.amount),
+				}),
+			}
+		);
+
+		if (!response2.ok) {
+			dispatch({ type: LOADING, payload: false });
+			throw new Error("cannot add amount to total expenses");
+		}
+
 		dispatch({ type: ADD_TRANSACTION });
 	};
 };
