@@ -3,6 +3,7 @@ import { FIREBASE_PROJECT_ID } from "@env";
 // export const SIMPLE_INPUT_CHANGE = "SIMPLE_INPUT_CHANGE";
 export const DETAIL_AMOUNT_CHANGE = "DETAIL_AMOUNT_CHANGE";
 export const DETAIL_DESCRIPTION_CHANGE = "DETAIL_DESCRIPTION_CHANGE";
+export const DETAIL_DATE_CHANGE = "DETAIL_DATE_CHANGE";
 export const RESET_INPUT = "RESET_INPUT";
 export const ADD_TRANSACTION = "ADD_TRANSACTION";
 export const LOADING = "LOADING";
@@ -17,6 +18,10 @@ export const detailAmountChange = (input) => {
 
 export const detailDescriptionChange = (input) => {
 	return { type: DETAIL_DESCRIPTION_CHANGE, input: input };
+};
+
+export const detailDateChange = (input) => {
+	return { type: DETAIL_DATE_CHANGE, input: input };
 };
 
 export const resetInput = () => {
@@ -34,6 +39,7 @@ export const addTransaction = (detailInput, uid) => {
 					"Content-type": "application/json",
 				},
 				body: JSON.stringify({
+					date: detailInput.date,
 					amount: detailInput.amount,
 					description: detailInput.description,
 				}),

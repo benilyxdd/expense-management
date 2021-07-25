@@ -5,13 +5,13 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
     detailAmountChange,
-    detailDescriptionChange,
+	detailDescriptionChange,
+	detailDateChange,
 	resetInput,
 } from "../../store/actions/Transactions";
 
 const DetailAdd = () => {
 	const detailInput = useSelector((state) => state.Transactions.detailInput);
-
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -20,6 +20,11 @@ const DetailAdd = () => {
 
 	return (
 		<View style={styles.screen}>
+			<TextInput
+				label="date"
+				value={detailInput.date}
+                onChangeText={(input) => dispatch(detailDateChange(input))}
+			/>
 			<TextInput
 				label="amount"
 				value={detailInput.amount}

@@ -3,6 +3,7 @@ import {
 	RESET_INPUT,
 	DETAIL_AMOUNT_CHANGE,
 	DETAIL_DESCRIPTION_CHANGE,
+	DETAIL_DATE_CHANGE,
 	ADD_TRANSACTION,
 	LOADING,
 } from "../actions/Transactions";
@@ -12,6 +13,7 @@ const initialState = {
 	detailInput: {
 		amount: "",
 		description: "",
+		date: "",
 	},
 	isLoading: false,
 };
@@ -24,7 +26,14 @@ const TransactionsRedcuer = (state = initialState, action) => {
 			return {
 				...state,
 				// simpleInput: "",
-				detailInput: { amount: "", description: "" },
+				detailInput: {
+					amount: "",
+					description: "",
+					date:
+						new Date().toLocaleDateString() +
+						" " +
+						new Date().toLocaleTimeString(),
+				},
 				isLoading: false,
 			};
 		case DETAIL_AMOUNT_CHANGE:
@@ -43,10 +52,22 @@ const TransactionsRedcuer = (state = initialState, action) => {
 					description: action.input,
 				},
 			};
+		case DETAIL_DATE_CHANGE:
+			return {
+				...state,
+				detailInput: { ...state.detailInput, date: action.input },
+			};
 		case ADD_TRANSACTION:
 			return {
 				...state,
-				detailInput: { amount: "", description: "" },
+				detailInput: {
+					amount: "",
+					description: "",
+					date:
+						new Date().toLocaleDateString() +
+						" " +
+						new Date().toLocaleTimeString(),
+				},
 				isLoading: false,
 			};
 		case LOADING:
