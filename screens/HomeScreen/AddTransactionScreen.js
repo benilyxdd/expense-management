@@ -13,7 +13,8 @@ const AddTransactionScreen = (props) => {
 			<View style={styles.navigatorContainer}>
 				<Tab.Navigator>
 					{/* <Tab.Screen name="simple" component={SimpleAdd} /> */}
-					<Tab.Screen name="detail" component={DetailAdd} />
+					<Tab.Screen name="Income" component={DetailAdd} />
+					<Tab.Screen name="Expense" component={DetailAdd} />
 				</Tab.Navigator>
 			</View>
 		</View>
@@ -24,14 +25,14 @@ const styles = StyleSheet.create({
 	screen: {
 		flex: 1,
 		alignItems: "center",
-		justifyContent: "center",
 	},
 	navigatorContainer: {
 		width: "90%",
-		height: "90%",
+		height: "50%",
 		overflow: "hidden",
 		borderRadius: 15,
 		borderWidth: 2,
+		margin: "5%",
 	},
 });
 
