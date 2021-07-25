@@ -7,7 +7,7 @@ const RecentTransactionsContainer = (props) => {
 	const userTransactions = useSelector(
 		(state) => state.Auth.userData.transactions
 	);
-	const userTransactionsArray = userTransactions
+	const userTransactionsArray = userTransactions // object of object -> array of object
 		? Object.keys(userTransactions)
 				.map((key) => {
 					return userTransactions[key];

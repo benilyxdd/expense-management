@@ -1,5 +1,5 @@
 General
-- make home page center in the tab navigator
+// - make home page center in the tab navigator
 - put every data on server side
 
 Home Screen
