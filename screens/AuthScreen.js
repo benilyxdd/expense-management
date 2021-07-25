@@ -52,8 +52,8 @@ const AuthScreen = (props) => {
 					secureTextEntry={true}
 				/>
 				<View style={styles.submitButtonContainer}>
-					<Button onPress={logInHandler}>Log In</Button>
 					<Button onPress={signUpHandler}>Sign Up</Button>
+					<Button onPress={logInHandler}>Log In</Button>
 				</View>
 			</View>
 		</View>

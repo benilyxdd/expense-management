@@ -35,7 +35,7 @@ export const signUp = (email, password) => {
 		}
 
 		const responseData = await response.json();
-		const response2 = await fetch(
+		await fetch(
 			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${responseData.localId}.json`,
 			{
 				method: "PATCH",
@@ -48,8 +48,6 @@ export const signUp = (email, password) => {
 						liabilities: 0,
 						total: 0,
 					},
-					transactions: {},
-					accounts: {},
 				}),
 			}
 		);
