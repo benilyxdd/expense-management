@@ -1,13 +1,17 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import { TextInput } from "react-native-paper";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+
+import SimpleAdd from "./SimpleAdd";
+
+const Tab = createMaterialTopTabNavigator();
 
 const AddTransactionScreen = (props) => {
 	return (
 		<View style={styles.screen}>
-			<View style={styles.textInputContainer}>
-				<TextInput />
-			</View>
+			<Tab.Navigator>
+				<Tab.Screen name="simple" component={SimpleAdd} />
+			</Tab.Navigator>
 		</View>
 	);
 };
