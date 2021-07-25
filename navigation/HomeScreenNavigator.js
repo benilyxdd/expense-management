@@ -14,7 +14,7 @@ const HomeScreenNavigator = () => {
 
 	const detailInput = useSelector((state) => state.Transactions.detailInput);
 	const uid = useSelector((state) => state.Auth.uid);
-	const userTotalExpenses = useSelector((state) => state.Auth.userData.basicInfo.expenses);
+	const userBasicInfo = useSelector((state) => state.Auth.userData.basicInfo);
 
 	return (
 		<HomeStack.Navigator>
@@ -33,7 +33,7 @@ const HomeScreenNavigator = () => {
 										addTransaction(
 											detailInput,
 											uid,
-											userTotalExpenses
+											userBasicInfo
 										)
 									)
 								}

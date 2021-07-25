@@ -28,7 +28,7 @@ export const resetInput = () => {
 	return { type: RESET_INPUT };
 };
 
-export const addTransaction = (detailInput, uid, userTotalExpenses) => {
+export const addTransaction = (detailInput, uid, userBasicInfo) => {
 	return async (dispatch) => {
 		dispatch({ type: LOADING, payload: true });
 		const response = await fetch(
@@ -59,7 +59,9 @@ export const addTransaction = (detailInput, uid, userTotalExpenses) => {
 					"Content-type": "application/json",
 				},
 				body: JSON.stringify({
-					expenses: userTotalExpenses + parseInt(detailInput.amount),
+					expenses:
+						userBasicInfo.expenses + parseInt(detailInput.amount),
+					total: userBasicInfo.total + parseInt(detailInput.amount),
 				}),
 			}
 		);
