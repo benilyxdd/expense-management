@@ -1,22 +1,14 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import SettingsStackData from "../data/stack/SettingsStackData";
+import SettingsScreen from "../screens/TabScreen/SettingsScreen";
 
 const SettingsStack = createStackNavigator();
 
 const SettingScreenNavigator = () => {
 	return (
 		<SettingsStack.Navigator>
-			{SettingsStackData.map((screen, index) => {
-				return (
-					<SettingsStack.Screen
-						key={index}
-						name={screen.name}
-						component={screen.component}
-					/>
-				);
-			})}
+			<SettingsStack.Screen name="Settings" component={SettingsScreen} />
 		</SettingsStack.Navigator>
 	);
 };

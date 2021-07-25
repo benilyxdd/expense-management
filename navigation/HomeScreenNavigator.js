@@ -1,22 +1,19 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import HomeStackData from "../data/stack/HomeStackData";
+import AddTransactionScreen from "../screens/HomeScreen/AddTransactionScreen";
+import HomeScreen from "../screens/TabScreen/HomeScreen";
 
 const HomeStack = createStackNavigator();
 
 const HomeScreenNavigator = () => {
 	return (
 		<HomeStack.Navigator>
-			{HomeStackData.map((screen, index) => {
-				return (
-					<HomeStack.Screen
-						key={index}
-						name={screen.name}
-						component={screen.component}
-					/>
-				);
-			})}
+			<HomeStack.Screen name="Home" component={HomeScreen} />
+			<HomeStack.Screen
+				name="Add Transaction"
+				component={AddTransactionScreen}
+			/>
 		</HomeStack.Navigator>
 	);
 };
