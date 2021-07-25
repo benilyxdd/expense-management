@@ -5,7 +5,8 @@ import { useSelector } from "react-redux";
 import { ActivityIndicator } from "react-native-paper";
 
 // import SimpleAdd from "./SimpleAdd";
-import DetailAdd from "./DetailAdd";
+import IncomeTab from "./IncomeTab";
+import ExpensesTab from "./ExpenseTab";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -21,10 +22,10 @@ const AddTransactionScreen = (props) => {
 				/>
 			)}
 			<View style={styles.navigatorContainer}>
-				<Tab.Navigator>
+				<Tab.Navigator >
 					{/* <Tab.Screen name="simple" component={SimpleAdd} /> */}
-					<Tab.Screen name="Income" component={DetailAdd} />
-					<Tab.Screen name="Expense" component={DetailAdd} />
+					<Tab.Screen name="Income" component={IncomeTab} />
+					<Tab.Screen name="Expense" component={ExpensesTab} />
 				</Tab.Navigator>
 			</View>
 		</View>
