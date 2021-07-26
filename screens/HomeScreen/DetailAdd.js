@@ -21,7 +21,11 @@ const DetailAdd = (props) => {
 
 	const amountChangeHandler = (input) => {
 		const filteredInput = input.replace(/[^0-9\.]/g, "");
-		if (filteredInput === "" || filteredInput.slice(-1) === ".") {
+		if (
+			filteredInput === "" ||
+			(filteredInput.slice(-1) === "." &&
+				filteredInput.indexOf(".") === filteredInput.length - 1)
+		) {
 			dispatch(detailAmountChange(filteredInput));
 		} else {
 			dispatch(
