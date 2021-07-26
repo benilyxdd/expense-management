@@ -5,6 +5,7 @@ import {
 	PASSWORD_CHANGE,
 	LOADING,
 	FETCH_USER_DATA,
+	SET_MONTHLY_BUDGET,
 } from "../actions/Auth";
 
 const initialState = {
@@ -36,11 +37,16 @@ const AuthReducer = (state = initialState, action) => {
 				idToken: action.payload.idToken,
 				uid: action.payload.localId,
 				userData: action.userData,
-				isLoggedIn: true
+				isLoggedIn: true,
 			};
 		case LOADING:
 			return { ...state, isLoading: action.payload };
 		case FETCH_USER_DATA:
+			return {
+				...state,
+				userData: action.payload,
+			};
+		case SET_MONTHLY_BUDGET:
 			return {
 				...state,
 				userData: action.payload,

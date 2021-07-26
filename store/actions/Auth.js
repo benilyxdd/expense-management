@@ -1,4 +1,5 @@
 import { FIREBASE_API, FIREBASE_PROJECT_ID } from "@env";
+import { setMonthlyBudgetChange } from "./AppData";
 
 export const SIGNUP = "SIGNUP";
 export const LOGIN = "LOGIN";
@@ -6,6 +7,7 @@ export const EMAIL_CHANGE = "EMAIL_CHANGE";
 export const PASSWORD_CHANGE = "PASSWORD_CHANGE";
 export const LOADING = "LOADING";
 export const FETCH_USER_DATA = "FETCH_USER_DATA";
+export const SET_MONTHLY_BUDGET = "SET_MONTHLY_BUDGET";
 
 export const signUp = (email, password) => {
 	return async (dispatch) => {
@@ -120,5 +122,39 @@ export const fetchUserData = (uid) => {
 
 		const responseData = await response.json();
 		dispatch({ type: FETCH_USER_DATA, payload: responseData });
+	};
+};
+
+export const setMonthlyBudget = (budget, uid) => {
+	return async (dispatch) => {
+		const response = await fetch(
+			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/basicInfo.json`,
+			{
+				method: "PATCH",
+				headers: {
+					"Content-type": "application/json",
+				},
+				body: JSON.stringify({
+					monthlyBudget: parseFloat(budget),
+				}),
+			}
+		);
+
+		if (!response.ok) {
+			throw new Error("cannot set monthly budget");
+		}
+		const response2 = await fetch(
+			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}.json`,
+			{
+				method: "GET",
+			}
+		);
+
+		if (!response2.ok) {
+			throw new Error("can't fetch user data");
+		}
+
+		const responseData2 = await response2.json();
+		dispatch({ type: SET_MONTHLY_BUDGET, payload: responseData2 });
 	};
 };
