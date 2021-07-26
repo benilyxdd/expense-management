@@ -39,7 +39,7 @@ const HomeScreenNavigator = (props) => {
 				icon="check"
 				color="red"
 				onPress={() => {
-					dispatch(setMonthlyBudget(setMonthlyBudgetAmount));
+					dispatch(setMonthlyBudget(setMonthlyBudgetAmount, uid));
 					props.navigation.goBack();
 				}}
 			/>
