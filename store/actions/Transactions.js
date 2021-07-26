@@ -62,6 +62,9 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 					expenses:
 						userBasicInfo.expenses + parseInt(detailInput.amount),
 					total: userBasicInfo.total + parseInt(detailInput.amount),
+					monthlyBudget:
+						userBasicInfo.monthlyBudget +
+						Math.min(0, detailInput.amount),
 				}),
 			}
 		);

@@ -1,5 +1,6 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, TouchableWithoutFeedback } from "react-native";
+import { useSelector } from "react-redux";
 
 import Pie from "../../components/Pie";
 import PieChartData from "../../data/PieChartData";
@@ -8,6 +9,10 @@ import RecentTransactionData from "../../data/RecentTransactionData";
 import AddTransactionButton from "../../components/AddTransactionButton";
 
 const HomeScreen = (props) => {
+	const monthlyBudget = useSelector(
+		(state) => state.Auth.userData.basicInfo.monthlyBudget
+	);
+
 	const GoToAddTransactionPageHandler = () => {
 		props.navigation.navigate("Add Transaction");
 	};
@@ -17,13 +22,19 @@ const HomeScreen = (props) => {
 			<View style={styles.middleScreen}>
 				<View style={styles.pieChartContainer}>
 					<Pie data={PieChartData} />
-					<View style={styles.remainingBudgetContainer}>
-						<Text style={styles.remainingBudgetText}>
-							Remaining
-						</Text>
-						<Text style={styles.remainingBudgetText}>Budget: </Text>
-						<Text style={styles.remainingBudgetText}>$100</Text>
-					</View>
+					<TouchableWithoutFeedback onPress={() => console.log("hi")}>
+						<View style={styles.remainingBudgetContainer}>
+							<Text style={styles.remainingBudgetText}>
+								Remaining
+							</Text>
+							<Text style={styles.remainingBudgetText}>
+								Budget:{" "}
+							</Text>
+							<Text style={styles.remainingBudgetText}>
+								${monthlyBudget}
+							</Text>
+						</View>
+					</TouchableWithoutFeedback>
 				</View>
 				<View style={styles.recentTransactionContainer}>
 					<RecentTransactionsContainer data={RecentTransactionData} />

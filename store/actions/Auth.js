@@ -43,6 +43,7 @@ export const signUp = (email, password) => {
 						income: 0,
 						expenses: 0,
 						total: 0,
+						monthlyBudget: 0,
 					},
 				}),
 			}
@@ -87,7 +88,12 @@ export const logIn = (email, password) => {
 		}
 
 		const responseData2 = await response2.json();
-		dispatch({ type: LOGIN, payload: responseData, userData: responseData2 });
+		console.log(responseData2);
+		dispatch({
+			type: LOGIN,
+			payload: responseData,
+			userData: responseData2,
+		});
 	};
 };
 
