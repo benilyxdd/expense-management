@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { View } from "react-native";
 import { TextInput } from "react-native-paper";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { setMonthlyBudgetChange } from "../../store/actions/AppData";
 
 const SetBudgetScreen = () => {
-	const monthlyBudget = useSelector(
+	const dispatch = useDispatch();
+	const monthlyBudgetAmount = useSelector(
 		(state) => state.Auth.userData.basicInfo.monthlyBudget
 	);
-	const [enteredBudget, setEnteredBudget] = useState(
-		monthlyBudget.toString()
+	const setMonthlyBudgetAmount = useSelector(
+		(state) => state.AppData.setMonthlyBudgetAmount
 	);
+
+	useEffect(() => {
+		dispatch(setMonthlyBudgetChange(monthlyBudgetAmount.toString()));
+	}, []);
 
 	const budgetChangeHandler = (input) => {
 		const filteredInput = input.replace(/[^0-9\.]/g, "");
@@ -18,9 +25,12 @@ const SetBudgetScreen = () => {
 			(filteredInput.slice(-1) === "." &&
 				filteredInput.indexOf(".") === filteredInput.length - 1)
 		) {
-			setEnteredBudget(filteredInput);
+			dispatch(setMonthlyBudgetChange(filteredInput));
 		} else {
-			setEnteredBudget(parseFloat(filteredInput).toString());
+			dispatch(
+				setMonthlyBudgetChange(parseFloat(filteredInput).toString())
+			);
+			``;
 		}
 	};
 
@@ -28,7 +38,7 @@ const SetBudgetScreen = () => {
 		<View>
 			<TextInput
 				label="Budget"
-				value={enteredBudget}
+				value={setMonthlyBudgetAmount}
 				onChangeText={budgetChangeHandler}
 			/>
 		</View>
