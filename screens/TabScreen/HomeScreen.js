@@ -17,12 +17,18 @@ const HomeScreen = (props) => {
 		props.navigation.navigate("Add Transaction");
 	};
 
+	const GoToSetBudgetPageHandler = () => {
+		props.navigation.navigate("Set Budget");
+	};
+
 	return (
 		<View style={styles.screen}>
 			<View style={styles.middleScreen}>
 				<View style={styles.pieChartContainer}>
 					<Pie data={PieChartData} />
-					<TouchableWithoutFeedback onPress={() => console.log("hi")}>
+					<TouchableWithoutFeedback
+						onPress={GoToSetBudgetPageHandler}
+					>
 						<View style={styles.remainingBudgetContainer}>
 							<Text style={styles.remainingBudgetText}>
 								Remaining
