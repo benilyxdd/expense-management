@@ -90,7 +90,6 @@ export const logIn = (email, password) => {
 		}
 
 		const responseData2 = await response2.json();
-		console.log(responseData2);
 		dispatch({
 			type: LOGIN,
 			payload: responseData,
