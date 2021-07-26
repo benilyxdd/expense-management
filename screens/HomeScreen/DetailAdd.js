@@ -19,6 +19,17 @@ const DetailAdd = (props) => {
 		dispatch(resetInput());
 	}, []);
 
+	const amountChangeHandler = (input) => {
+		const filteredInput = input.replace(/[^0-9\.]/g, "");
+		if (filteredInput === "" || filteredInput.slice(-1) === ".") {
+			dispatch(detailAmountChange(filteredInput));
+		} else {
+			dispatch(
+				detailAmountChange((parseFloat(filteredInput) * add).toString())
+			);
+		}
+	};
+
 	return (
 		<View style={styles.screen}>
 			<TextInput
@@ -29,22 +40,7 @@ const DetailAdd = (props) => {
 			<TextInput
 				label="amount"
 				value={detailInput.amount}
-				onChangeText={(input) => {
-					const filteredInput = input.replace(/[^0-9\.]/g, "");
-					console.log(filteredInput);
-					if (
-						filteredInput === "" ||
-						filteredInput.slice(-1) === "."
-					) {
-						dispatch(detailAmountChange(filteredInput));
-					} else {
-						dispatch(
-							detailAmountChange(
-								(parseFloat(filteredInput) * add).toString()
-							)
-						);
-					}
-				}}
+				onChangeText={amountChangeHandler}
 				keyboardType="numeric"
 			/>
 			<TextInput
