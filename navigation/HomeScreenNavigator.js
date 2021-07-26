@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import AddTransactionScreen from "../screens/HomeScreen/AddTransactionScreen";
 import HomeScreen from "../screens/TabScreen/HomeScreen";
 import { addTransaction } from "../store/actions/Transactions";
+import SetBudgetScreen from "../screens/HomeScreen/SetBudgetScreen";
 
 const HomeStack = createStackNavigator();
 
@@ -43,6 +44,7 @@ const HomeScreenNavigator = (props) => {
 					},
 				}}
 			/>
+			<HomeStack.Screen name="Set Budget" component={SetBudgetScreen} />
 		</HomeStack.Navigator>
 	);
 };
