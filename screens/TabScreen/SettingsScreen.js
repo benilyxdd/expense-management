@@ -1,11 +1,13 @@
 import React from "react";
 import { View, StyleSheet, ScrollView, Text } from "react-native";
 import { List, Divider } from "react-native-paper";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import TouchableListItem from "../../components/TouchableListItem";
+import { logOut } from "../../store/actions/Auth";
 
 const SettingsScreen = (props) => {
+	const dispatch = useDispatch();
 	const uid = useSelector((state) => state.Auth.uid);
 
 	return (
@@ -50,8 +52,8 @@ const SettingsScreen = (props) => {
 						onPress={() => console.log("hi")}
 					/>
 					<TouchableListItem
-						title="logOut"
-						onPress={() => console.log("hi")}
+						title="Log out"
+						onPress={() => dispatch(logOut())}
 					/>
 					<TouchableListItem
 						title="Theme"

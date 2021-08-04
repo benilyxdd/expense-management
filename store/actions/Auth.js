@@ -110,6 +110,7 @@ export const logIn = (email, password) => {
 };
 
 export const logOut = () => {
+	Alert.alert("Success", "Log out successfully");
 	return { type: LOGOUT };
 };
 
