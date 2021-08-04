@@ -3,6 +3,7 @@ import { Alert } from "react-native";
 
 export const SIGNUP = "SIGNUP";
 export const LOGIN = "LOGIN";
+export const LOGOUT = "LOGOUT";
 
 export const FETCH_USER_DATA = "FETCH_USER_DATA";
 export const SET_MONTHLY_BUDGET = "SET_MONTHLY_BUDGET";
@@ -106,6 +107,10 @@ export const logIn = (email, password) => {
 			userData: responseData2,
 		});
 	};
+};
+
+export const logOut = () => {
+	return { type: LOGOUT };
 };
 
 export const fetchUserData = (uid) => {

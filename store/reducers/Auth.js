@@ -1,11 +1,12 @@
 import {
 	SIGNUP,
 	LOGIN,
+	LOGOUT,
+	FETCH_USER_DATA,
+	SET_MONTHLY_BUDGET,
 	EMAIL_CHANGE,
 	PASSWORD_CHANGE,
 	LOADING,
-	FETCH_USER_DATA,
-	SET_MONTHLY_BUDGET,
 } from "../actions/Auth";
 
 const initialState = {
@@ -20,10 +21,6 @@ const initialState = {
 
 const AuthReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case EMAIL_CHANGE:
-			return { ...state, userEmail: action.email };
-		case PASSWORD_CHANGE:
-			return { ...state, userPassword: action.password };
 		case SIGNUP:
 			return {
 				...state,
@@ -34,13 +31,19 @@ const AuthReducer = (state = initialState, action) => {
 		case LOGIN:
 			return {
 				...state,
+				isLoggedIn: true,
 				idToken: action.payload.idToken,
 				uid: action.payload.localId,
 				userData: action.userData,
-				isLoggedIn: true,
 			};
-		case LOADING:
-			return { ...state, isLoading: action.payload };
+		case LOGOUT:
+			return {
+				...state,
+				isLoggedIn: false,
+				idToken: "",
+				uid: "",
+				userData: {},
+			};
 		case FETCH_USER_DATA:
 			return {
 				...state,
@@ -51,6 +54,12 @@ const AuthReducer = (state = initialState, action) => {
 				...state,
 				userData: action.payload,
 			};
+		case EMAIL_CHANGE:
+			return { ...state, userEmail: action.email };
+		case PASSWORD_CHANGE:
+			return { ...state, userPassword: action.password };
+		case LOADING:
+			return { ...state, isLoading: action.payload };
 		default:
 			return state;
 	}
