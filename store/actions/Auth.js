@@ -1,5 +1,5 @@
 import { FIREBASE_API, FIREBASE_PROJECT_ID } from "@env";
-import { setMonthlyBudgetChange } from "./AppData";
+import { Alert } from "react-native";
 
 export const SIGNUP = "SIGNUP";
 export const LOGIN = "LOGIN";
@@ -29,8 +29,14 @@ export const signUp = (email, password) => {
 
 		if (!response.ok) {
 			dispatch({ type: LOADING, payload: false });
+			Alert.alert("Error!", "This email is already registered")
 			throw new Error("Cannot create account");
 		}
+
+		Alert.alert(
+			"Success",
+			"You can now log in with your email and password!"
+		);
 
 		const responseData = await response.json();
 		await fetch(
@@ -74,6 +80,7 @@ export const logIn = (email, password) => {
 
 		if (!response.ok) {
 			dispatch({ type: LOADING, payload: false });
+			Alert.alert("Failed", "Incorrect email or password")
 			throw new Error("Login Failed");
 		}
 
@@ -86,7 +93,7 @@ export const logIn = (email, password) => {
 		);
 
 		if (!response2.ok) {
-			throw new Error("can't fetch user data");
+			throw new Error("can't fetch user data"); // should not be failed
 		}
 
 		const responseData2 = await response2.json();
