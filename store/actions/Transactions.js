@@ -51,6 +51,15 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 			throw new Error("cannot send transaction to server");
 		}
 
+		// construct sent data
+		const sentData = {
+			total: userBasicInfo.total + parseInt(detailInput.amount),
+			monthlyBudget:
+				userBasicInfo.monthlyBudget + Math.min(0, detailInput.amount),
+			income: userBasicInfo.income + Math.max(0, parseInt(detailInput.amount)),
+			expenses: userBasicInfo.expenses + Math.min(0, parseInt(detailInput.amount))
+		};
+		
 		const response2 = await fetch(
 			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/basicInfo.json`,
 			{
@@ -58,14 +67,7 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 				headers: {
 					"Content-type": "application/json",
 				},
-				body: JSON.stringify({
-					expenses:
-						userBasicInfo.expenses + parseInt(detailInput.amount),
-					total: userBasicInfo.total + parseInt(detailInput.amount),
-					monthlyBudget:
-						userBasicInfo.monthlyBudget +
-						Math.min(0, detailInput.amount),
-				}),
+				body: JSON.stringify(sentData),
 			}
 		);
 
