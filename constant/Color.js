@@ -1,5 +1,5 @@
 const Colors = {
-    primaryColor: 'white'
-}
+	primaryColor: "white",
+};
 
 export default Colors;

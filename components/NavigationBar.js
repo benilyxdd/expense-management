@@ -13,7 +13,10 @@ const Tab = createBottomTabNavigator();
 const NagivationBar = (props) => {
 	return (
 		<NavigationContainer>
-			<Tab.Navigator tabBarOptions={{ tabStyle: styles.navigationBar }} initialRouteName="Home">
+			<Tab.Navigator
+				tabBarOptions={{ tabStyle: styles.navigationBar }}
+				initialRouteName="Home"
+			>
 				<Tab.Screen
 					name="Accounts"
 					component={AccountOverallScreenNavigator}

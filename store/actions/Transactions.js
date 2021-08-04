@@ -56,10 +56,14 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 			total: userBasicInfo.total + parseInt(detailInput.amount),
 			monthlyBudget:
 				userBasicInfo.monthlyBudget + Math.min(0, detailInput.amount),
-			income: userBasicInfo.income + Math.max(0, parseInt(detailInput.amount)),
-			expenses: userBasicInfo.expenses + Math.min(0, parseInt(detailInput.amount))
+			income:
+				userBasicInfo.income +
+				Math.max(0, parseInt(detailInput.amount)),
+			expenses:
+				userBasicInfo.expenses +
+				Math.min(0, parseInt(detailInput.amount)),
 		};
-		
+
 		const response2 = await fetch(
 			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/basicInfo.json`,
 			{

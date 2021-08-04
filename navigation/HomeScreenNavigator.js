@@ -8,7 +8,7 @@ import HomeScreen from "../screens/TabScreen/HomeScreen";
 import SetBudgetScreen from "../screens/HomeScreen/SetBudgetScreen";
 
 import { addTransaction } from "../store/actions/Transactions";
-import { setMonthlyBudget } from '../store/actions/Auth';
+import { setMonthlyBudget } from "../store/actions/Auth";
 
 const HomeStack = createStackNavigator();
 
@@ -18,7 +18,9 @@ const HomeScreenNavigator = (props) => {
 	const detailInput = useSelector((state) => state.Transactions.detailInput);
 	const uid = useSelector((state) => state.Auth.uid);
 	const userBasicInfo = useSelector((state) => state.Auth.userData.basicInfo);
-	const setMonthlyBudgetAmount =  useSelector(state => state.AppData.setMonthlyBudgetAmount)
+	const setMonthlyBudgetAmount = useSelector(
+		(state) => state.AppData.setMonthlyBudgetAmount
+	);
 
 	const AddTransactionFinishButton = () => {
 		return (

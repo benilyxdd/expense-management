@@ -3,11 +3,14 @@ import { Alert } from "react-native";
 
 export const SIGNUP = "SIGNUP";
 export const LOGIN = "LOGIN";
-export const EMAIL_CHANGE = "EMAIL_CHANGE";
-export const PASSWORD_CHANGE = "PASSWORD_CHANGE";
-export const LOADING = "LOADING";
+
 export const FETCH_USER_DATA = "FETCH_USER_DATA";
 export const SET_MONTHLY_BUDGET = "SET_MONTHLY_BUDGET";
+
+export const EMAIL_CHANGE = "EMAIL_CHANGE";
+export const PASSWORD_CHANGE = "PASSWORD_CHANGE";
+
+export const LOADING = "LOADING";
 
 export const signUp = (email, password) => {
 	return async (dispatch) => {
@@ -29,7 +32,7 @@ export const signUp = (email, password) => {
 
 		if (!response.ok) {
 			dispatch({ type: LOADING, payload: false });
-			Alert.alert("Error!", "This email is already registered")
+			Alert.alert("Error!", "This email is already registered");
 			throw new Error("Cannot create account");
 		}
 
@@ -80,7 +83,7 @@ export const logIn = (email, password) => {
 
 		if (!response.ok) {
 			dispatch({ type: LOADING, payload: false });
-			Alert.alert("Failed", "Incorrect email or password")
+			Alert.alert("Failed", "Incorrect email or password");
 			throw new Error("Login Failed");
 		}
 
@@ -103,14 +106,6 @@ export const logIn = (email, password) => {
 			userData: responseData2,
 		});
 	};
-};
-
-export const emailChange = (email) => {
-	return { type: EMAIL_CHANGE, email: email };
-};
-
-export const passwordChange = (password) => {
-	return { type: PASSWORD_CHANGE, password: password };
 };
 
 export const fetchUserData = (uid) => {
@@ -163,4 +158,12 @@ export const setMonthlyBudget = (budget, uid) => {
 		const responseData2 = await response2.json();
 		dispatch({ type: SET_MONTHLY_BUDGET, payload: responseData2 });
 	};
+};
+
+export const emailChange = (email) => {
+	return { type: EMAIL_CHANGE, email: email };
+};
+
+export const passwordChange = (password) => {
+	return { type: PASSWORD_CHANGE, password: password };
 };
