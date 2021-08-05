@@ -26,7 +26,7 @@ const RecentTransactionsContainer = (props) => {
 								<List.Item
 									key={index}
 									title={`${item.amount}`}
-									description={item.description}
+									description={`${item.category} - ${item.description}`}
 									style={styles.listItem}
 								/>
 							);
