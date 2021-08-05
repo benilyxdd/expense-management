@@ -10,13 +10,13 @@ import {
 } from "../actions/Auth";
 
 const initialState = {
+	idToken: "",
+	isLoading: false,
 	isLoggedIn: false,
+	uid: "",
+	userData: {},
 	userEmail: "",
 	userPassword: "",
-	idToken: "",
-	uid: "",
-	isLoading: false,
-	userData: {},
 };
 
 const AuthReducer = (state = initialState, action) => {
@@ -31,21 +31,21 @@ const AuthReducer = (state = initialState, action) => {
 		case LOGIN:
 			return {
 				...state,
-				isLoggedIn: true,
 				idToken: action.payload.idToken,
-				uid: action.payload.localId,
 				isLoading: false,
+				isLoggedIn: true,
+				uid: action.payload.localId,
 				userData: action.userData,
 			};
 		case LOGOUT:
 			return {
 				...state,
-				isLoggedIn: false,
-				userEmail: "",
-				userPassword: "",
 				idToken: "",
+				isLoggedIn: false,
 				uid: "",
 				userData: {},
+				userEmail: "",
+				userPassword: "",
 			};
 		case FETCH_USER_DATA:
 			return {
