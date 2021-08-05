@@ -4,6 +4,7 @@ import { FIREBASE_PROJECT_ID } from "@env";
 export const DETAIL_AMOUNT_CHANGE = "DETAIL_AMOUNT_CHANGE";
 export const DETAIL_DESCRIPTION_CHANGE = "DETAIL_DESCRIPTION_CHANGE";
 export const DETAIL_DATE_CHANGE = "DETAIL_DATE_CHANGE";
+export const DETAIL_CATEGORY_CHANGE = "DETAIL_CATEGORY_CHANGE";
 export const RESET_INPUT = "RESET_INPUT";
 export const ADD_TRANSACTION = "ADD_TRANSACTION";
 export const LOADING = "LOADING";
@@ -24,6 +25,10 @@ export const detailDateChange = (input) => {
 	return { type: DETAIL_DATE_CHANGE, input: input };
 };
 
+export const detailCategoryChange = (input) => {
+	return { type: DETAIL_CATEGORY_CHANGE, input: input };
+};
+
 export const resetInput = () => {
 	return { type: RESET_INPUT };
 };
@@ -42,6 +47,7 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 					date: detailInput.date,
 					amount: detailInput.amount,
 					description: detailInput.description,
+					category: detailInput.category,
 				}),
 			}
 		);

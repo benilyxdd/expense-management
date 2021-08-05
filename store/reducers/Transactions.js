@@ -4,6 +4,7 @@ import {
 	DETAIL_AMOUNT_CHANGE,
 	DETAIL_DESCRIPTION_CHANGE,
 	DETAIL_DATE_CHANGE,
+	DETAIL_CATEGORY_CHANGE,
 	ADD_TRANSACTION,
 	LOADING,
 } from "../actions/Transactions";
@@ -14,6 +15,7 @@ const initialState = {
 		amount: "",
 		description: "",
 		date: "",
+		category: "",
 	},
 	isLoading: false,
 };
@@ -72,6 +74,11 @@ const TransactionsRedcuer = (state = initialState, action) => {
 			};
 		case LOADING:
 			return { ...state, isLoading: action.payload };
+		case DETAIL_CATEGORY_CHANGE:
+			return {
+				...state,
+				detailInput: { ...state.detailInput, category: action.input },
+			};
 		default:
 			return state;
 	}

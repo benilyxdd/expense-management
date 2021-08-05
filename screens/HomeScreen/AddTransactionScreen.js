@@ -22,7 +22,7 @@ const AddTransactionScreen = (props) => {
 				/>
 			)}
 			<View style={styles.navigatorContainer}>
-				<Tab.Navigator >
+				<Tab.Navigator>
 					{/* <Tab.Screen name="simple" component={SimpleAdd} /> */}
 					<Tab.Screen name="Expense" component={ExpensesTab} />
 					<Tab.Screen name="Income" component={IncomeTab} />

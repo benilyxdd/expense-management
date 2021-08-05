@@ -7,6 +7,7 @@ import {
 	detailAmountChange,
 	detailDescriptionChange,
 	detailDateChange,
+	detailCategoryChange,
 	resetInput,
 } from "../../store/actions/Transactions";
 
@@ -53,6 +54,13 @@ const DetailAdd = (props) => {
 				onChangeText={(input) =>
 					dispatch(detailDescriptionChange(input))
 				}
+			/>
+			<TextInput
+				label="category"
+				value={detailInput.category}
+				onChangeText={(input) => {
+					dispatch(detailCategoryChange(input));
+				}}
 			/>
 		</View>
 	);
