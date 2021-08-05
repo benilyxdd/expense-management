@@ -35,15 +35,19 @@ const SettingsScreen = (props) => {
 					<Divider />
 					<TouchableListItem
 						title="Theme"
-						onPress={() => console.log("hi")}
+						onPress={() => props.navigation.navigate("Theme")}
 					/>
 					<TouchableListItem
 						title="Main Currency"
-						onPress={() => console.log("hi")}
+						onPress={() =>
+							props.navigation.navigate("Main Currency")
+						}
 					/>
 					<TouchableListItem
 						title="Sub Currency"
-						onPress={() => console.log("hi")}
+						onPress={() =>
+							props.navigation.navigate("Sub Currency")
+						}
 					/>
 					<TouchableListItem
 						title="Log out"
