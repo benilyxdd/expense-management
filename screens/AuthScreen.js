@@ -26,7 +26,7 @@ const AuthScreen = (props) => {
 
 	return (
 		<View style={styles.screen}>
-			<Text style={styles.text}>This is auth screen</Text>
+			<Text style={styles.text}>Log In</Text>
 			<View style={styles.inputContainer}>
 				<TextInput
 					label="email"
@@ -46,10 +46,10 @@ const AuthScreen = (props) => {
 					autoCorrect={false}
 					secureTextEntry={true}
 				/>
-				<View style={styles.submitButtonContainer}>
-					<Button onPress={signUpHandler}>Sign Up</Button>
-					<Button onPress={logInHandler}>Log In</Button>
-				</View>
+			</View>
+			<View style={styles.submitButtonContainer}>
+				<Button onPress={signUpHandler}>Sign Up</Button>
+				<Button onPress={logInHandler}>Log In</Button>
 			</View>
 		</View>
 	);
@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
 		width: "80%",
 		borderColor: "black",
 		borderRadius: 20,
+		borderWidth: 2,
 		overflow: "hidden",
 	},
 	submitButtonContainer: {
