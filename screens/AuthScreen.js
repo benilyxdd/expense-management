@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
 		borderRadius: 20,
 		borderWidth: 2,
 		overflow: "hidden",
+		marginTop: "5%",
 	},
 	submitButtonContainer: {
 		flexDirection: "row",
