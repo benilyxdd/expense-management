@@ -24,15 +24,7 @@ const SettingsScreen = (props) => {
 						onPress={() => console.log("hi")}
 					/>
 					<TouchableListItem
-						title="Recurring Transactions"
-						onPress={() => console.log("hi")}
-					/>
-					<TouchableListItem
-						title="Recurring Transactions"
-						onPress={() => console.log("hi")}
-					/>
-					<TouchableListItem
-						title="Recurring Transactions"
+						title="Categories"
 						onPress={() => console.log("hi")}
 					/>
 				</List.Section>
@@ -54,10 +46,6 @@ const SettingsScreen = (props) => {
 					<TouchableListItem
 						title="Log out"
 						onPress={() => dispatch(logOut())}
-					/>
-					<TouchableListItem
-						title="Theme"
-						onPress={() => console.log("hi")}
 					/>
 				</List.Section>
 			</ScrollView>
