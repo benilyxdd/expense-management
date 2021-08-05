@@ -1,37 +1,13 @@
 import { FIREBASE_PROJECT_ID } from "@env";
 
-// export const SIMPLE_INPUT_CHANGE = "SIMPLE_INPUT_CHANGE";
-export const DETAIL_AMOUNT_CHANGE = "DETAIL_AMOUNT_CHANGE";
-export const DETAIL_DESCRIPTION_CHANGE = "DETAIL_DESCRIPTION_CHANGE";
-export const DETAIL_DATE_CHANGE = "DETAIL_DATE_CHANGE";
-export const DETAIL_CATEGORY_CHANGE = "DETAIL_CATEGORY_CHANGE";
-export const RESET_INPUT = "RESET_INPUT";
 export const ADD_TRANSACTION = "ADD_TRANSACTION";
+export const DETAIL_AMOUNT_CHANGE = "DETAIL_AMOUNT_CHANGE";
+export const DETAIL_CATEGORY_CHANGE = "DETAIL_CATEGORY_CHANGE";
+export const DETAIL_DATE_CHANGE = "DETAIL_DATE_CHANGE";
+export const DETAIL_DESCRIPTION_CHANGE = "DETAIL_DESCRIPTION_CHANGE";
 export const LOADING = "LOADING";
-
-// export const simpleInputChange = (input) => {
-// 	return { type: SIMPLE_INPUT_CHANGE, input: input };
-// };
-
-export const detailAmountChange = (input) => {
-	return { type: DETAIL_AMOUNT_CHANGE, input: input };
-};
-
-export const detailDescriptionChange = (input) => {
-	return { type: DETAIL_DESCRIPTION_CHANGE, input: input };
-};
-
-export const detailDateChange = (input) => {
-	return { type: DETAIL_DATE_CHANGE, input: input };
-};
-
-export const detailCategoryChange = (input) => {
-	return { type: DETAIL_CATEGORY_CHANGE, input: input };
-};
-
-export const resetInput = () => {
-	return { type: RESET_INPUT };
-};
+export const RESET_INPUT = "RESET_INPUT";
+// export const SIMPLE_INPUT_CHANGE = "SIMPLE_INPUT_CHANGE";
 
 export const addTransaction = (detailInput, uid, userBasicInfo) => {
 	return async (dispatch) => {
@@ -89,3 +65,27 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 		dispatch({ type: ADD_TRANSACTION });
 	};
 };
+
+export const detailAmountChange = (input) => {
+	return { type: DETAIL_AMOUNT_CHANGE, input: input };
+};
+
+export const detailCategoryChange = (input) => {
+	return { type: DETAIL_CATEGORY_CHANGE, input: input };
+};
+
+export const detailDateChange = (input) => {
+	return { type: DETAIL_DATE_CHANGE, input: input };
+};
+
+export const detailDescriptionChange = (input) => {
+	return { type: DETAIL_DESCRIPTION_CHANGE, input: input };
+};
+
+export const resetInput = () => {
+	return { type: RESET_INPUT };
+};
+
+// export const simpleInputChange = (input) => {
+// 	return { type: SIMPLE_INPUT_CHANGE, input: input };
+// };
