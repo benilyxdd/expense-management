@@ -29,7 +29,7 @@ const HomeScreenNavigator = (props) => {
 				color="red"
 				onPress={() => {
 					dispatch(addTransaction(detailInput, uid, userBasicInfo));
-					props.navigation.goBack();
+					props.navigation.navigate("HomeMain");
 				}}
 			/>
 		);
@@ -50,7 +50,11 @@ const HomeScreenNavigator = (props) => {
 
 	return (
 		<HomeStack.Navigator>
-			<HomeStack.Screen name="Home" component={HomeScreen} />
+			<HomeStack.Screen
+				name="HomeMain"
+				component={HomeScreen}
+				options={{ title: "Home" }}
+			/>
 			<HomeStack.Screen
 				name="Add Transaction"
 				component={AddTransactionScreen}
