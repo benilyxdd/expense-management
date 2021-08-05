@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-const CategoriesScreen = () => {
+const Categories = () => {
 	return (
 		<View>
 			<Text>This is categories screen</Text>
@@ -9,4 +9,4 @@ const CategoriesScreen = () => {
 	);
 };
 
-export default CategoriesScreen;
+export default Categories;
