@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-const Test = () => {
+const CategoriesScreen = () => {
 	return (
 		<View>
-			<Text>hi</Text>
+			<Text>This is categories screen</Text>
 		</View>
 	);
 };
 
-export default Test;
+export default CategoriesScreen;

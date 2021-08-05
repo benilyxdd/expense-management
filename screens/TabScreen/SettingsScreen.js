@@ -25,7 +25,9 @@ const SettingsScreen = (props) => {
 					/>
 					<TouchableListItem
 						title="Categories"
-						onPress={() => console.log("hi")}
+						onPress={() =>
+							props.navigation.navigate("CategoriesScreen")
+						}
 					/>
 				</List.Section>
 				<List.Section style={styles.listSection}>
