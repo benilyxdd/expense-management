@@ -14,6 +14,7 @@ const AddCategory = () => {
 			<TextInput
 				value={inputCategory}
 				onChangeText={(input) => dispatch(inputCategoryChange(input))}
+				autoFocus={true}
 			/>
 		</View>
 	);
