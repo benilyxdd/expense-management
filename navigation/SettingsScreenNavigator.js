@@ -39,6 +39,20 @@ const SettingScreenNavigator = (props) => {
 		);
 	};
 
+	const addAndUpdateCategory = () => {
+		return async (dispatch) => {
+			await dispatch(
+				addCategory(
+					uid,
+					categoriesList ? categoriesList : [],
+					inputCategory
+				)
+			);
+			await dispatch(fetchUserData(uid));
+			props.navigation.navigate("Categories");
+		};
+	};
+
 	const confirmAddCategoryButton = () => {
 		return (
 			<IconButton
@@ -47,22 +61,14 @@ const SettingScreenNavigator = (props) => {
 				size={30}
 				onPress={() => {
 					if (!inputCategory) {
-						Alert.alert(
-							"Error",
-							"You cannot add empty category"
-						);
+						Alert.alert("Error", "You cannot add empty category");
 						return;
 					}
-
-					dispatch(
-						addCategory(
-							uid,
-							categoriesList ? categoriesList : [],
-							inputCategory
-						)
-					);
-					dispatch(fetchUserData(uid));
-					props.navigation.navigate("Categories");
+					if (categoriesList.includes(inputCategory)) {
+						Alert.alert("Error", "You cannot add a category twice");
+						return;
+					}
+					dispatch(addAndUpdateCategory());
 				}}
 			/>
 		);

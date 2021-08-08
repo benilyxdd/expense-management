@@ -7,7 +7,7 @@ const Categories = () => {
 	const categoriesList = useSelector(
 		(state) => state.Auth.userData.basicInfo.categories
 	);
-
+	
 	return (
 		<ScrollView style={styles.screen}>
 			{categoriesList &&
