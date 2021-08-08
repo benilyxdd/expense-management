@@ -18,9 +18,10 @@ const Categories = () => {
 				value={inputCategory}
 				onChangeText={(input) => dispatch(inputCategoryChange(input))}
 			/>
-			{categoriesList.map((item, index) => {
-				return <Text key={index}>{item}</Text>;
-			})}
+			{categoriesList &&
+				categoriesList.map((item, index) => {
+					return <Text key={index}>{item}</Text>;
+				})}
 		</View>
 	);
 };
