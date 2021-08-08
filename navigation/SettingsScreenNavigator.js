@@ -1,5 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+import { IconButton } from "react-native-paper";
 
 import SettingsScreen from "../screens/TabScreen/SettingsScreen";
 import Categories from "../screens/SettingsScreen/Categories";
@@ -11,10 +12,25 @@ import Theme from "../screens/SettingsScreen/Theme";
 const SettingsStack = createStackNavigator();
 
 const SettingScreenNavigator = () => {
+	const addCategoryButton = () => {
+		return (
+			<IconButton
+				icon="plus"
+				color="green"
+				size= {30}
+				onPress={() => console.log("hi")}
+			/>
+		);
+	};
+
 	return (
 		<SettingsStack.Navigator>
 			<SettingsStack.Screen name="Settings" component={SettingsScreen} />
-			<SettingsStack.Screen name="Categories" component={Categories} />
+			<SettingsStack.Screen
+				name="Categories"
+				component={Categories}
+				options={{ headerRight: addCategoryButton }}
+			/>
 			<SettingsStack.Screen
 				name="Recurring Transactions"
 				component={RecurringTransactions}
