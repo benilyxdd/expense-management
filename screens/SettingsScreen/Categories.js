@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Categories = () => {
 	const categoriesList = useSelector(
