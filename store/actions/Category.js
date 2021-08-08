@@ -3,6 +3,7 @@ import { FIREBASE_PROJECT_ID } from "@env";
 export const ADD_CATEGORY = "ADD_CATEGORY";
 
 export const INPUT_CATEGORY_CHANGE = "INPUT_CATEGORY_CHANGE";
+export const RESET_INPUT_CATEGORY = "RESET_INPUT_CATEGORY";
 
 export const addCategory = (uid, originalCategories, newCategory) => {
 	return async (dispatch) => {
@@ -30,4 +31,8 @@ export const addCategory = (uid, originalCategories, newCategory) => {
 
 export const inputCategoryChange = (input) => {
 	return { type: INPUT_CATEGORY_CHANGE, input: input };
+};
+
+export const resetInputCategory = () => {
+	return { type: RESET_INPUT_CATEGORY };
 };

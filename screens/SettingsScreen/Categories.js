@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text } from "react-native";
 import { TextInput } from "react-native-paper";
 import { useSelector, useDispatch } from "react-redux";
 
-import { inputCategoryChange } from "../../store/actions/Category";
+import {
+	inputCategoryChange,
+	resetInputCategory,
+} from "../../store/actions/Category";
 
 const Categories = () => {
 	const dispatch = useDispatch();
@@ -11,6 +14,10 @@ const Categories = () => {
 	const categoriesList = useSelector(
 		(state) => state.Auth.userData.basicInfo.categories
 	);
+
+	useEffect(() => {
+		dispatch(resetInputCategory());
+	}, []);
 
 	return (
 		<View>
