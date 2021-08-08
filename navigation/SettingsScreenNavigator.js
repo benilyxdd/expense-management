@@ -9,13 +9,14 @@ import RecurringTransactions from "../screens/SettingsScreen/RecurringTransactio
 import MainCurrency from "../screens/SettingsScreen/MainCurrency";
 import SubCurrency from "../screens/SettingsScreen/SubCurrency";
 import Theme from "../screens/SettingsScreen/Theme";
+import AddCategory from "../screens/SettingsScreen/AddCategory";
 
 import { addCategory } from "../store/actions/Category";
 import { fetchUserData } from "../store/actions/Auth";
 
 const SettingsStack = createStackNavigator();
 
-const SettingScreenNavigator = () => {
+const SettingScreenNavigator = (props) => {
 	const dispatch = useDispatch();
 	const uid = useSelector((state) => state.Auth.uid);
 	const categoriesList = useSelector(
@@ -29,16 +30,7 @@ const SettingScreenNavigator = () => {
 				icon="plus"
 				color="green"
 				size={30}
-				onPress={() => {
-					dispatch(
-						addCategory(
-							uid,
-							categoriesList ? categoriesList : [],
-							inputCategory
-						)
-					);
-					dispatch(fetchUserData(uid));
-				}}
+				onPress={() => props.navigation.navigate("Add Category")}
 			/>
 		);
 	};
@@ -61,6 +53,7 @@ const SettingScreenNavigator = () => {
 			/>
 			<SettingsStack.Screen name="Sub Currency" component={SubCurrency} />
 			<SettingsStack.Screen name="Theme" component={Theme} />
+			<SettingsStack.Screen name="Add Category" component={AddCategory} />
 		</SettingsStack.Navigator>
 	);
 };
