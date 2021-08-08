@@ -7,6 +7,7 @@ import thunk from "redux-thunk";
 import MainScreen from "./screens/MainScreen";
 import Auth from "./store/reducers/Auth";
 import AppData from "./store/reducers/AppData";
+import Category from "./store/reducers/Category";
 import Transactions from "./store/reducers/Transactions";
 
 enableScreens();
@@ -14,6 +15,7 @@ enableScreens();
 const rootReducer = combineReducers({
 	Auth: Auth,
 	AppData: AppData,
+	Category: Category,
 	Transactions: Transactions,
 });
 const store = createStore(rootReducer, applyMiddleware(thunk));
