@@ -1,10 +1,20 @@
 import React from "react";
 import { View, Text } from "react-native";
+import { TextInput } from "react-native-paper";
+import { useDispatch, useSelector } from "react-redux";
+
+import { inputCategoryChange } from "../../store/actions/Category";
 
 const AddCategory = () => {
+	const dispatch = useDispatch();
+	const inputCategory = useSelector((state) => state.Category.inputCategory);
+
 	return (
 		<View>
-			<Text>This is add category screen</Text>
+			<TextInput
+				value={inputCategory}
+				onChangeText={(input) => dispatch(inputCategoryChange(input))}
+			/>
 		</View>
 	);
 };
