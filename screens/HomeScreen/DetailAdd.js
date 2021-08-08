@@ -55,6 +55,20 @@ const DetailAdd = (props) => {
 						style={styles.input}
 						value={detailInput.amount}
 						onChangeText={amountChangeHandler}
+						keyboardType="numeric"
+					/>
+				</View>
+			</View>
+			<View style={styles.container}>
+				<Text style={styles.text}>Category</Text>
+				<View style={styles.inputContainer}>
+					<TextInput
+						style={styles.input}
+						value={detailInput.category}
+						onChangeText={(input) =>
+							dispatch(detailCategoryChange(input))
+						}
+						multiline={true}
 					/>
 				</View>
 			</View>
@@ -67,6 +81,7 @@ const DetailAdd = (props) => {
 						onChangeText={(input) =>
 							dispatch(detailDescriptionChange(input))
 						}
+						multiline={true}
 					/>
 				</View>
 			</View>
@@ -95,6 +110,7 @@ const styles = StyleSheet.create({
 	input: {
 		borderBottomColor: "red",
 		borderBottomWidth: 0.5,
+		padding: "2%",
 	},
 	text: {
 		fontSize: 15,
