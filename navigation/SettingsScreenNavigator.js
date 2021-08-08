@@ -1,7 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { IconButton } from "react-native-paper";
-import { useDispatch, useSelector } from "react-redux";
 
 import SettingsScreen from "../screens/TabScreen/SettingsScreen";
 import Categories from "../screens/SettingsScreen/Categories";
@@ -11,19 +10,9 @@ import SubCurrency from "../screens/SettingsScreen/SubCurrency";
 import Theme from "../screens/SettingsScreen/Theme";
 import AddCategory from "../screens/SettingsScreen/AddCategory";
 
-import { addCategory } from "../store/actions/Category";
-import { fetchUserData } from "../store/actions/Auth";
-
 const SettingsStack = createStackNavigator();
 
 const SettingScreenNavigator = (props) => {
-	const dispatch = useDispatch();
-	const uid = useSelector((state) => state.Auth.uid);
-	const categoriesList = useSelector(
-		(state) => state.Auth.userData.basicInfo.categories
-	);
-	const inputCategory = useSelector((state) => state.Category.inputCategory);
-
 	const addCategoryButton = () => {
 		return (
 			<IconButton

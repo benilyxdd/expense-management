@@ -3,7 +3,6 @@ import { View, Text } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 
 const Categories = () => {
-	const dispatch = useDispatch();
 	const categoriesList = useSelector(
 		(state) => state.Auth.userData.basicInfo.categories
 	);
