@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { View, StyleSheet } from "react-native";
-import { TextInput } from "react-native-paper";
+import { View, StyleSheet, Text, TextInput } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -37,31 +36,40 @@ const DetailAdd = (props) => {
 
 	return (
 		<View style={styles.screen}>
-			<TextInput
-				label="date"
-				value={detailInput.date}
-				onChangeText={(input) => dispatch(detailDateChange(input))}
-			/>
-			<TextInput
-				label="amount"
-				value={detailInput.amount}
-				onChangeText={amountChangeHandler}
-				keyboardType="numeric"
-			/>
-			<TextInput
-				label="description"
-				value={detailInput.description}
-				onChangeText={(input) =>
-					dispatch(detailDescriptionChange(input))
-				}
-			/>
-			<TextInput
-				label="category"
-				value={detailInput.category}
-				onChangeText={(input) => {
-					dispatch(detailCategoryChange(input));
-				}}
-			/>
+			<View style={styles.container}>
+				<Text style={styles.text}>Date</Text>
+				<View style={styles.inputContainer}>
+					<TextInput
+						style={styles.input}
+						value={detailInput.date}
+						onChangeText={(input) =>
+							dispatch(detailDateChange(input))
+						}
+					/>
+				</View>
+			</View>
+			<View style={styles.container}>
+				<Text style={styles.text}>Amount</Text>
+				<View style={styles.inputContainer}>
+					<TextInput
+						style={styles.input}
+						value={detailInput.amount}
+						onChangeText={amountChangeHandler}
+					/>
+				</View>
+			</View>
+			<View style={styles.container}>
+				<Text style={styles.text}>Details</Text>
+				<View style={styles.inputContainer}>
+					<TextInput
+						style={styles.input}
+						value={detailInput.description}
+						onChangeText={(input) =>
+							dispatch(detailDescriptionChange(input))
+						}
+					/>
+				</View>
+			</View>
 		</View>
 	);
 };
@@ -69,6 +77,28 @@ const DetailAdd = (props) => {
 const styles = StyleSheet.create({
 	screen: {
 		flex: 1,
+		paddingVertical: "4%",
+	},
+	container: {
+		width: "100%",
+		flexDirection: "row",
+		marginHorizontal: "2%",
+		alignItems: "baseline",
+		justifyContent: "center",
+	},
+	inputContainer: {
+		flex: 1,
+		marginHorizontal: "5%",
+		paddingVertical: "2%",
+		marginVertical: "2%",
+	},
+	input: {
+		borderBottomColor: "red",
+		borderBottomWidth: 0.5,
+	},
+	text: {
+		fontSize: 15,
+		width: "20%",
 	},
 });
 
