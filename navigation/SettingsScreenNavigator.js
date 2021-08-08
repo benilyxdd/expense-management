@@ -22,7 +22,6 @@ const SettingScreenNavigator = () => {
 		(state) => state.Auth.userData.basicInfo.categories
 	);
 	const inputCategory = useSelector((state) => state.Category.inputCategory);
-	console.log(categoriesList, inputCategory);
 
 	const addCategoryButton = () => {
 		return (
