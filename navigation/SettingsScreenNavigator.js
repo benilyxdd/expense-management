@@ -11,7 +11,8 @@ import SubCurrency from "../screens/SettingsScreen/SubCurrency";
 import Theme from "../screens/SettingsScreen/Theme";
 import AddCategory from "../screens/SettingsScreen/AddCategory";
 
-import { addCategory } from "../store/actions/Category";
+import { addCategory, resetInputCategory } from "../store/actions/Category";
+import { fetchUserData } from "../store/actions/Auth";
 
 const SettingsStack = createStackNavigator();
 
@@ -29,7 +30,10 @@ const SettingScreenNavigator = (props) => {
 				icon="plus"
 				color="green"
 				size={30}
-				onPress={() => props.navigation.navigate("Add Category")}
+				onPress={() => {
+					dispatch(resetInputCategory());
+					props.navigation.navigate("Add Category");
+				}}
 			/>
 		);
 	};
@@ -48,6 +52,7 @@ const SettingScreenNavigator = (props) => {
 							inputCategory
 						)
 					);
+					dispatch(fetchUserData(uid));
 					props.navigation.navigate("Categories");
 				}}
 			/>
