@@ -2,6 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { IconButton } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
+import { Alert } from "react-native";
 
 import SettingsScreen from "../screens/TabScreen/SettingsScreen";
 import Categories from "../screens/SettingsScreen/Categories";
@@ -45,6 +46,14 @@ const SettingScreenNavigator = (props) => {
 				color="green"
 				size={30}
 				onPress={() => {
+					if (!inputCategory) {
+						Alert.alert(
+							"Error",
+							"You cannot add empty category"
+						);
+						return;
+					}
+
 					dispatch(
 						addCategory(
 							uid,
