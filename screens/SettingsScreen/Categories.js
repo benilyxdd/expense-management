@@ -1,13 +1,25 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { Button } from "react-native-paper";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { fetchUserData } from "../../store/actions/Auth";
+import { deleteCategory } from "../../store/actions/Category";
 
 const Categories = () => {
+	const dispatch = useDispatch();
 	const categoriesList = useSelector(
 		(state) => state.Auth.userData.basicInfo.categories
 	);
-	
+	const uid = useSelector((state) => state.Auth.uid);
+
+	const deleteCategoryAndUpdate = (category) => {
+		return async (dispatch) => {
+			await dispatch(deleteCategory(uid, category, categoriesList));
+			await dispatch(fetchUserData(uid));
+		};
+	};
+
 	return (
 		<ScrollView style={styles.screen}>
 			{categoriesList &&
@@ -21,7 +33,9 @@ const Categories = () => {
 								<Button
 									icon="delete"
 									color="red"
-									onPress={() => console.log(item)}
+									onPress={() =>
+										dispatch(deleteCategoryAndUpdate(item))
+									}
 								>
 									Delete
 								</Button>
