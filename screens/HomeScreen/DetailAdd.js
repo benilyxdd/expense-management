@@ -11,8 +11,8 @@ import {
 } from "../../store/actions/Transactions";
 
 const DetailAdd = (props) => {
-	const detailInput = useSelector((state) => state.Transactions.detailInput);
 	const dispatch = useDispatch();
+	const detailInput = useSelector((state) => state.Transactions.detailInput);
 	const add = props.type === "Income" ? 1 : -1;
 
 	useEffect(() => {
