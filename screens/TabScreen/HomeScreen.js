@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Pie from "../../components/Pie";
 import RecentTransactionsContainer from "../../components/RecentTransactionsContainer";
-import RecentTransactionData from "../../data/RecentTransactionData";
 import AddTransactionButton from "../../components/AddTransactionButton";
 
 import { fetchAllTransactions } from "../../store/actions/Transactions";
@@ -39,7 +38,6 @@ const HomeScreen = (props) => {
 			y: -categoriesTotalObject[category],
 		});
 	}
-
 	// process transactions data end
 
 	const GoToAddTransactionPageHandler = () => {
@@ -76,7 +74,7 @@ const HomeScreen = (props) => {
 					</TouchableWithoutFeedback>
 				</View>
 				<View style={styles.recentTransactionContainer}>
-					<RecentTransactionsContainer data={RecentTransactionData} />
+					<RecentTransactionsContainer />
 					<View style={styles.addTransactionButtonContainer}>
 						<AddTransactionButton
 							onPress={GoToAddTransactionPageHandler}
