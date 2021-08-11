@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { View, StyleSheet, Text, TextInput } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
+import { Picker } from "react-native-ui-lib";
 
 import {
 	detailAmountChange,
@@ -13,6 +14,9 @@ import {
 const DetailAdd = (props) => {
 	const dispatch = useDispatch();
 	const detailInput = useSelector((state) => state.Transactions.detailInput);
+	const categoriesList = useSelector(
+		(state) => state.Auth.userData.basicInfo.categories
+	);
 	const add = props.type === "Income" ? 1 : -1;
 
 	useEffect(() => {
@@ -60,19 +64,6 @@ const DetailAdd = (props) => {
 				</View>
 			</View>
 			<View style={styles.container}>
-				<Text style={styles.text}>Category</Text>
-				<View style={styles.inputContainer}>
-					<TextInput
-						style={styles.input}
-						value={detailInput.category}
-						onChangeText={(input) =>
-							dispatch(detailCategoryChange(input))
-						}
-						multiline={true}
-					/>
-				</View>
-			</View>
-			<View style={styles.container}>
 				<Text style={styles.text}>Details</Text>
 				<View style={styles.inputContainer}>
 					<TextInput
@@ -83,6 +74,32 @@ const DetailAdd = (props) => {
 						}
 						multiline={true}
 					/>
+				</View>
+			</View>
+			<View style={styles.container}>
+				<Text style={styles.text}>Category</Text>
+				<View style={styles.inputContainer}>
+					<Picker
+						showSearch
+						searchPlaceholder={"Search a category"}
+						value={detailInput.category}
+						topBarProps={{ title: "Category" }}
+						onChange={(input) => {
+							console.log(input);
+							dispatch(detailCategoryChange(input));
+						}}
+					>
+						{categoriesList &&
+							categoriesList.map((category, index) => {
+								return (
+									<Picker.Item
+										key={index}
+										value={category}
+										label={category}
+									/>
+								);
+							})}
+					</Picker>
 				</View>
 			</View>
 		</View>
