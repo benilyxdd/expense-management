@@ -64,7 +64,10 @@ const SettingScreenNavigator = (props) => {
 						Alert.alert("Error", "You cannot add empty category");
 						return;
 					}
-					if (categoriesList.includes(inputCategory)) {
+					if (
+						categoriesList &&
+						categoriesList.includes(inputCategory)
+					) {
 						Alert.alert("Error", "You cannot add a category twice");
 						return;
 					}
