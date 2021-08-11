@@ -11,6 +11,7 @@ import MainCurrency from "../screens/SettingsScreen/MainCurrency";
 import SubCurrency from "../screens/SettingsScreen/SubCurrency";
 import Theme from "../screens/SettingsScreen/Theme";
 import AddCategory from "../screens/SettingsScreen/AddCategory";
+import SubmitFeedback from "../screens/SettingsScreen/SubmitFeedback";
 
 import { addCategory, resetInputCategory } from "../store/actions/Category";
 import { fetchUserData } from "../store/actions/Auth";
@@ -99,6 +100,10 @@ const SettingScreenNavigator = (props) => {
 				name="Add Category"
 				component={AddCategory}
 				options={{ headerRight: confirmAddCategoryButton }}
+			/>
+			<SettingsStack.Screen
+				name="Submit Feedback"
+				component={SubmitFeedback}
 			/>
 		</SettingsStack.Navigator>
 	);

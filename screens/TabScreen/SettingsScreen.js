@@ -54,6 +54,14 @@ const SettingsScreen = (props) => {
 						onPress={() => dispatch(logOut())}
 					/>
 				</List.Section>
+				<List.Section style={styles.listSection}>
+					<List.Subheader>Support</List.Subheader>
+					<Divider />
+					<TouchableListItem
+						title="Provide Feedback"
+						onPress={() => props.navigation.navigate("Submit Feedback")}
+					/>
+				</List.Section>
 			</ScrollView>
 		</View>
 	);
