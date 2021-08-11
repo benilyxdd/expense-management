@@ -16,11 +16,32 @@ const HomeScreen = (props) => {
 		(state) => state.Auth.userData.basicInfo.monthlyBudget
 	);
 	const uid = useSelector((state) => state.Auth.uid);
+
+	// process transactions data start
 	const allTransactionsData = useSelector(
 		(state) => state.Transactions.allTransactions
 	).map((item) => {
-		return { ...item, "amount": parseFloat(item["amount"]) };
+		return { ...item, amount: parseFloat(item["amount"]) };
 	});
+
+	const categoriesTotalObject = {};
+	for (const item of allTransactionsData) {
+		if (!categoriesTotalObject.hasOwnProperty(item.category.value)) {
+			categoriesTotalObject[item.category.value] = item.amount;
+		} else {
+			categoriesTotalObject[item.category.value] += item.amount;
+		}
+	}
+
+	const categoriesTotalArray = [];
+	for (const category in categoriesTotalObject) {
+		categoriesTotalArray.push({
+			x: category,
+			y: -categoriesTotalObject[category],
+		});
+	}
+	
+	// process transactions data end
 
 	const GoToAddTransactionPageHandler = () => {
 		props.navigation.navigate("Add Transaction");
@@ -38,7 +59,7 @@ const HomeScreen = (props) => {
 		<View style={styles.screen}>
 			<View style={styles.middleScreen}>
 				<View style={styles.pieChartContainer}>
-					<Pie data={PieChartData} />
+					<Pie data={categoriesTotalArray} />
 					<TouchableWithoutFeedback
 						onPress={GoToSetBudgetPageHandler}
 					>
