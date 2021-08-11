@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import { TextArea, TextField } from "react-native-ui-lib";
+import { TextArea } from "react-native-ui-lib";
 import { useDispatch, useSelector } from "react-redux";
 
 import { detailChange, subjectChange } from "../../store/actions/Feedback";

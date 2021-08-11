@@ -3,7 +3,6 @@ import { View, StyleSheet, Text, TouchableWithoutFeedback } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 
 import Pie from "../../components/Pie";
-import PieChartData from "../../data/PieChartData";
 import RecentTransactionsContainer from "../../components/RecentTransactionsContainer";
 import RecentTransactionData from "../../data/RecentTransactionData";
 import AddTransactionButton from "../../components/AddTransactionButton";
@@ -40,7 +39,7 @@ const HomeScreen = (props) => {
 			y: -categoriesTotalObject[category],
 		});
 	}
-	
+
 	// process transactions data end
 
 	const GoToAddTransactionPageHandler = () => {
