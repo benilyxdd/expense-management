@@ -5,6 +5,7 @@ export const DETAIL_AMOUNT_CHANGE = "DETAIL_AMOUNT_CHANGE";
 export const DETAIL_CATEGORY_CHANGE = "DETAIL_CATEGORY_CHANGE";
 export const DETAIL_DATE_CHANGE = "DETAIL_DATE_CHANGE";
 export const DETAIL_DESCRIPTION_CHANGE = "DETAIL_DESCRIPTION_CHANGE";
+export const FETCH_ALL_TRANSACTIONS = "FETCH_ALL_TRANSACTIONS";
 export const LOADING = "LOADING";
 export const RESET_INPUT = "RESET_INPUT";
 // export const SIMPLE_INPUT_CHANGE = "SIMPLE_INPUT_CHANGE";
@@ -89,6 +90,24 @@ export const detailDateChange = (input) => {
 
 export const detailDescriptionChange = (input) => {
 	return { type: DETAIL_DESCRIPTION_CHANGE, input: input };
+};
+
+export const fetchAllTransactions = (uid) => {
+	return async (dispatch) => {
+		const response = await fetch(
+			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions.json`,
+			{
+				method: "GET",
+			}
+		);
+
+		const allTransactionsData = await response.json();
+
+		dispatch({
+			type: FETCH_ALL_TRANSACTIONS,
+			payload: allTransactionsData,
+		});
+	};
 };
 
 export const resetInput = () => {

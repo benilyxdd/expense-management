@@ -4,6 +4,7 @@ import {
 	DETAIL_CATEGORY_CHANGE,
 	DETAIL_DATE_CHANGE,
 	DETAIL_DESCRIPTION_CHANGE,
+	FETCH_ALL_TRANSACTIONS,
 	LOADING,
 	RESET_INPUT,
 	// SIMPLE_INPUT_CHANGE,
@@ -17,7 +18,7 @@ const initialState = {
 		description: "",
 	},
 	isLoading: false,
-	allTranscations: [],
+	allTransactions: [],
 	// simpleInput: "",
 };
 
@@ -35,7 +36,7 @@ const TransactionsRedcuer = (state = initialState, action) => {
 						new Date().toLocaleTimeString(),
 				},
 				isLoading: false,
-				allTranscations: action.payload,
+				allTransactions: Object.values(action.payload),
 			};
 		// case SIMPLE_INPUT_CHANGE:
 		// 	return { ...state, simpleInput: action.input };
@@ -65,6 +66,8 @@ const TransactionsRedcuer = (state = initialState, action) => {
 					description: action.input,
 				},
 			};
+		case FETCH_ALL_TRANSACTIONS:
+			return { ...state, allTransactions: Object.values(action.payload) };
 		case LOADING:
 			return { ...state, isLoading: action.payload };
 		case RESET_INPUT:

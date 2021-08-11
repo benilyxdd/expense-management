@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, StyleSheet, Text, TouchableWithoutFeedback } from "react-native";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import Pie from "../../components/Pie";
 import PieChartData from "../../data/PieChartData";
@@ -8,9 +8,16 @@ import RecentTransactionsContainer from "../../components/RecentTransactionsCont
 import RecentTransactionData from "../../data/RecentTransactionData";
 import AddTransactionButton from "../../components/AddTransactionButton";
 
+import { fetchAllTransactions } from "../../store/actions/Transactions";
+
 const HomeScreen = (props) => {
+	const dispatch = useDispatch();
 	const monthlyBudget = useSelector(
 		(state) => state.Auth.userData.basicInfo.monthlyBudget
+	);
+	const uid = useSelector((state) => state.Auth.uid);
+	const allTransactionsData = useSelector(
+		(state) => state.Transactions.allTransactions
 	);
 
 	const GoToAddTransactionPageHandler = () => {
@@ -20,6 +27,10 @@ const HomeScreen = (props) => {
 	const GoToSetBudgetPageHandler = () => {
 		props.navigation.navigate("Set Budget");
 	};
+
+	useEffect(() => {
+		dispatch(fetchAllTransactions(uid));
+	}, []);
 
 	return (
 		<View style={styles.screen}>
