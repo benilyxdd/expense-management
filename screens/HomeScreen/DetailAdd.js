@@ -85,7 +85,6 @@ const DetailAdd = (props) => {
 						value={detailInput.category}
 						topBarProps={{ title: "Category" }}
 						onChange={(input) => {
-							console.log(input);
 							dispatch(detailCategoryChange(input));
 						}}
 					>
