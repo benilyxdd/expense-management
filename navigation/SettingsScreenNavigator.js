@@ -15,6 +15,7 @@ import SubmitFeedback from "../screens/SettingsScreen/SubmitFeedback";
 
 import { addCategory, resetInputCategory } from "../store/actions/Category";
 import { fetchUserData } from "../store/actions/Auth";
+import { submitFeedback } from "../store/actions/Feedback";
 
 const SettingsStack = createStackNavigator();
 
@@ -25,6 +26,8 @@ const SettingScreenNavigator = (props) => {
 		(state) => state.Auth.userData.basicInfo.categories
 	);
 	const uid = useSelector((state) => state.Auth.uid);
+	const inputDetail = useSelector((state) => state.Feedback.detail);
+	const inputSubject = useSelector((state) => state.Feedback.subject);
 
 	const addCategoryButton = () => {
 		return (
@@ -78,9 +81,43 @@ const SettingScreenNavigator = (props) => {
 		);
 	};
 
+	const submitFeedbackAndGoBack = () => {
+		return async (dispatch) => {
+			await dispatch(submitFeedback(uid, inputSubject, inputDetail));
+			props.navigation.navigate("SettingsMain");
+		};
+	};
+
+	const submitFeedbackButton = () => {
+		return (
+			<IconButton
+				icon="check"
+				color="green"
+				size={30}
+				onPress={() => {
+					if (!uid) {
+						Alert.alert(
+							"Error",
+							"You somehow log in without logging in"
+						);
+						return;
+					}
+					if (!inputDetail || !inputSubject) {
+						Alert.alert("Error", "Input cannot be empty");
+						return;
+					}
+					dispatch(submitFeedbackAndGoBack());
+				}}
+			/>
+		);
+	};
+
 	return (
 		<SettingsStack.Navigator>
-			<SettingsStack.Screen name="Settings" component={SettingsScreen} />
+			<SettingsStack.Screen
+				name="SettingsMain"
+				component={SettingsScreen}
+			/>
 			<SettingsStack.Screen
 				name="Categories"
 				component={Categories}
@@ -104,6 +141,7 @@ const SettingScreenNavigator = (props) => {
 			<SettingsStack.Screen
 				name="Submit Feedback"
 				component={SubmitFeedback}
+				options={{ headerRight: submitFeedbackButton }}
 			/>
 		</SettingsStack.Navigator>
 	);
