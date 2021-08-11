@@ -17,6 +17,7 @@ const initialState = {
 		description: "",
 	},
 	isLoading: false,
+	allTranscations: [],
 	// simpleInput: "",
 };
 
@@ -34,6 +35,7 @@ const TransactionsRedcuer = (state = initialState, action) => {
 						new Date().toLocaleTimeString(),
 				},
 				isLoading: false,
+				allTranscations: action.payload,
 			};
 		// case SIMPLE_INPUT_CHANGE:
 		// 	return { ...state, simpleInput: action.input };

@@ -62,7 +62,16 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 			throw new Error("cannot add amount to total expenses");
 		}
 
-		dispatch({ type: ADD_TRANSACTION });
+		const response3 = await fetch(
+			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions.json`,
+			{
+				method: "GET",
+			}
+		);
+
+		const allTransactionsData = await response3.json();
+
+		dispatch({ type: ADD_TRANSACTION, payload: allTransactionsData });
 	};
 };
 
