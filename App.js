@@ -8,6 +8,7 @@ import MainScreen from "./screens/MainScreen";
 import Auth from "./store/reducers/Auth";
 import AppData from "./store/reducers/AppData";
 import Category from "./store/reducers/Category";
+import Feedback from "./store/reducers/Feedback";
 import Transactions from "./store/reducers/Transactions";
 
 enableScreens();
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
 	Auth: Auth,
 	AppData: AppData,
 	Category: Category,
+	Feedback: Feedback,
 	Transactions: Transactions,
 });
 const store = createStore(rootReducer, applyMiddleware(thunk));
