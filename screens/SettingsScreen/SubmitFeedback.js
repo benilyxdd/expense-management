@@ -18,6 +18,7 @@ const SubmitFeedback = () => {
 						placeholder="Subject"
 						value={inputSubject}
 						onChangeText={(input) => dispatch(subjectChange(input))}
+						autoFocus
 					/>
 				</View>
 				<View style={styles.detailContainer}>
