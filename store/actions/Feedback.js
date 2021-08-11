@@ -2,11 +2,16 @@ import { FIREBASE_PROJECT_ID } from "@env";
 import { Alert } from "react-native";
 
 export const DETAIL_CHANGE = "DETAIL_CHANGE";
+export const RESET_INPUT = "RESET_INPUT";
 export const SUBJECT_CHANGE = "SUBJECT_CHANGE";
 export const SUBMIT_FEEDBACK = "SUBMIT_FEEDBACK";
 
 export const detailChange = (input) => {
 	return { type: DETAIL_CHANGE, input: input };
+};
+
+export const resetInput = () => {
+	return { type: RESET_INPUT };
 };
 
 export const subjectChange = (input) => {

@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import TouchableListItem from "../../components/TouchableListItem";
 import { logOut } from "../../store/actions/Auth";
+import { resetInput } from "../../store/actions/Feedback";
 
 const SettingsScreen = (props) => {
 	const dispatch = useDispatch();
@@ -59,7 +60,10 @@ const SettingsScreen = (props) => {
 					<Divider />
 					<TouchableListItem
 						title="Provide Feedback"
-						onPress={() => props.navigation.navigate("Submit Feedback")}
+						onPress={() => {
+							props.navigation.navigate("Submit Feedback");
+							dispatch(resetInput());
+						}}
 					/>
 				</List.Section>
 			</ScrollView>
