@@ -71,9 +71,9 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 		);
 
 		let allTransactionsData = await response3.json();
-		if (allTransactionsData) {
-			allTransactionsData = Object.values(allTransactionsData);
-		}
+		allTransactionsData = allTransactionsData
+			? Object.values(allTransactionsData)
+			: [];
 
 		dispatch({ type: ADD_TRANSACTION, payload: allTransactionsData });
 	};
@@ -105,9 +105,9 @@ export const fetchAllTransactions = (uid) => {
 		);
 
 		let allTransactionsData = await response.json();
-		if (allTransactionsData) {
-			allTransactionsData = Object.values(allTransactionsData);
-		}
+		allTransactionsData = allTransactionsData
+			? Object.values(allTransactionsData)
+			: [];
 
 		dispatch({
 			type: FETCH_ALL_TRANSACTIONS,

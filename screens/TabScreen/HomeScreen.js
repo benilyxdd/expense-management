@@ -18,7 +18,9 @@ const HomeScreen = (props) => {
 	const uid = useSelector((state) => state.Auth.uid);
 	const allTransactionsData = useSelector(
 		(state) => state.Transactions.allTransactions
-	);
+	).map((item) => {
+		return { ...item, "amount": parseFloat(item["amount"]) };
+	});
 
 	const GoToAddTransactionPageHandler = () => {
 		props.navigation.navigate("Add Transaction");
