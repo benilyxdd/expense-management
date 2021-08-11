@@ -36,7 +36,7 @@ const TransactionsRedcuer = (state = initialState, action) => {
 						new Date().toLocaleTimeString(),
 				},
 				isLoading: false,
-				allTransactions: Object.values(action.payload),
+				allTransactions: action.payload,
 			};
 		// case SIMPLE_INPUT_CHANGE:
 		// 	return { ...state, simpleInput: action.input };
@@ -67,7 +67,7 @@ const TransactionsRedcuer = (state = initialState, action) => {
 				},
 			};
 		case FETCH_ALL_TRANSACTIONS:
-			return { ...state, allTransactions: Object.values(action.payload) };
+			return { ...state, allTransactions: action.payload };
 		case LOADING:
 			return { ...state, isLoading: action.payload };
 		case RESET_INPUT:
