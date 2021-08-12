@@ -21,18 +21,18 @@ const SettingsScreen = (props) => {
 					<List.Subheader>Transactions</List.Subheader>
 					<Divider />
 					<TouchableListItem
-						title="Recurring Transactions"
-						onPress={() =>
-							props.navigation.navigate("Recurring Transactions")
-						}
+						title="Accounts"
+						onPress={() => props.navigation.navigate("Accounts")}
 					/>
 					<TouchableListItem
 						title="Categories"
 						onPress={() => props.navigation.navigate("Categories")}
 					/>
 					<TouchableListItem
-						title="Accounts"
-						onPress={() => props.navigation.navigate("Accounts")}
+						title="Recurring Transactions"
+						onPress={() =>
+							props.navigation.navigate("Recurring Transactions")
+						}
 					/>
 				</List.Section>
 				<List.Section style={styles.listSection}>

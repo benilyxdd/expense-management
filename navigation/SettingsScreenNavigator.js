@@ -1,19 +1,19 @@
 import React from "react";
+import { Alert } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { IconButton } from "react-native-paper";
 import { useDispatch, useSelector } from "react-redux";
-import { Alert } from "react-native";
 
-import SettingsScreen from "../screens/TabScreen/SettingsScreen";
-import Categories from "../screens/SettingsScreen/Categories";
-import RecurringTransactions from "../screens/SettingsScreen/RecurringTransactions";
-import MainCurrency from "../screens/SettingsScreen/MainCurrency";
-import SubCurrency from "../screens/SettingsScreen/SubCurrency";
-import Theme from "../screens/SettingsScreen/Theme";
-import AddCategory from "../screens/SettingsScreen/AddCategory";
-import SubmitFeedback from "../screens/SettingsScreen/SubmitFeedback";
 import Accounts from "../screens/SettingsScreen/Accounts";
 import AddAccount from "../screens/SettingsScreen/AddAccount";
+import AddCategory from "../screens/SettingsScreen/AddCategory";
+import Categories from "../screens/SettingsScreen/Categories";
+import MainCurrency from "../screens/SettingsScreen/MainCurrency";
+import RecurringTransactions from "../screens/SettingsScreen/RecurringTransactions";
+import SettingsScreen from "../screens/TabScreen/SettingsScreen";
+import SubCurrency from "../screens/SettingsScreen/SubCurrency";
+import SubmitFeedback from "../screens/SettingsScreen/SubmitFeedback";
+import Theme from "../screens/SettingsScreen/Theme";
 
 import { addCategory, resetInputCategory } from "../store/actions/Category";
 import { fetchUserData } from "../store/actions/Auth";
@@ -23,14 +23,16 @@ const SettingsStack = createStackNavigator();
 
 const SettingScreenNavigator = (props) => {
 	const dispatch = useDispatch();
-	const inputCategory = useSelector((state) => state.Category.inputCategory);
+	const inputCategory = useSelector((state) => state.Category.inputCategory); // add category input
+	const inputDetail = useSelector((state) => state.Feedback.detail); // feedback detail
+	const inputSubject = useSelector((state) => state.Feedback.subject); // feedback subject
 	const categoriesList = useSelector(
+		// all categories of current user
 		(state) => state.Auth.userData.basicInfo.categories
 	);
 	const uid = useSelector((state) => state.Auth.uid);
-	const inputDetail = useSelector((state) => state.Feedback.detail);
-	const inputSubject = useSelector((state) => state.Feedback.subject);
 
+	// add account start
 	const addAccountButton = () => {
 		return (
 			<IconButton
@@ -57,7 +59,9 @@ const SettingScreenNavigator = (props) => {
 			/>
 		);
 	};
+	// add account end
 
+	// add category start
 	const addCategoryButton = () => {
 		return (
 			<IconButton
@@ -109,7 +113,9 @@ const SettingScreenNavigator = (props) => {
 			/>
 		);
 	};
+	// add category end
 
+	// submit feedback start
 	const submitFeedbackAndGoBack = () => {
 		return async (dispatch) => {
 			await dispatch(submitFeedback(uid, inputSubject, inputDetail));
@@ -140,12 +146,26 @@ const SettingScreenNavigator = (props) => {
 			/>
 		);
 	};
+	// submit feedback end
 
 	return (
 		<SettingsStack.Navigator>
 			<SettingsStack.Screen
 				name="SettingsMain"
 				component={SettingsScreen}
+				options={{ title: "Settings" }}
+			/>
+
+			{/* transactions */}
+			<SettingsStack.Screen
+				name="Accounts"
+				component={Accounts}
+				options={{ headerRight: addAccountButton }}
+			/>
+			<SettingsStack.Screen
+				name="Add Account"
+				component={AddAccount}
+				options={{ headerRight: confirmAddAccountButton }}
 			/>
 			<SettingsStack.Screen
 				name="Categories"
@@ -153,30 +173,24 @@ const SettingScreenNavigator = (props) => {
 				options={{ headerRight: addCategoryButton }}
 			/>
 			<SettingsStack.Screen
-				name="Accounts"
-				component={Accounts}
-				options={{ headerRight: addAccountButton }}
+				name="Add Category"
+				component={AddCategory}
+				options={{ headerRight: confirmAddCategoryButton }}
 			/>
 			<SettingsStack.Screen
 				name="Recurring Transactions"
 				component={RecurringTransactions}
 			/>
+
+			{/* Settings */}
 			<SettingsStack.Screen
 				name="Main Currency"
 				component={MainCurrency}
 			/>
 			<SettingsStack.Screen name="Sub Currency" component={SubCurrency} />
 			<SettingsStack.Screen name="Theme" component={Theme} />
-			<SettingsStack.Screen
-				name="Add Category"
-				component={AddCategory}
-				options={{ headerRight: confirmAddCategoryButton }}
-			/>
-			<SettingsStack.Screen
-				name="Add Account"
-				component={AddAccount}
-				options={{ headerRight: confirmAddAccountButton }}
-			/>
+
+			{/* supports */}
 			<SettingsStack.Screen
 				name="Submit Feedback"
 				component={SubmitFeedback}
