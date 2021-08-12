@@ -5,8 +5,9 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 
 import MainScreen from "./screens/MainScreen";
-import Auth from "./store/reducers/Auth";
+import Account from "./store/reducers/Account";
 import AppData from "./store/reducers/AppData";
+import Auth from "./store/reducers/Auth";
 import Category from "./store/reducers/Category";
 import Feedback from "./store/reducers/Feedback";
 import Transactions from "./store/reducers/Transactions";
@@ -14,8 +15,9 @@ import Transactions from "./store/reducers/Transactions";
 enableScreens();
 
 const rootReducer = combineReducers({
-	Auth: Auth,
+	Account: Account,
 	AppData: AppData,
+	Auth: Auth,
 	Category: Category,
 	Feedback: Feedback,
 	Transactions: Transactions,
