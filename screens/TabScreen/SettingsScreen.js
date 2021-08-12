@@ -30,6 +30,10 @@ const SettingsScreen = (props) => {
 						title="Categories"
 						onPress={() => props.navigation.navigate("Categories")}
 					/>
+					<TouchableListItem
+						title="Accounts"
+						onPress={() => props.navigation.navigate("Accounts")}
+					/>
 				</List.Section>
 				<List.Section style={styles.listSection}>
 					<List.Subheader>Settings</List.Subheader>

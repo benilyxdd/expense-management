@@ -12,6 +12,8 @@ import SubCurrency from "../screens/SettingsScreen/SubCurrency";
 import Theme from "../screens/SettingsScreen/Theme";
 import AddCategory from "../screens/SettingsScreen/AddCategory";
 import SubmitFeedback from "../screens/SettingsScreen/SubmitFeedback";
+import Accounts from "../screens/SettingsScreen/Accounts";
+import AddAccount from "../screens/SettingsScreen/AddAccount";
 
 import { addCategory, resetInputCategory } from "../store/actions/Category";
 import { fetchUserData } from "../store/actions/Auth";
@@ -28,6 +30,33 @@ const SettingScreenNavigator = (props) => {
 	const uid = useSelector((state) => state.Auth.uid);
 	const inputDetail = useSelector((state) => state.Feedback.detail);
 	const inputSubject = useSelector((state) => state.Feedback.subject);
+
+	const addAccountButton = () => {
+		return (
+			<IconButton
+				icon="plus"
+				color="green"
+				size={30}
+				onPress={() => {
+					dispatch(resetInputCategory());
+					props.navigation.navigate("Add Account");
+				}}
+			/>
+		);
+	};
+
+	const confirmAddAccountButton = () => {
+		return (
+			<IconButton
+				icon="check"
+				color="green"
+				size={30}
+				onPress={() => {
+					console.log("hi");
+				}}
+			/>
+		);
+	};
 
 	const addCategoryButton = () => {
 		return (
@@ -124,6 +153,11 @@ const SettingScreenNavigator = (props) => {
 				options={{ headerRight: addCategoryButton }}
 			/>
 			<SettingsStack.Screen
+				name="Accounts"
+				component={Accounts}
+				options={{ headerRight: addAccountButton }}
+			/>
+			<SettingsStack.Screen
 				name="Recurring Transactions"
 				component={RecurringTransactions}
 			/>
@@ -137,6 +171,11 @@ const SettingScreenNavigator = (props) => {
 				name="Add Category"
 				component={AddCategory}
 				options={{ headerRight: confirmAddCategoryButton }}
+			/>
+			<SettingsStack.Screen
+				name="Add Account"
+				component={AddAccount}
+				options={{ headerRight: confirmAddAccountButton }}
 			/>
 			<SettingsStack.Screen
 				name="Submit Feedback"
