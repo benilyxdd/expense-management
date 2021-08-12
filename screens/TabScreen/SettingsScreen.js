@@ -22,7 +22,7 @@ const SettingsScreen = (props) => {
 					<Divider />
 					<TouchableListItem
 						title="Accounts"
-						onPress={() => props.navigation.navigate("Accounts")}
+						onPress={() => props.navigation.navigate("AccountsList")}
 					/>
 					<TouchableListItem
 						title="Categories"

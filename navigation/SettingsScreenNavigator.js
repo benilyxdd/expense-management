@@ -18,6 +18,7 @@ import Theme from "../screens/SettingsScreen/Theme";
 import { addCategory, resetInputCategory } from "../store/actions/Category";
 import { fetchUserData } from "../store/actions/Auth";
 import { submitFeedback } from "../store/actions/Feedback";
+import { addAccount, resetInputAccount } from "../store/actions/Account";
 
 const SettingsStack = createStackNavigator();
 
@@ -30,6 +31,10 @@ const SettingScreenNavigator = (props) => {
 		// all categories of current user
 		(state) => state.Auth.userData.basicInfo.categories
 	);
+	const inputAccount = useSelector((state) => state.Account.inputAccount);
+	const accountsList = useSelector(
+		(state) => state.Auth.userData.basicInfo.accounts
+	);
 	const uid = useSelector((state) => state.Auth.uid);
 
 	// add account start
@@ -40,11 +45,21 @@ const SettingScreenNavigator = (props) => {
 				color="green"
 				size={30}
 				onPress={() => {
-					dispatch(resetInputCategory());
+					dispatch(resetInputAccount());
 					props.navigation.navigate("Add Account");
 				}}
 			/>
 		);
+	};
+
+	const addAndUpdateAccount = () => {
+		return async (dispatch) => {
+			await dispatch(
+				addAccount(uid, accountsList ? accountsList : [], inputAccount)
+			);
+			await dispatch(fetchUserData(uid));
+			props.navigation.navigate("AccountsList");
+		};
 	};
 
 	const confirmAddAccountButton = () => {
@@ -54,7 +69,15 @@ const SettingScreenNavigator = (props) => {
 				color="green"
 				size={30}
 				onPress={() => {
-					console.log("hi");
+					if (!inputAccount) {
+						Alert.alert("Error", "You cannot add empty account");
+						return;
+					}
+					if (accountsList && accountsList.includes(inputAccount)) {
+						Alert.alert("Error", "You cannot add an account twice");
+						return;
+					}
+					dispatch(addAndUpdateAccount());
 				}}
 			/>
 		);
@@ -158,9 +181,9 @@ const SettingScreenNavigator = (props) => {
 
 			{/* transactions */}
 			<SettingsStack.Screen
-				name="Accounts"
+				name="AccountsList"
 				component={Accounts}
-				options={{ headerRight: addAccountButton }}
+				options={{ headerRight: addAccountButton, title: "Accounts" }}
 			/>
 			<SettingsStack.Screen
 				name="Add Account"
