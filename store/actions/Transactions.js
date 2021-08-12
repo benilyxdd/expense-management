@@ -1,6 +1,7 @@
 import { FIREBASE_PROJECT_ID } from "@env";
 
 export const ADD_TRANSACTION = "ADD_TRANSACTION";
+export const DETAIL_ACCOUNT_CHANGE = "DETAIL_ACCOUNT_CHANGE";
 export const DETAIL_AMOUNT_CHANGE = "DETAIL_AMOUNT_CHANGE";
 export const DETAIL_CATEGORY_CHANGE = "DETAIL_CATEGORY_CHANGE";
 export const DETAIL_DATE_CHANGE = "DETAIL_DATE_CHANGE";
@@ -77,6 +78,10 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 
 		dispatch({ type: ADD_TRANSACTION, payload: allTransactionsData });
 	};
+};
+
+export const detailAccountChange = (input) => {
+	return { type: DETAIL_ACCOUNT_CHANGE, input: input };
 };
 
 export const detailAmountChange = (input) => {

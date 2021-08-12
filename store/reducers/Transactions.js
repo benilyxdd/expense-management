@@ -1,5 +1,6 @@
 import {
 	ADD_TRANSACTION,
+	DETAIL_ACCOUNT_CHANGE,
 	DETAIL_AMOUNT_CHANGE,
 	DETAIL_CATEGORY_CHANGE,
 	DETAIL_DATE_CHANGE,
@@ -16,6 +17,7 @@ const initialState = {
 		category: "",
 		date: "",
 		description: "",
+		account: "",
 	},
 	isLoading: false,
 	allTransactions: [],
@@ -40,6 +42,11 @@ const TransactionsRedcuer = (state = initialState, action) => {
 			};
 		// case SIMPLE_INPUT_CHANGE:
 		// 	return { ...state, simpleInput: action.input };
+		case DETAIL_ACCOUNT_CHANGE:
+			return {
+				...state,
+				detailInput: { ...state.detailInput, account: action.input },
+			};
 		case DETAIL_AMOUNT_CHANGE:
 			return {
 				...state,

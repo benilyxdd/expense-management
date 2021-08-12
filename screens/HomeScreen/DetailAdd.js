@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Picker } from "react-native-ui-lib";
 
 import {
+	detailAccountChange,
 	detailAmountChange,
 	detailDescriptionChange,
 	detailDateChange,
@@ -64,16 +65,17 @@ const DetailAdd = (props) => {
 				</View>
 			</View>
 			<View style={styles.container}>
-				<Text style={styles.text}>Details</Text>
+				<Text style={styles.text}>Account</Text>
 				<View style={styles.inputContainer}>
-					<TextInput
-						style={styles.input}
-						value={detailInput.description}
-						onChangeText={(input) =>
-							dispatch(detailDescriptionChange(input))
+					<Picker
+						showSearch
+						searchPlaceholder={"Search an account"}
+						value={detailInput.account}
+						topBarProps={{ title: "Account" }}
+						onChange={(input) =>
+							dispatch(detailAccountChange(input))
 						}
-						multiline={true}
-					/>
+					></Picker>
 				</View>
 			</View>
 			<View style={styles.container}>
@@ -101,6 +103,19 @@ const DetailAdd = (props) => {
 					</Picker>
 				</View>
 			</View>
+			<View style={styles.container}>
+				<Text style={styles.text}>Details</Text>
+				<View style={styles.inputContainer}>
+					<TextInput
+						style={styles.input}
+						value={detailInput.description}
+						onChangeText={(input) =>
+							dispatch(detailDescriptionChange(input))
+						}
+						multiline={true}
+					/>
+				</View>
+			</View>
 		</View>
 	);
 };
@@ -108,10 +123,10 @@ const DetailAdd = (props) => {
 const styles = StyleSheet.create({
 	screen: {
 		flex: 1,
-		paddingVertical: "4%",
+		paddingVertical: "2%",
 	},
 	container: {
-		width: "100%",
+		flex: 1,
 		flexDirection: "row",
 		marginHorizontal: "2%",
 		alignItems: "baseline",
@@ -120,8 +135,8 @@ const styles = StyleSheet.create({
 	inputContainer: {
 		flex: 1,
 		marginHorizontal: "5%",
-		paddingVertical: "2%",
 		marginVertical: "2%",
+		paddingVertical: "2%",
 	},
 	input: {
 		borderBottomColor: "red",
@@ -129,7 +144,7 @@ const styles = StyleSheet.create({
 		padding: "2%",
 	},
 	text: {
-		fontSize: 15,
+		fontSize: 16,
 		width: "20%",
 	},
 });
