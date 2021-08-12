@@ -4,7 +4,7 @@ import { Button } from "react-native-paper";
 import { useSelector, useDispatch } from "react-redux";
 
 import { fetchUserData } from "../../store/actions/Auth";
-import { deleteCategory } from "../../store/actions/Category";
+import { deleteAccount } from "../../store/actions/Account";
 
 const Categories = () => {
 	const dispatch = useDispatch();
@@ -13,12 +13,12 @@ const Categories = () => {
 	);
 	const uid = useSelector((state) => state.Auth.uid);
 
-	// const deleteCategoryAndUpdate = (category) => {
-	// 	return async (dispatch) => {
-	// 		await dispatch(deleteCategory(uid, category, categoriesList));
-	// 		await dispatch(fetchUserData(uid));
-	// 	};
-	// };
+	const deleteAccountAndUpdate = (account) => {
+		return async (dispatch) => {
+			await dispatch(deleteAccount(uid, account, accountsList));
+			await dispatch(fetchUserData(uid));
+		};
+	};
 
 	return (
 		<ScrollView style={styles.screen}>
@@ -34,8 +34,7 @@ const Categories = () => {
 									icon="delete"
 									color="red"
 									onPress={() =>
-										// dispatch(deleteCategoryAndUpdate(item))
-										console.log("hi")
+										dispatch(deleteAccountAndUpdate(item))
 									}
 								>
 									Delete
