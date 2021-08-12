@@ -24,20 +24,15 @@ const SettingsStack = createStackNavigator();
 
 const SettingScreenNavigator = (props) => {
 	const dispatch = useDispatch();
-	const inputCategory = useSelector((state) => state.Category.inputCategory); // add category input
-	const inputDetail = useSelector((state) => state.Feedback.detail); // feedback detail
-	const inputSubject = useSelector((state) => state.Feedback.subject); // feedback subject
-	const categoriesList = useSelector(
-		// all categories of current user
-		(state) => state.Auth.userData.basicInfo.categories
-	);
-	const inputAccount = useSelector((state) => state.Account.inputAccount);
-	const accountsList = useSelector(
-		(state) => state.Auth.userData.basicInfo.accounts
-	);
 	const uid = useSelector((state) => state.Auth.uid);
 
 	// add account start
+	const inputAccount = useSelector((state) => state.Account.inputAccount);
+	const accountsList = useSelector(
+		// all accounts of current users
+		(state) => state.Auth.userData.basicInfo.accounts
+	);
+
 	const addAccountButton = () => {
 		return (
 			<IconButton
@@ -85,6 +80,12 @@ const SettingScreenNavigator = (props) => {
 	// add account end
 
 	// add category start
+	const inputCategory = useSelector((state) => state.Category.inputCategory); // add category input
+	const categoriesList = useSelector(
+		// all categories of current user
+		(state) => state.Auth.userData.basicInfo.categories
+	);
+
 	const addCategoryButton = () => {
 		return (
 			<IconButton
@@ -139,6 +140,9 @@ const SettingScreenNavigator = (props) => {
 	// add category end
 
 	// submit feedback start
+	const inputDetail = useSelector((state) => state.Feedback.detail); // feedback detail
+	const inputSubject = useSelector((state) => state.Feedback.subject); // feedback subject
+
 	const submitFeedbackAndGoBack = () => {
 		return async (dispatch) => {
 			await dispatch(submitFeedback(uid, inputSubject, inputDetail));
