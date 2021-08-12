@@ -26,6 +26,7 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 					amount: detailInput.amount,
 					description: detailInput.description,
 					category: detailInput.category,
+					account: detailInput.account
 				}),
 			}
 		);

@@ -18,6 +18,9 @@ const DetailAdd = (props) => {
 	const categoriesList = useSelector(
 		(state) => state.Auth.userData.basicInfo.categories
 	);
+	const accountsList = useSelector(
+		(state) => state.Auth.userData.basicInfo.accounts
+	);
 	const add = props.type === "Income" ? 1 : -1;
 
 	useEffect(() => {
@@ -75,7 +78,18 @@ const DetailAdd = (props) => {
 						onChange={(input) =>
 							dispatch(detailAccountChange(input))
 						}
-					></Picker>
+					>
+						{accountsList &&
+							accountsList.map((account, index) => {
+								return (
+									<Picker.Item
+										key={index}
+										value={account}
+										label={account}
+									/>
+								);
+							})}
+					</Picker>
 				</View>
 			</View>
 			<View style={styles.container}>
