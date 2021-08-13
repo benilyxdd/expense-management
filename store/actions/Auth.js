@@ -16,6 +16,7 @@ export const LOADING = "LOADING";
 export const signUp = (email, password) => {
 	return async (dispatch) => {
 		dispatch({ type: LOADING, payload: true });
+		// post sign up date
 		const response = await fetch(
 			`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${FIREBASE_API}`,
 			{
@@ -43,6 +44,8 @@ export const signUp = (email, password) => {
 		);
 
 		const responseData = await response.json();
+
+		// add basic info to user that just sign up
 		await fetch(
 			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${responseData.localId}.json`,
 			{
@@ -56,6 +59,7 @@ export const signUp = (email, password) => {
 						expenses: 0,
 						total: 0,
 						monthlyBudget: 0,
+						accounts: ["Cash", "Bank"]
 					},
 				}),
 			}
