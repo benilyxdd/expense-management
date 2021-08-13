@@ -14,6 +14,8 @@ export const RESET_INPUT = "RESET_INPUT";
 export const addTransaction = (detailInput, uid, userBasicInfo) => {
 	return async (dispatch) => {
 		dispatch({ type: LOADING, payload: true });
+
+		// send transaction
 		const response = await fetch(
 			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions.json`,
 			{
@@ -26,7 +28,7 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 					amount: detailInput.amount,
 					description: detailInput.description,
 					category: detailInput.category,
-					account: detailInput.account
+					account: detailInput.account,
 				}),
 			}
 		);
@@ -49,6 +51,7 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 				Math.min(0, parseInt(detailInput.amount)),
 		};
 
+		// update users total expenses
 		const response2 = await fetch(
 			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/basicInfo.json`,
 			{
@@ -65,6 +68,7 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 			throw new Error("cannot add amount to total expenses");
 		}
 
+		// get all transactions from current user
 		const response3 = await fetch(
 			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions.json`,
 			{
