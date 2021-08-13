@@ -15,6 +15,14 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 	return async (dispatch) => {
 		dispatch({ type: LOADING, payload: true });
 
+		const transactionDetail = {
+			date: detailInput.date,
+			amount: detailInput.amount,
+			description: detailInput.description,
+			category: detailInput.category,
+			account: detailInput.account,
+		};
+
 		// send transaction
 		const response = await fetch(
 			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions.json`,
@@ -23,13 +31,7 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 				headers: {
 					"Content-type": "application/json",
 				},
-				body: JSON.stringify({
-					date: detailInput.date,
-					amount: detailInput.amount,
-					description: detailInput.description,
-					category: detailInput.category,
-					account: detailInput.account,
-				}),
+				body: JSON.stringify(transactionDetail),
 			}
 		);
 
@@ -67,6 +69,25 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 			dispatch({ type: LOADING, payload: false });
 			throw new Error("cannot add amount to total expenses");
 		}
+
+		// send transaction to user account (eg. bank / cash)
+		const response4 = await fetch(
+			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions_in_categories/${detailInput.account}/data.json`,
+			{
+				method: "POST",
+				headers: {
+					"Content-type": "application/json",
+				},
+				body: JSON.stringify(transactionDetail),
+			}
+		);
+
+		if (!response4.ok) {
+			dispatch({ type: LOADING, payload: false });
+			throw new Error("cannot update transaction in categories");
+		}
+
+		// update users's account totals
 
 		// get all transactions from current user
 		const response3 = await fetch(
