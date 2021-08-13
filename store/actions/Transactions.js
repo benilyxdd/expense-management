@@ -15,6 +15,7 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 	return async (dispatch) => {
 		dispatch({ type: LOADING, payload: true });
 
+		// construct sent data start
 		const transactionDetail = {
 			date: detailInput.date,
 			amount: detailInput.amount,
@@ -23,24 +24,6 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 			account: detailInput.account,
 		};
 
-		// send transaction
-		const response = await fetch(
-			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions.json`,
-			{
-				method: "POST",
-				headers: {
-					"Content-type": "application/json",
-				},
-				body: JSON.stringify(transactionDetail),
-			}
-		);
-
-		if (!response.ok) {
-			dispatch({ type: LOADING, payload: false });
-			throw new Error("cannot send transaction to server");
-		}
-
-		// construct sent data
 		const sentData = {
 			total: userBasicInfo.total + parseInt(detailInput.amount),
 			monthlyBudget:
@@ -52,9 +35,26 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 				userBasicInfo.expenses +
 				Math.min(0, parseInt(detailInput.amount)),
 		};
+		// construct sent data end
 
-		// update users total expenses
-		const response2 = await fetch(
+		// send transaction
+		const sendToUserAllTransactions = await fetch(
+			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions.json`,
+			{
+				method: "POST",
+				headers: {
+					"Content-type": "application/json",
+				},
+				body: JSON.stringify(transactionDetail),
+			}
+		);
+
+		if (!sendToUserAllTransactions.ok) {
+			dispatch({ type: LOADING, payload: false });
+			throw new Error("cannot send transaction to server");
+		}
+
+		const updateUserTotal = await fetch(
 			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/basicInfo.json`,
 			{
 				method: "PATCH",
@@ -65,13 +65,13 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 			}
 		);
 
-		if (!response2.ok) {
+		if (!updateUserTotal.ok) {
 			dispatch({ type: LOADING, payload: false });
 			throw new Error("cannot add amount to total expenses");
 		}
 
 		// send transaction to user account (eg. bank / cash)
-		const response4 = await fetch(
+		const updateUserAccount = await fetch(
 			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions_in_categories/${detailInput.account}/data.json`,
 			{
 				method: "POST",
@@ -82,7 +82,7 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 			}
 		);
 
-		if (!response4.ok) {
+		if (!updateUserAccount.ok) {
 			dispatch({ type: LOADING, payload: false });
 			throw new Error("cannot update transaction in categories");
 		}
@@ -90,14 +90,14 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 		// update users's account totals
 
 		// get all transactions from current user
-		const response3 = await fetch(
+		const fetchAllUserTransactions = await fetch(
 			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions.json`,
 			{
 				method: "GET",
 			}
 		);
 
-		let allTransactionsData = await response3.json();
+		let allTransactionsData = await fetchAllUserTransactions.json();
 		allTransactionsData = allTransactionsData
 			? Object.values(allTransactionsData)
 			: [];
