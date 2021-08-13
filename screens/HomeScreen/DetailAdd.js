@@ -78,6 +78,7 @@ const DetailAdd = (props) => {
 						onChange={(input) =>
 							dispatch(detailAccountChange(input))
 						}
+						style={{ color: 'red' }}
 					>
 						{accountsList &&
 							accountsList.map((account, index) => {
@@ -153,7 +154,7 @@ const styles = StyleSheet.create({
 		paddingVertical: "2%",
 	},
 	input: {
-		borderBottomColor: "red",
+		borderBottomColor: "lightgrey",
 		borderBottomWidth: 0.5,
 		padding: "2%",
 	},
