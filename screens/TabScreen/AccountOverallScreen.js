@@ -8,6 +8,12 @@ import TouchableListItem from "../../components/TouchableListItem";
 
 const AccountOverallScreen = (props) => {
 	const userBasicInfo = useSelector((state) => state.Auth.userData.basicInfo);
+	const transactionsInCategory = useSelector(
+		(state) => state.Transactions.transactionsInCategory
+	);
+	const transactionsInCategoryList = Object.entries(
+		transactionsInCategory
+	).map((e) => ({ [e[0]]: e[1] }));
 
 	return (
 		<View style={styles.screen}>
@@ -21,26 +27,20 @@ const AccountOverallScreen = (props) => {
 				/>
 			</View>
 			<ScrollView style={styles.detailsSection}>
-				<List.Section title="hello">
-					<Divider />
-					<TouchableListItem title="hi" />
-					<TouchableListItem title="hi" />
-				</List.Section>
-				<List.Section title="hello">
-					<Divider />
-					<TouchableListItem title="hi" />
-					<TouchableListItem title="hi" />
-					<TouchableListItem title="hi" />
-					<TouchableListItem title="hi" />
-				</List.Section>
-				<List.Section title="hello">
-					<Divider />
-					<TouchableListItem title="hi" />
-					<TouchableListItem title="hi" />
-					<TouchableListItem title="hi" />
-					<TouchableListItem title="hi" />
-					<TouchableListItem title="hi" />
-				</List.Section>
+				{transactionsInCategoryList &&
+					transactionsInCategoryList.map((account, index) => {
+						// console.log(Object.keys(account)[0]);
+						return (
+							<List.Section
+								title={Object.keys(account)[0]}
+								key={index}
+							>
+								<Divider />
+								<TouchableListItem title="Income" />
+								<TouchableListItem title="Expenses" />
+							</List.Section>
+						);
+					})}
 			</ScrollView>
 		</View>
 	);
