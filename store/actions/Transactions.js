@@ -71,7 +71,7 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 		}
 
 		// send transaction to user account (eg. bank / cash)
-		const updateUserAccount = await fetch(
+		const updateUserAccountData = await fetch(
 			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions_in_categories/${detailInput.account}/data.json`,
 			{
 				method: "POST",
@@ -82,12 +82,25 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 			}
 		);
 
-		if (!updateUserAccount.ok) {
+		if (!updateUserAccountData.ok) {
 			dispatch({ type: LOADING, payload: false });
 			throw new Error("cannot update transaction in categories");
 		}
 
 		// update users's account totals
+		const updateUserAccountTotal = await fetch(
+			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions_in_categories/${detailInput.account}.json)`,
+			{
+				method: "PATCH",
+				headers: {
+					"Content-type": "application/json",
+				},
+				body: JSON.stringify({
+					income: 0, // need to get from selector
+					expenses: 0, // need to get from selector
+				}),
+			}
+		);
 
 		// get all transactions from current user
 		const fetchAllUserTransactions = await fetch(
