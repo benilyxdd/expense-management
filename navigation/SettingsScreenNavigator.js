@@ -19,6 +19,7 @@ import { addCategory, resetInputCategory } from "../store/actions/Category";
 import { fetchUserData } from "../store/actions/Auth";
 import { submitFeedback } from "../store/actions/Feedback";
 import { addAccount, resetInputAccount } from "../store/actions/Account";
+import { fetchAllTransactions } from "../store/actions/Transactions";
 
 const SettingsStack = createStackNavigator();
 
@@ -53,6 +54,7 @@ const SettingScreenNavigator = (props) => {
 				addAccount(uid, accountsList ? accountsList : [], inputAccount)
 			);
 			await dispatch(fetchUserData(uid));
+			await dispatch(fetchAllTransactions(uid));
 			props.navigation.navigate("AccountsList");
 		};
 	};

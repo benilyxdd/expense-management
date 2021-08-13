@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { fetchUserData } from "../../store/actions/Auth";
 import { deleteAccount } from "../../store/actions/Account";
+import { fetchAllTransactions } from "../../store/actions/Transactions";
 
 const Categories = () => {
 	const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const Categories = () => {
 		return async (dispatch) => {
 			await dispatch(deleteAccount(uid, account, accountsList));
 			await dispatch(fetchUserData(uid));
+			await dispatch(fetchAllTransactions(uid));
 		};
 	};
 

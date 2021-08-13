@@ -26,6 +26,24 @@ export const addAccount = (uid, originalAccounts, newAccount) => {
 			throw new Error("cannot update accounts");
 		}
 
+		const addedAccount = {};
+		addedAccount[newAccount] = { income: 0, expenses: 0 };
+
+		const response2 = await fetch(
+			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions_in_categories.json`,
+			{
+				method: "PATCH",
+				headers: {
+					"content-type": "application/json",
+				},
+				body: JSON.stringify(addedAccount),
+			}
+		);
+
+		if (!response2.ok) {
+			throw new Error("cannot update accounts");
+		}
+
 		dispatch({ type: ADD_ACCOUNT });
 	};
 };
@@ -48,6 +66,16 @@ export const deleteAccount = (uid, account, accountsList) => {
 		);
 
 		if (!response.ok) {
+			throw new Error("cannot update accounts");
+		}
+
+		const response2 = await fetch(
+			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions_in_categories/${account}.json`,
+			{
+				method: "DELETE",
+			}
+		);
+		if (!response2.ok) {
 			throw new Error("cannot update accounts");
 		}
 
