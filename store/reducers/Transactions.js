@@ -21,6 +21,7 @@ const initialState = {
 	},
 	isLoading: false,
 	allTransactions: [],
+	transactionsInCategory: {},
 	// simpleInput: "",
 };
 
@@ -38,7 +39,8 @@ const TransactionsRedcuer = (state = initialState, action) => {
 						new Date().toLocaleTimeString(),
 				},
 				isLoading: false,
-				allTransactions: action.payload,
+				allTransactions: action.transactions,
+				transactionsInCategory: action.transactionsInCategory
 			};
 		// case SIMPLE_INPUT_CHANGE:
 		// 	return { ...state, simpleInput: action.input };
@@ -74,7 +76,7 @@ const TransactionsRedcuer = (state = initialState, action) => {
 				},
 			};
 		case FETCH_ALL_TRANSACTIONS:
-			return { ...state, allTransactions: action.payload };
+			return { ...state, allTransactions: action.transactions, transactionsInCategory: action.transactionsInCategory };
 		case LOADING:
 			return { ...state, isLoading: action.payload };
 		case RESET_INPUT:

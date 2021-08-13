@@ -11,11 +11,19 @@ export const LOADING = "LOADING";
 export const RESET_INPUT = "RESET_INPUT";
 // export const SIMPLE_INPUT_CHANGE = "SIMPLE_INPUT_CHANGE";
 
-export const addTransaction = (detailInput, uid, userBasicInfo) => {
+export const addTransaction = (
+	detailInput,
+	uid,
+	userBasicInfo,
+	accountInfo
+) => {
 	return async (dispatch) => {
 		dispatch({ type: LOADING, payload: true });
 
 		// construct sent data start
+		const newIncomeAdd = Math.max(0, parseInt(detailInput.amount));
+		const newExpensesAdd = Math.min(0, parseInt(detailInput.amount));
+
 		const transactionDetail = {
 			date: detailInput.date,
 			amount: detailInput.amount,
@@ -28,12 +36,8 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 			total: userBasicInfo.total + parseInt(detailInput.amount),
 			monthlyBudget:
 				userBasicInfo.monthlyBudget + Math.min(0, detailInput.amount),
-			income:
-				userBasicInfo.income +
-				Math.max(0, parseInt(detailInput.amount)),
-			expenses:
-				userBasicInfo.expenses +
-				Math.min(0, parseInt(detailInput.amount)),
+			income: userBasicInfo.income + newIncomeAdd,
+			expenses: userBasicInfo.expenses + newExpensesAdd,
 		};
 		// construct sent data end
 
@@ -72,7 +76,7 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 
 		// send transaction to user account (eg. bank / cash)
 		const updateUserAccountData = await fetch(
-			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions_in_categories/${detailInput.account}/data.json`,
+			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions_in_categories/${detailInput.account.value}/data.json`,
 			{
 				method: "POST",
 				headers: {
@@ -89,18 +93,23 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 
 		// update users's account totals
 		const updateUserAccountTotal = await fetch(
-			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions_in_categories/${detailInput.account}.json)`,
+			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions_in_categories/${detailInput.account.value}.json`,
 			{
 				method: "PATCH",
 				headers: {
 					"Content-type": "application/json",
 				},
 				body: JSON.stringify({
-					income: 0, // need to get from selector
-					expenses: 0, // need to get from selector
+					income: accountInfo.income + newIncomeAdd,
+					expenses: accountInfo.expenses + newExpensesAdd,
 				}),
 			}
 		);
+
+		if (!updateUserAccountTotal.ok) {
+			dispatch({ type: LOADING, payload: false });
+			throw new Error("cannot update user account total");
+		}
 
 		// get all transactions from current user
 		const fetchAllUserTransactions = await fetch(
@@ -115,7 +124,13 @@ export const addTransaction = (detailInput, uid, userBasicInfo) => {
 			? Object.values(allTransactionsData)
 			: [];
 
-		dispatch({ type: ADD_TRANSACTION, payload: allTransactionsData });
+		const fetchUserTransactionsInCategory = await fetch(`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions_in_categories.json`, {
+			method: "GET",
+		})
+		const transactionsInCategory = await fetchUserTransactionsInCategory.json();
+		
+		
+		dispatch({ type: ADD_TRANSACTION, transactions: allTransactionsData, transactionsInCategory: transactionsInCategory});
 	};
 };
 
@@ -153,9 +168,18 @@ export const fetchAllTransactions = (uid) => {
 			? Object.values(allTransactionsData)
 			: [];
 
+		const response2 = await fetch(
+			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${uid}/transactions_in_categories.json`,
+			{
+				method: "GET",
+			}
+		);
+		const transactionsInCategory = await response2.json();
+
 		dispatch({
 			type: FETCH_ALL_TRANSACTIONS,
-			payload: allTransactionsData,
+			transactions: allTransactionsData,
+			transactionsInCategory: transactionsInCategory,
 		});
 	};
 };

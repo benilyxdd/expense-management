@@ -18,9 +18,13 @@ const HomeScreenNavigator = (props) => {
 	const detailInput = useSelector((state) => state.Transactions.detailInput);
 	const uid = useSelector((state) => state.Auth.uid);
 	const userBasicInfo = useSelector((state) => state.Auth.userData.basicInfo);
+	const transactionsInCategory = useSelector(
+		(state) => state.Transactions.transactionsInCategory
+	);
 	const setMonthlyBudgetAmount = useSelector(
 		(state) => state.AppData.setMonthlyBudgetAmount
 	);
+
 
 	const AddTransactionFinishButton = () => {
 		return (
@@ -28,7 +32,7 @@ const HomeScreenNavigator = (props) => {
 				icon="check"
 				color="red"
 				onPress={() => {
-					dispatch(addTransaction(detailInput, uid, userBasicInfo));
+					dispatch(addTransaction(detailInput, uid, userBasicInfo, transactionsInCategory[detailInput.account.value]));
 					props.navigation.navigate("HomeMain");
 				}}
 			/>
