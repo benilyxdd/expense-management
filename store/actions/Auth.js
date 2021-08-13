@@ -59,11 +59,35 @@ export const signUp = (email, password) => {
 						expenses: 0,
 						total: 0,
 						monthlyBudget: 0,
-						accounts: ["Cash", "Bank"]
+						accounts: ["Cash", "Bank"],
 					},
 				}),
 			}
 		);
+
+		// add basic accounts
+		await fetch(
+			`https://${FIREBASE_PROJECT_ID}.firebasedatabase.app/user/${responseData.localId}.json`,
+			{
+				method: "PATCH",
+				headers: {
+					"Content-type": "application/json",
+				},
+				body: JSON.stringify({
+					transactions_in_categories: {
+						Cash: {
+							income: 0,
+							expenses: 0,
+						},
+						Bank: {
+							income: 0,
+							expenses: 0,
+						},
+					},
+				}),
+			}
+		);
+		
 		dispatch({ type: SIGNUP, payload: responseData });
 	};
 };
